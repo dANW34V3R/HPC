@@ -9,6 +9,8 @@
 #SBATCH --account=COSC026662
 #SBATCH --output d2q9-bgk.out
 
+make
+
 echo Running on host `hostname`
 echo Time is `date`
 echo Directory is `pwd`
@@ -16,11 +18,12 @@ echo Slurm job ID is $SLURM_JOB_ID
 echo This job runs on the following machines:
 echo `echo $SLURM_JOB_NODELIST | uniq`
 
-module load languages/intel/2020-u4
+#module load languages/intel/2020-u4
 
 #! Run the executable
 #./d2q9-bgk input_128x128.params obstacles_128x128.dat
 #./d2q9-bgk input_128x256.params obstacles_128x256.dat
 #./d2q9-bgk input_256x256.params obstacles_256x256.dat
 #./d2q9-bgk input_1024x1024.params obstacles_1024x1024.dat
-vtune -collect memory-consumption ./d2q9-bgk input_128x128.params obstacles_128x128.dat
+#vtune -collect memory-consumption
+./d2q9-bgk input_128x128.params obstacles_128x128.dat

@@ -1,0 +1,13 @@
+make: Nothing to be done for `all'.
+Running on host compute101.bc4.acrc.priv
+Time is Wed Feb 9 12:28:54 GMT 2022
+Directory is /user/home/ra18837/HPC/advanced-hpc-lbm
+Slurm job ID is 10033821
+This job runs on the following machines:
+compute101
+==done==
+Reynolds number:		9.756415367126E+00
+Elapsed Init time:			0.002597 (s)
+Elapsed Compute time:			26.116302 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			26.118899 (s)
