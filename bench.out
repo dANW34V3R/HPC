@@ -1,0 +1,61 @@
+Running on host compute100.bc4.acrc.priv
+Time is Mon Feb 7 16:49:42 GMT 2022
+Directory is /user/home/ra18837/HPC/advanced-hpc-lbm
+Slurm job ID is 10031464
+This job runs on the following machines:
+compute100
+==done==
+Reynolds number:		9.751927375793E+00
+Elapsed Init time:			0.002468 (s)
+Elapsed Compute time:			28.462524 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			28.464992 (s)
+==done==
+Reynolds number:		9.751927375793E+00
+Elapsed Init time:			0.000443 (s)
+Elapsed Compute time:			28.280449 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			28.280892 (s)
+==done==
+Reynolds number:		9.751927375793E+00
+Elapsed Init time:			0.000446 (s)
+Elapsed Compute time:			28.291467 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			28.291913 (s)
+==done==
+Reynolds number:		1.005141162872E+01
+Elapsed Init time:			0.012071 (s)
+Elapsed Compute time:			228.129003 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			228.141074 (s)
+==done==
+Reynolds number:		1.005141162872E+01
+Elapsed Init time:			0.001042 (s)
+Elapsed Compute time:			228.034322 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			228.035364 (s)
+==done==
+Reynolds number:		1.005141162872E+01
+Elapsed Init time:			0.001035 (s)
+Elapsed Compute time:			228.232584 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			228.233619 (s)
+==done==
+Reynolds number:		3.375851392746E+00
+Elapsed Init time:			0.047397 (s)
+Elapsed Compute time:			974.626414 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			974.673811 (s)
+==done==
+Reynolds number:		3.375851392746E+00
+Elapsed Init time:			0.018846 (s)
+Elapsed Compute time:			975.097894 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			975.116740 (s)
+==done==
+Reynolds number:		3.375851392746E+00
+Elapsed Init time:			0.013625 (s)
+Elapsed Compute time:			974.557831 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			974.571456 (s)
+[28.345932333333337, 228.13668566666664, 974.7873356666668]
