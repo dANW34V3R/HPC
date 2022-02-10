@@ -9,7 +9,8 @@
 #SBATCH --account=COSC026662
 #SBATCH --output d2q9-bgk.out
 
-make
+make clean
+make CFLAGS="-Ofast"
 
 echo Running on host `hostname`
 echo Time is `date`
@@ -27,3 +28,5 @@ echo `echo $SLURM_JOB_NODELIST | uniq`
 #./d2q9-bgk input_1024x1024.params obstacles_1024x1024.dat
 #vtune -collect memory-consumption
 ./d2q9-bgk input_128x128.params obstacles_128x128.dat
+
+make check
