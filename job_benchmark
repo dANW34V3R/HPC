@@ -9,6 +9,10 @@
 #SBATCH --account=COSC026662
 #SBATCH --output bench.out
 
+make clean
+make
+
+
 echo Running on host `hostname`
 echo Time is `date`
 echo Directory is `pwd`
@@ -37,3 +41,4 @@ echo `echo $SLURM_JOB_NODELIST | uniq`
 
 python3 collate.py
 
+make check
