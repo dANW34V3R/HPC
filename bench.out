@@ -1,66 +1,51 @@
 rm -f d2q9-bgk
 gcc -std=c99 -Wall -O3 d2q9-bgk.c -lm -o d2q9-bgk
-Running on host compute101.bc4.acrc.priv
-Time is Thu Feb 10 22:38:16 GMT 2022
+Running on host compute100.bc4.acrc.priv
+Time is Fri Feb 11 13:09:43 GMT 2022
 Directory is /user/home/ra18837/HPC/advanced-hpc-lbm
-Slurm job ID is 10036084
+Slurm job ID is 10037415
 This job runs on the following machines:
-compute101
+compute100
 ==done==
 Reynolds number:		9.757323265076E+00
-Elapsed Init time:			0.002760 (s)
-Elapsed Compute time:			25.209721 (s)
-Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			25.212481 (s)
+Elapsed Init time:			0.003046 (s)
+Elapsed Compute time:			28.817580 (s)
+Elapsed Collate time:			0.000001 (s)
+Elapsed Total time:			28.820627 (s)
 ==done==
 Reynolds number:		9.757323265076E+00
-Elapsed Init time:			0.000441 (s)
-Elapsed Compute time:			25.020811 (s)
+Elapsed Init time:			0.000557 (s)
+Elapsed Compute time:			28.660742 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			25.021252 (s)
+Elapsed Total time:			28.661299 (s)
 ==done==
 Reynolds number:		9.757323265076E+00
-Elapsed Init time:			0.000433 (s)
-Elapsed Compute time:			25.016680 (s)
+Elapsed Init time:			0.000574 (s)
+Elapsed Compute time:			28.612673 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			25.017113 (s)
+Elapsed Total time:			28.613247 (s)
 ==done==
 Reynolds number:		1.006639194489E+01
-Elapsed Init time:			0.002641 (s)
-Elapsed Compute time:			202.649851 (s)
+Elapsed Init time:			0.020732 (s)
+Elapsed Compute time:			391.525429 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			202.652492 (s)
+Elapsed Total time:			391.546161 (s)
 ==done==
 Reynolds number:		1.006639194489E+01
-Elapsed Init time:			0.001218 (s)
-Elapsed Compute time:			209.531493 (s)
+Elapsed Init time:			0.004447 (s)
+Elapsed Compute time:			392.557010 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			209.532711 (s)
+Elapsed Total time:			392.561457 (s)
 ==done==
 Reynolds number:		1.006639194489E+01
-Elapsed Init time:			0.000858 (s)
-Elapsed Compute time:			202.560851 (s)
+Elapsed Init time:			0.002706 (s)
+Elapsed Compute time:			389.695408 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			202.561709 (s)
+Elapsed Total time:			389.698114 (s)
 ==done==
 Reynolds number:		3.377257823944E+00
-Elapsed Init time:			0.015053 (s)
-Elapsed Compute time:			841.314185 (s)
+Elapsed Init time:			0.040792 (s)
+Elapsed Compute time:			1817.317781 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			841.329238 (s)
-==done==
-Reynolds number:		3.377257823944E+00
-Elapsed Init time:			0.019680 (s)
-Elapsed Compute time:			841.182592 (s)
-Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			841.202272 (s)
-==done==
-Reynolds number:		3.377257823944E+00
-Elapsed Init time:			0.019848 (s)
-Elapsed Compute time:			840.953892 (s)
-Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			840.973740 (s)
-[25.08361533333333, 204.91563733333336, 841.1684166666668]
-python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
-Final state files coordinates were not the same
-make: *** [check] Error 1
+Elapsed Total time:			1817.358573 (s)
+slurmstepd: error: *** JOB 10037415 ON compute100 CANCELLED AT 2022-02-11T14:19:45 DUE TO TIME LIMIT ***
