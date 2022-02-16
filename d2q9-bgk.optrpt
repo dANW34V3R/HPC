@@ -1,0 +1,1449 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.1.3.304 Build 20200925_000000
+
+Compiler options: -std=c99 -Wall -Ofast -mtune=native -qopenmp -ffast-math -ftree-vectorize -fopt-info-vec-all -fno-trapping-math -fno-math-errno -xCORE-AVX2 -funroll-loops -mfpmath=sse -qopt-report=5 -lm -o vectorise
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: true
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: main(int, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (main(int, char **)) [1/14=7.1%] d2q9-bgk.c(137,34)
+  -> INLINE: (152,5) usage(const char *) (isz = 6) (sz = 10)
+    -> EXTERN: (910,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (911,3) exit(int)
+  -> EXTERN: (160,3) gettimeofday(struct timeval *__restrict__, __timezone_ptr_t)
+  -> (163,3) initialise(const char *, const char *, t_param *, t_speed_arr *__restrict__, t_speed_arr *__restrict__, int **__restrict__, float **__restrict__) (isz = 1609) (sz = 1628)
+     [[ Inlining would exceed -inline-max-size value (1628>230) <1>]]
+  -> EXTERN: (170,3) gettimeofday(struct timeval *__restrict__, __timezone_ptr_t)
+  -> INLINE: (175,5) timestep(const t_param, t_speed_arr *__restrict__, t_speed_arr *__restrict__, int *__restrict__, int, float *) (isz = 167) (sz = 184)
+    -> INLINE: (218,3) accelerate_flow(const t_param, t_speed_arr *__restrict__, int *__restrict__) (isz = 161) (sz = 172)
+    -> (219,3) propagate(const t_param, t_speed_arr *__restrict__, t_speed_arr *__restrict__, int *__restrict__, int, float *) (isz = 772) (sz = 789)
+       [[ Inlining would exceed -inline-max-size value (789>230) <1>]]
+  -> EXTERN: (191,3) gettimeofday(struct timeval *__restrict__, __timezone_ptr_t)
+  -> EXTERN: (198,3) gettimeofday(struct timeval *__restrict__, __timezone_ptr_t)
+  -> EXTERN: (203,3) printf(const char *__restrict__, ...)
+  -> EXTERN: (204,3) printf(const char *__restrict__, ...)
+  -> INLINE: (205,10) calc_reynolds(const t_param, t_speed_arr *__restrict__, int *__restrict__) (isz = 223) (sz = 234)
+    -> INLINE: (793,10) av_velocity(const t_param, t_speed_arr *__restrict__, int *__restrict__) (isz = 213) (sz = 224)
+  -> EXTERN: (206,3) printf(const char *__restrict__, ...)
+  -> EXTERN: (207,3) printf(const char *__restrict__, ...)
+  -> EXTERN: (208,3) printf(const char *__restrict__, ...)
+  -> EXTERN: (209,3) printf(const char *__restrict__, ...)
+  -> (210,3) write_values(const t_param, t_speed_arr *__restrict__, int *__restrict__, float *__restrict__) (isz = 262) (sz = 275)
+     [[ Inlining would exceed -inline-max-size value (275>230) <1>]]
+  -> INLINE: (211,3) finalise(const t_param *__restrict__, t_speed_arr *__restrict__, t_speed_arr *__restrict__, int **__restrict__, float **__restrict__) (isz = 58) (sz = 73)
+    -> INLINE (MANUAL): (755,3) _mm_free(void *) (isz = 0) (sz = 5)
+      -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+    -> INLINE (MANUAL): (756,3) _mm_free(void *) (isz = 0) (sz = 5)
+      -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+    -> INLINE (MANUAL): (757,3) _mm_free(void *) (isz = 0) (sz = 5)
+      -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+    -> INLINE (MANUAL): (758,3) _mm_free(void *) (isz = 0) (sz = 5)
+      -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+    -> INLINE (MANUAL): (759,3) _mm_free(void *) (isz = 0) (sz = 5)
+      -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+    -> INLINE (MANUAL): (760,3) _mm_free(void *) (isz = 0) (sz = 5)
+      -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+    -> INLINE (MANUAL): (761,3) _mm_free(void *) (isz = 0) (sz = 5)
+      -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+    -> INLINE (MANUAL): (762,3) _mm_free(void *) (isz = 0) (sz = 5)
+      -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+    -> INLINE (MANUAL): (763,3) _mm_free(void *) (isz = 0) (sz = 5)
+      -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+    -> INLINE (MANUAL): (768,3) _mm_free(void *) (isz = 0) (sz = 5)
+      -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+    -> INLINE (MANUAL): (769,3) _mm_free(void *) (isz = 0) (sz = 5)
+      -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+    -> INLINE (MANUAL): (770,3) _mm_free(void *) (isz = 0) (sz = 5)
+      -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+    -> INLINE (MANUAL): (771,3) _mm_free(void *) (isz = 0) (sz = 5)
+      -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+    -> INLINE (MANUAL): (772,3) _mm_free(void *) (isz = 0) (sz = 5)
+      -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+    -> INLINE (MANUAL): (773,3) _mm_free(void *) (isz = 0) (sz = 5)
+      -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+    -> INLINE (MANUAL): (774,3) _mm_free(void *) (isz = 0) (sz = 5)
+      -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+    -> INLINE (MANUAL): (775,3) _mm_free(void *) (isz = 0) (sz = 5)
+      -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+    -> INLINE (MANUAL): (776,3) _mm_free(void *) (isz = 0) (sz = 5)
+      -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+    -> EXTERN: (781,3) free(void *)
+    -> EXTERN: (784,3) free(void *)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at d2q9-bgk.c(174,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at d2q9-bgk.c(233,3) inlined into d2q9-bgk.c(175,5)
+   <Peeled loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=7
+   LOOP END
+
+   LOOP BEGIN at d2q9-bgk.c(233,3) inlined into d2q9-bgk.c(175,5)
+      remark #15388: vectorization support: reference cells_ptr->s1[cellIndex] has aligned access   [ d2q9-bgk.c(250,7) ]
+      remark #15388: vectorization support: reference cells_ptr->s1[cellIndex] has aligned access   [ d2q9-bgk.c(250,7) ]
+      remark #15388: vectorization support: reference cells_ptr->s5[cellIndex] has aligned access   [ d2q9-bgk.c(251,7) ]
+      remark #15388: vectorization support: reference cells_ptr->s5[cellIndex] has aligned access   [ d2q9-bgk.c(251,7) ]
+      remark #15389: vectorization support: reference *(cells_ptr->s8+cellIndex*4) has unaligned access   [ d2q9-bgk.c(252,7) ]
+      remark #15389: vectorization support: reference *(cells_ptr->s8+cellIndex*4) has unaligned access   [ d2q9-bgk.c(252,7) ]
+      remark #15388: vectorization support: reference cells_ptr->s3[cellIndex] has aligned access   [ d2q9-bgk.c(258,7) ]
+      remark #15388: vectorization support: reference cells_ptr->s3[cellIndex] has aligned access   [ d2q9-bgk.c(258,7) ]
+      remark #15388: vectorization support: reference cells_ptr->s6[cellIndex] has aligned access   [ d2q9-bgk.c(259,7) ]
+      remark #15388: vectorization support: reference cells_ptr->s6[cellIndex] has aligned access   [ d2q9-bgk.c(259,7) ]
+      remark #15388: vectorization support: reference cells_ptr->s7[cellIndex] has aligned access   [ d2q9-bgk.c(260,7) ]
+      remark #15388: vectorization support: reference cells_ptr->s7[cellIndex] has aligned access   [ d2q9-bgk.c(260,7) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15305: vectorization support: vector length 8
+      remark #15309: vectorization support: normalized vectorization overhead 0.244
+      remark #15301: SIMD LOOP WAS VECTORIZED
+      remark #15450: unmasked unaligned unit stride loads: 1 
+      remark #15454: masked aligned unit stride loads: 8 
+      remark #15455: masked aligned unit stride stores: 5 
+      remark #15456: masked unaligned unit stride loads: 1 
+      remark #15457: masked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector cost summary ---
+      remark #15476: scalar cost: 20 
+      remark #15477: vector cost: 15.370 
+      remark #15478: estimated potential speedup: 1.270 
+      remark #15488: --- end vector cost summary ---
+   LOOP END
+
+   LOOP BEGIN at d2q9-bgk.c(233,3) inlined into d2q9-bgk.c(175,5)
+   <Remainder loop for vectorization>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at d2q9-bgk.c(476,3) inlined into d2q9-bgk.c(205,10)
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <obstacles[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(489,27) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s0[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(500,29) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s1[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(500,52) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s2[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(500,75) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s3[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(500,98) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s4[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(500,121) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s5[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(500,144) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s6[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(500,167) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s7[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(500,190) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s8[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(500,213) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s1[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(505,20) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s5[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(506,20) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s8[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(507,20) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s3[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(508,21) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s6[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(509,21) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s7[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(510,21) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s2[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(513,20) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s5[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(514,20) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s6[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(515,20) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s4[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(516,21) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s7[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(517,21) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <cells.s8[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(518,21) ]
+   remark #15305: vectorization support: vector length 8
+   remark #15309: vectorization support: normalized vectorization overhead 0.067
+   remark #15355: vectorization support: tot_u is float type reduction   [ d2q9-bgk.c(472,3) ]
+   remark #15355: vectorization support: tot_cells is int type reduction   [ d2q9-bgk.c(468,17) ]
+   remark #15301: SIMD LOOP WAS VECTORIZED
+   remark #15452: unmasked strided loads: 22 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 153 
+   remark #15477: vector cost: 104.870 
+   remark #15478: estimated potential speedup: 1.440 
+   remark #15486: divides: 1 
+   remark #15487: type converts: 1 
+   remark #15488: --- end vector cost summary ---
+
+   LOOP BEGIN at d2q9-bgk.c(477,5) inlined into d2q9-bgk.c(205,10)
+      remark #25460: No loop optimizations reported
+   LOOP END
+LOOP END
+
+LOOP BEGIN at d2q9-bgk.c(476,3) inlined into d2q9-bgk.c(205,10)
+<Remainder loop for vectorization>
+
+   LOOP BEGIN at d2q9-bgk.c(477,5) inlined into d2q9-bgk.c(205,10)
+      remark #25460: No loop optimizations reported
+   LOOP END
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+d2q9-bgk.c(175,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+d2q9-bgk.c(219,3):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (1, 0)
+d2q9-bgk.c(205,10):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+d2q9-bgk.c(210,3):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (1, 0)
+d2q9-bgk.c(137,34):remark #34051: REGISTER ALLOCATION : [main] d2q9-bgk.c:137
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   30[ rax rdx rcx rbx rsi rdi r8-r15 zmm0-zmm15]
+        
+    Routine temporaries
+        Total         :     589
+            Global    :     132
+            Local     :     457
+        Regenerable   :      63
+        Spilled       :      52
+        
+    Routine stack
+        Variables     :     264 bytes*
+            Reads     :      64 [2.46e+00 ~ 2.5%]
+            Writes    :      12 [5.58e-01 ~ 0.6%]
+        Spills        :     376 bytes*
+            Reads     :      83 [4.49e+00 ~ 4.5%]
+            Writes    :      79 [1.96e+00 ~ 2.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: propagate(const t_param, t_speed_arr *__restrict__, t_speed_arr *__restrict__, int *__restrict__, int, float *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (propagate(const t_param, t_speed_arr *__restrict__, t_speed_arr *__restrict__, int *__restrict__, int, float *)) [2/14=14.3%] d2q9-bgk.c(272,64)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at d2q9-bgk.c(302,3)
+   remark #15329: vectorization support: non-unit strided store was emulated for the variable <*(tmp_cells->s0+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(334,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(cells->s0+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(334,7) ]
+   remark #15329: vectorization support: non-unit strided store was emulated for the variable <*(tmp_cells->s1+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(335,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(cells->s1+(x_w+jj*params.nx)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(335,7) ]
+   remark #15329: vectorization support: non-unit strided store was emulated for the variable <*(tmp_cells->s2+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(336,7) ]
+   remark #15415: vectorization support: indirect load was generated for the variable <cells->s2[ii+y_s*params.nx]>, 64-bit indexed, part of address is nonlinearly computed   [ d2q9-bgk.c(336,34) ]
+   remark #15329: vectorization support: non-unit strided store was emulated for the variable <*(tmp_cells->s3+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(337,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(cells->s3+(x_e+jj*params.nx)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(337,7) ]
+   remark #15329: vectorization support: non-unit strided store was emulated for the variable <*(tmp_cells->s4+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(338,7) ]
+   remark #15415: vectorization support: indirect load was generated for the variable <cells->s4[ii+y_n*params.nx]>, 64-bit indexed, part of address is nonlinearly computed   [ d2q9-bgk.c(338,34) ]
+   remark #15329: vectorization support: non-unit strided store was emulated for the variable <*(tmp_cells->s5+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(339,7) ]
+   remark #15415: vectorization support: indirect load was generated for the variable <cells->s5[x_w+y_s*params.nx]>, 64-bit indexed, part of address is nonlinearly computed   [ d2q9-bgk.c(339,34) ]
+   remark #15329: vectorization support: non-unit strided store was emulated for the variable <*(tmp_cells->s6+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(340,7) ]
+   remark #15415: vectorization support: indirect load was generated for the variable <cells->s6[x_e+y_s*params.nx]>, 64-bit indexed, part of address is nonlinearly computed   [ d2q9-bgk.c(340,34) ]
+   remark #15329: vectorization support: non-unit strided store was emulated for the variable <*(tmp_cells->s7+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(341,7) ]
+   remark #15415: vectorization support: indirect load was generated for the variable <cells->s7[x_e+y_n*params.nx]>, 64-bit indexed, part of address is nonlinearly computed   [ d2q9-bgk.c(341,34) ]
+   remark #15329: vectorization support: non-unit strided store was emulated for the variable <*(tmp_cells->s8+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(342,7) ]
+   remark #15415: vectorization support: indirect load was generated for the variable <cells->s8[x_w+y_n*params.nx]>, 64-bit indexed, part of address is nonlinearly computed   [ d2q9-bgk.c(342,34) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <obstacles[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(347,27) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s0+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(353,27) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s1+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(354,27) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s2+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(355,27) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s3+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(356,27) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s4+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(357,27) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s5+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(358,27) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s6+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(359,27) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s7+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(360,27) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s8+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(361,27) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s0+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(375,245) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s1+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(375,245) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s2+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(375,245) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s3+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(375,245) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s4+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(375,245) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s5+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(375,245) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s6+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(375,245) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s7+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(375,245) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s8+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(375,245) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s1+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(389,11) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s5+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(389,11) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s8+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(389,11) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s3+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(389,11) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s6+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(389,11) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s7+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(389,11) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s2+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(396,11) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s5+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(396,11) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s6+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(396,11) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s4+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(396,11) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s7+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(396,11) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s8+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(396,11) ]
+   remark #15329: vectorization support: non-unit strided store was emulated for the variable <*(tmp_cells->s0+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(443,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s0+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(443,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s0+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(443,7) ]
+   remark #15329: vectorization support: non-unit strided store was emulated for the variable <*(tmp_cells->s1+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(444,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s1+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(444,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s1+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(444,7) ]
+   remark #15329: vectorization support: non-unit strided store was emulated for the variable <*(tmp_cells->s2+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(445,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s2+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(445,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s2+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(445,7) ]
+   remark #15329: vectorization support: non-unit strided store was emulated for the variable <*(tmp_cells->s3+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(446,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s3+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(446,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s3+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(446,7) ]
+   remark #15329: vectorization support: non-unit strided store was emulated for the variable <*(tmp_cells->s4+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(447,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s4+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(447,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s4+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(447,7) ]
+   remark #15329: vectorization support: non-unit strided store was emulated for the variable <*(tmp_cells->s5+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(448,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s5+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(448,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s5+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(448,7) ]
+   remark #15329: vectorization support: non-unit strided store was emulated for the variable <*(tmp_cells->s6+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(449,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s6+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(449,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s6+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(449,7) ]
+   remark #15329: vectorization support: non-unit strided store was emulated for the variable <*(tmp_cells->s7+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(450,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s7+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(450,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s7+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(450,7) ]
+   remark #15329: vectorization support: non-unit strided store was emulated for the variable <*(tmp_cells->s8+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(451,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s8+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(451,7) ]
+   remark #15415: vectorization support: non-unit strided load was generated for the variable <*(tmp_cells->s8+(U5_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(451,7) ]
+   remark #15305: vectorization support: vector length 16
+   remark #15309: vectorization support: normalized vectorization overhead 0.011
+   remark #15355: vectorization support: tot_u is float type reduction   [ d2q9-bgk.c(281,3) ]
+   remark #15355: vectorization support: tot_cells is int type reduction   [ d2q9-bgk.c(277,17) ]
+   remark #15301: SIMD LOOP WAS VECTORIZED
+   remark #15452: unmasked strided loads: 52 
+   remark #15453: unmasked strided stores: 18 
+   remark #15462: unmasked indexed (or gather) loads: 6 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 812 
+   remark #15477: vector cost: 1409.000 
+   remark #15478: estimated potential speedup: 0.580 
+   remark #15482: vectorized math library calls: 2 
+   remark #15486: divides: 1 
+   remark #15487: type converts: 19 
+   remark #15488: --- end vector cost summary ---
+
+   LOOP BEGIN at d2q9-bgk.c(304,5)
+      remark #25460: No loop optimizations reported
+   LOOP END
+LOOP END
+
+LOOP BEGIN at d2q9-bgk.c(302,3)
+<Remainder loop for vectorization>
+
+   LOOP BEGIN at d2q9-bgk.c(304,5)
+      remark #25460: No loop optimizations reported
+   LOOP END
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+d2q9-bgk.c(272,64):remark #34051: REGISTER ALLOCATION : [propagate] d2q9-bgk.c:272
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   30[ rax rdx rcx rbx rsi rdi r8-r15 zmm0-zmm15]
+        
+    Routine temporaries
+        Total         :    1314
+            Global    :     222
+            Local     :    1092
+        Regenerable   :      48
+        Spilled       :     164
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :    2832 bytes*
+            Reads     :     233 [1.02e+01 ~ 10.2%]
+            Writes    :     178 [5.78e+00 ~ 5.8%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: write_values(const t_param, t_speed_arr *__restrict__, int *__restrict__, float *__restrict__)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (write_values(const t_param, t_speed_arr *__restrict__, int *__restrict__, float *__restrict__)) [3/14=21.4%] d2q9-bgk.c(811,43)
+  -> EXTERN: (820,8) fopen(const char *__restrict__, const char *__restrict__)
+  -> INLINE: (823,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> EXTERN: (880,7) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (885,3) fclose(FILE *)
+  -> EXTERN: (887,8) fopen(const char *__restrict__, const char *__restrict__)
+  -> INLINE: (890,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> EXTERN: (894,5) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (897,3) fclose(FILE *)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at d2q9-bgk.c(826,3)
+   remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ d2q9-bgk.c(880,7) ]
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (880:7) and call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (880:7)
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (880:7) and call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (880:7)
+
+   LOOP BEGIN at d2q9-bgk.c(827,5)
+      remark #15527: loop was not vectorized: function call to fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ d2q9-bgk.c(880,7) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at d2q9-bgk.c(893,3)
+   remark #15527: loop was not vectorized: function call to fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ d2q9-bgk.c(894,5) ]
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+d2q9-bgk.c(811,43):remark #34051: REGISTER ALLOCATION : [write_values] d2q9-bgk.c:811
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   31[ rax rdx rcx rbx rbp rsi rdi r8-r15 zmm0-zmm15]
+        
+    Routine temporaries
+        Total         :     145
+            Global    :      38
+            Local     :     107
+        Regenerable   :      45
+        Spilled       :      13
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :      64 bytes*
+            Reads     :      10 [8.16e+00 ~ 8.2%]
+            Writes    :       8 [1.70e+00 ~ 1.7%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: _mm_malloc(size_t, size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (_mm_malloc(size_t, size_t)) /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h(39,1)
+
+===========================================================================
+
+Begin optimization report for: _mm_free(void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (_mm_free(void *)) /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h(53,1)
+
+===========================================================================
+
+Begin optimization report for: timestep(const t_param, t_speed_arr *__restrict__, t_speed_arr *__restrict__, int *__restrict__, int, float *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (timestep(const t_param, t_speed_arr *__restrict__, t_speed_arr *__restrict__, int *__restrict__, int, float *)) [6/14=42.9%] d2q9-bgk.c(217,63)
+  -> INLINE: (218,3) accelerate_flow(const t_param, t_speed_arr *__restrict__, int *__restrict__) (isz = 161) (sz = 172)
+  -> (219,3) propagate(const t_param, t_speed_arr *__restrict__, t_speed_arr *__restrict__, int *__restrict__, int, float *) (isz = 772) (sz = 789)
+     [[ Inlining would exceed -inline-max-size value (789>230) <1>]]
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at d2q9-bgk.c(233,3) inlined into d2q9-bgk.c(218,3)
+<Peeled loop for vectorization>
+   remark #25015: Estimate of max trip count of loop=7
+LOOP END
+
+LOOP BEGIN at d2q9-bgk.c(233,3) inlined into d2q9-bgk.c(218,3)
+   remark #15388: vectorization support: reference cells->s1[cellIndex] has aligned access   [ d2q9-bgk.c(250,7) ]
+   remark #15388: vectorization support: reference cells->s1[cellIndex] has aligned access   [ d2q9-bgk.c(250,7) ]
+   remark #15388: vectorization support: reference cells->s5[cellIndex] has aligned access   [ d2q9-bgk.c(251,7) ]
+   remark #15388: vectorization support: reference cells->s5[cellIndex] has aligned access   [ d2q9-bgk.c(251,7) ]
+   remark #15389: vectorization support: reference *(cells->s8+cellIndex*4) has unaligned access   [ d2q9-bgk.c(252,7) ]
+   remark #15389: vectorization support: reference *(cells->s8+cellIndex*4) has unaligned access   [ d2q9-bgk.c(252,7) ]
+   remark #15388: vectorization support: reference cells->s3[cellIndex] has aligned access   [ d2q9-bgk.c(258,7) ]
+   remark #15388: vectorization support: reference cells->s3[cellIndex] has aligned access   [ d2q9-bgk.c(258,7) ]
+   remark #15388: vectorization support: reference cells->s6[cellIndex] has aligned access   [ d2q9-bgk.c(259,7) ]
+   remark #15388: vectorization support: reference cells->s6[cellIndex] has aligned access   [ d2q9-bgk.c(259,7) ]
+   remark #15388: vectorization support: reference cells->s7[cellIndex] has aligned access   [ d2q9-bgk.c(260,7) ]
+   remark #15388: vectorization support: reference cells->s7[cellIndex] has aligned access   [ d2q9-bgk.c(260,7) ]
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15305: vectorization support: vector length 8
+   remark #15309: vectorization support: normalized vectorization overhead 0.244
+   remark #15301: SIMD LOOP WAS VECTORIZED
+   remark #15450: unmasked unaligned unit stride loads: 1 
+   remark #15454: masked aligned unit stride loads: 8 
+   remark #15455: masked aligned unit stride stores: 5 
+   remark #15456: masked unaligned unit stride loads: 1 
+   remark #15457: masked unaligned unit stride stores: 1 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 20 
+   remark #15477: vector cost: 15.370 
+   remark #15478: estimated potential speedup: 1.270 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+LOOP BEGIN at d2q9-bgk.c(233,3) inlined into d2q9-bgk.c(218,3)
+<Remainder loop for vectorization>
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+d2q9-bgk.c(219,3):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (8, 0), and destination (alignment, offset): (1, 0)
+d2q9-bgk.c(217,63):remark #34051: REGISTER ALLOCATION : [timestep] d2q9-bgk.c:217
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   30[ rax rdx rcx rbx rsi rdi r8-r15 zmm0-zmm15]
+        
+    Routine temporaries
+        Total         :     160
+            Global    :      60
+            Local     :     100
+        Regenerable   :      13
+        Spilled       :      22
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :     136 bytes*
+            Reads     :      30 [6.86e+00 ~ 6.9%]
+            Writes    :      36 [6.04e+00 ~ 6.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: accelerate_flow(const t_param, t_speed_arr *__restrict__, int *__restrict__)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (accelerate_flow(const t_param, t_speed_arr *__restrict__, int *__restrict__)) [7/14=50.0%] d2q9-bgk.c(224,97)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at d2q9-bgk.c(233,3)
+<Peeled loop for vectorization>
+   remark #25015: Estimate of max trip count of loop=7
+LOOP END
+
+LOOP BEGIN at d2q9-bgk.c(233,3)
+   remark #15388: vectorization support: reference cells->s1[cellIndex] has aligned access   [ d2q9-bgk.c(250,7) ]
+   remark #15388: vectorization support: reference cells->s1[cellIndex] has aligned access   [ d2q9-bgk.c(250,7) ]
+   remark #15388: vectorization support: reference cells->s5[cellIndex] has aligned access   [ d2q9-bgk.c(251,7) ]
+   remark #15388: vectorization support: reference cells->s5[cellIndex] has aligned access   [ d2q9-bgk.c(251,7) ]
+   remark #15389: vectorization support: reference *(cells->s8+cellIndex*4) has unaligned access   [ d2q9-bgk.c(252,7) ]
+   remark #15389: vectorization support: reference *(cells->s8+cellIndex*4) has unaligned access   [ d2q9-bgk.c(252,7) ]
+   remark #15388: vectorization support: reference cells->s3[cellIndex] has aligned access   [ d2q9-bgk.c(258,7) ]
+   remark #15388: vectorization support: reference cells->s3[cellIndex] has aligned access   [ d2q9-bgk.c(258,7) ]
+   remark #15388: vectorization support: reference cells->s6[cellIndex] has aligned access   [ d2q9-bgk.c(259,7) ]
+   remark #15388: vectorization support: reference cells->s6[cellIndex] has aligned access   [ d2q9-bgk.c(259,7) ]
+   remark #15388: vectorization support: reference cells->s7[cellIndex] has aligned access   [ d2q9-bgk.c(260,7) ]
+   remark #15388: vectorization support: reference cells->s7[cellIndex] has aligned access   [ d2q9-bgk.c(260,7) ]
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15305: vectorization support: vector length 8
+   remark #15309: vectorization support: normalized vectorization overhead 0.244
+   remark #15301: SIMD LOOP WAS VECTORIZED
+   remark #15450: unmasked unaligned unit stride loads: 1 
+   remark #15454: masked aligned unit stride loads: 8 
+   remark #15455: masked aligned unit stride stores: 5 
+   remark #15456: masked unaligned unit stride loads: 1 
+   remark #15457: masked unaligned unit stride stores: 1 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 20 
+   remark #15477: vector cost: 15.370 
+   remark #15478: estimated potential speedup: 1.270 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+LOOP BEGIN at d2q9-bgk.c(233,3)
+<Remainder loop for vectorization>
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+d2q9-bgk.c(224,97):remark #34051: REGISTER ALLOCATION : [accelerate_flow] d2q9-bgk.c:224
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   30[ rax rdx rcx rbx rsi rdi r8-r15 zmm0-zmm15]
+        
+    Routine temporaries
+        Total         :     145
+            Global    :      57
+            Local     :      88
+        Regenerable   :      10
+        Spilled       :      18
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :     104 bytes*
+            Reads     :      23 [5.43e+00 ~ 5.4%]
+            Writes    :      28 [4.97e+00 ~ 5.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: av_velocity(const t_param, t_speed_arr *__restrict__, int *__restrict__)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (av_velocity(const t_param, t_speed_arr *__restrict__, int *__restrict__)) [8/14=57.1%] d2q9-bgk.c(467,95)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at d2q9-bgk.c(476,3)
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <obstacles[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(489,27) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s0+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(502,40) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s1+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(502,40) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s2+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(502,40) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s3+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(502,40) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s4+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(502,40) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s5+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(502,40) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s6+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(502,40) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s7+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(502,40) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s8+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(502,40) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s1+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(511,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s5+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(511,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s8+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(511,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s3+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(511,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s6+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(511,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s7+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(511,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s2+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(519,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s5+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(519,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s6+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(519,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s4+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(519,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s7+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(519,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s8+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(519,19) ]
+   remark #15305: vectorization support: vector length 4
+   remark #15309: vectorization support: normalized vectorization overhead 0.032
+   remark #15355: vectorization support: tot_u is float type reduction   [ d2q9-bgk.c(472,3) ]
+   remark #15355: vectorization support: tot_cells is int type reduction   [ d2q9-bgk.c(468,17) ]
+   remark #15301: SIMD LOOP WAS VECTORIZED
+   remark #15452: unmasked strided loads: 22 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 184 
+   remark #15477: vector cost: 408.250 
+   remark #15478: estimated potential speedup: 0.450 
+   remark #15486: divides: 1 
+   remark #15487: type converts: 1 
+   remark #15488: --- end vector cost summary ---
+
+   LOOP BEGIN at d2q9-bgk.c(477,5)
+      remark #25460: No loop optimizations reported
+   LOOP END
+LOOP END
+
+LOOP BEGIN at d2q9-bgk.c(476,3)
+<Remainder loop for vectorization>
+
+   LOOP BEGIN at d2q9-bgk.c(477,5)
+      remark #25460: No loop optimizations reported
+   LOOP END
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+d2q9-bgk.c(467,95):remark #34051: REGISTER ALLOCATION : [av_velocity] d2q9-bgk.c:467
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   30[ rax rdx rcx rbx rsi rdi r8-r15 zmm0-zmm15]
+        
+    Routine temporaries
+        Total         :     226
+            Global    :      50
+            Local     :     176
+        Regenerable   :       7
+        Spilled       :      22
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :     168 bytes*
+            Reads     :      35 [5.00e+00 ~ 5.0%]
+            Writes    :      30 [1.67e+00 ~ 1.7%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: finalise(const t_param *__restrict__, t_speed_arr *__restrict__, t_speed_arr *__restrict__, int **__restrict__, float **__restrict__)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (finalise(const t_param *__restrict__, t_speed_arr *__restrict__, t_speed_arr *__restrict__, int **__restrict__, float **__restrict__)) [9/14=64.3%] d2q9-bgk.c(751,176)
+  -> INLINE (MANUAL): (755,3) _mm_free(void *) (isz = 0) (sz = 5)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+  -> INLINE (MANUAL): (756,3) _mm_free(void *) (isz = 0) (sz = 5)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+  -> INLINE (MANUAL): (757,3) _mm_free(void *) (isz = 0) (sz = 5)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+  -> INLINE (MANUAL): (758,3) _mm_free(void *) (isz = 0) (sz = 5)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+  -> INLINE (MANUAL): (759,3) _mm_free(void *) (isz = 0) (sz = 5)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+  -> INLINE (MANUAL): (760,3) _mm_free(void *) (isz = 0) (sz = 5)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+  -> INLINE (MANUAL): (761,3) _mm_free(void *) (isz = 0) (sz = 5)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+  -> INLINE (MANUAL): (762,3) _mm_free(void *) (isz = 0) (sz = 5)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+  -> INLINE (MANUAL): (763,3) _mm_free(void *) (isz = 0) (sz = 5)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+  -> INLINE (MANUAL): (768,3) _mm_free(void *) (isz = 0) (sz = 5)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+  -> INLINE (MANUAL): (769,3) _mm_free(void *) (isz = 0) (sz = 5)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+  -> INLINE (MANUAL): (770,3) _mm_free(void *) (isz = 0) (sz = 5)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+  -> INLINE (MANUAL): (771,3) _mm_free(void *) (isz = 0) (sz = 5)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+  -> INLINE (MANUAL): (772,3) _mm_free(void *) (isz = 0) (sz = 5)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+  -> INLINE (MANUAL): (773,3) _mm_free(void *) (isz = 0) (sz = 5)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+  -> INLINE (MANUAL): (774,3) _mm_free(void *) (isz = 0) (sz = 5)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+  -> INLINE (MANUAL): (775,3) _mm_free(void *) (isz = 0) (sz = 5)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+  -> INLINE (MANUAL): (776,3) _mm_free(void *) (isz = 0) (sz = 5)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(54,3) free(void *)
+  -> EXTERN: (781,3) free(void *)
+  -> EXTERN: (784,3) free(void *)
+
+
+    Report from: Code generation optimizations [cg]
+
+d2q9-bgk.c(751,176):remark #34051: REGISTER ALLOCATION : [finalise] d2q9-bgk.c:751
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   10[ rax rdx rcx rbx rbp rsi rdi r8 r12-r13]
+        
+    Routine temporaries
+        Total         :      56
+            Global    :      10
+            Local     :      46
+        Regenerable   :       1
+        Spilled       :       4
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: calc_reynolds(const t_param, t_speed_arr *__restrict__, int *__restrict__)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (calc_reynolds(const t_param, t_speed_arr *__restrict__, int *__restrict__)) [10/14=71.4%] d2q9-bgk.c(790,97)
+  -> INLINE: (793,10) av_velocity(const t_param, t_speed_arr *__restrict__, int *__restrict__) (isz = 213) (sz = 224)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at d2q9-bgk.c(476,3) inlined into d2q9-bgk.c(793,10)
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <obstacles[cellIndex]>, stride is unknown to compiler   [ d2q9-bgk.c(489,27) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s0+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(502,40) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s1+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(502,40) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s2+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(502,40) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s3+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(502,40) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s4+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(502,40) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s5+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(502,40) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s6+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(502,40) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s7+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(502,40) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s8+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(502,40) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s1+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(511,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s5+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(511,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s8+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(511,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s3+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(511,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s6+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(511,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s7+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(511,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s2+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(519,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s5+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(519,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s6+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(519,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s4+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(519,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s7+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(519,19) ]
+   remark #15328: vectorization support: non-unit strided load was emulated for the variable <*(cells->s8+(U8_V*params.nx+ii-params.nx-1)*4)>, stride is unknown to compiler   [ d2q9-bgk.c(519,19) ]
+   remark #15305: vectorization support: vector length 4
+   remark #15309: vectorization support: normalized vectorization overhead 0.032
+   remark #15355: vectorization support: tot_u is float type reduction   [ d2q9-bgk.c(472,3) ]
+   remark #15355: vectorization support: tot_cells is int type reduction   [ d2q9-bgk.c(468,17) ]
+   remark #15301: SIMD LOOP WAS VECTORIZED
+   remark #15452: unmasked strided loads: 22 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 184 
+   remark #15477: vector cost: 408.250 
+   remark #15478: estimated potential speedup: 0.450 
+   remark #15486: divides: 1 
+   remark #15487: type converts: 1 
+   remark #15488: --- end vector cost summary ---
+
+   LOOP BEGIN at d2q9-bgk.c(477,5) inlined into d2q9-bgk.c(793,10)
+      remark #25460: No loop optimizations reported
+   LOOP END
+LOOP END
+
+LOOP BEGIN at d2q9-bgk.c(476,3) inlined into d2q9-bgk.c(793,10)
+<Remainder loop for vectorization>
+
+   LOOP BEGIN at d2q9-bgk.c(477,5) inlined into d2q9-bgk.c(793,10)
+      remark #25460: No loop optimizations reported
+   LOOP END
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+d2q9-bgk.c(790,97):remark #34051: REGISTER ALLOCATION : [calc_reynolds] d2q9-bgk.c:790
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   30[ rax rdx rcx rbx rsi rdi r8-r15 zmm0-zmm15]
+        
+    Routine temporaries
+        Total         :     232
+            Global    :      51
+            Local     :     181
+        Regenerable   :       8
+        Spilled       :      20
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :     152 bytes*
+            Reads     :      32 [4.67e+00 ~ 4.7%]
+            Writes    :      28 [1.54e+00 ~ 1.5%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: total_density(const t_param, t_speed_arr *__restrict__)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (total_density(const t_param, t_speed_arr *__restrict__)) [11/14=78.6%] d2q9-bgk.c(797,72)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at d2q9-bgk.c(800,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at d2q9-bgk.c(801,5)
+   <Peeled loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=7
+   LOOP END
+
+   LOOP BEGIN at d2q9-bgk.c(801,5)
+      remark #15389: vectorization support: reference cells->s0[cellIndex] has unaligned access   [ d2q9-bgk.c(803,16) ]
+      remark #15389: vectorization support: reference cells->s1[cellIndex] has unaligned access   [ d2q9-bgk.c(803,39) ]
+      remark #15389: vectorization support: reference cells->s2[cellIndex] has unaligned access   [ d2q9-bgk.c(803,62) ]
+      remark #15389: vectorization support: reference cells->s3[cellIndex] has unaligned access   [ d2q9-bgk.c(803,85) ]
+      remark #15389: vectorization support: reference cells->s4[cellIndex] has unaligned access   [ d2q9-bgk.c(803,108) ]
+      remark #15389: vectorization support: reference cells->s5[cellIndex] has unaligned access   [ d2q9-bgk.c(803,131) ]
+      remark #15389: vectorization support: reference cells->s6[cellIndex] has unaligned access   [ d2q9-bgk.c(803,154) ]
+      remark #15389: vectorization support: reference cells->s7[cellIndex] has unaligned access   [ d2q9-bgk.c(803,177) ]
+      remark #15389: vectorization support: reference cells->s8[cellIndex] has unaligned access   [ d2q9-bgk.c(803,200) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15305: vectorization support: vector length 8
+      remark #15399: vectorization support: unroll factor set to 2
+      remark #15309: vectorization support: normalized vectorization overhead 1.017
+      remark #15355: vectorization support: total is float type reduction   [ d2q9-bgk.c(798,15) ]
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15442: entire loop may be executed in remainder
+      remark #15450: unmasked unaligned unit stride loads: 9 
+      remark #15475: --- begin vector cost summary ---
+      remark #15476: scalar cost: 29 
+      remark #15477: vector cost: 3.620 
+      remark #15478: estimated potential speedup: 5.990 
+      remark #15488: --- end vector cost summary ---
+   LOOP END
+
+   LOOP BEGIN at d2q9-bgk.c(801,5)
+   <Remainder loop for vectorization>
+      remark #15389: vectorization support: reference cells->s0[cellIndex] has unaligned access   [ d2q9-bgk.c(803,16) ]
+      remark #15389: vectorization support: reference cells->s1[cellIndex] has unaligned access   [ d2q9-bgk.c(803,39) ]
+      remark #15389: vectorization support: reference cells->s2[cellIndex] has unaligned access   [ d2q9-bgk.c(803,62) ]
+      remark #15389: vectorization support: reference cells->s3[cellIndex] has unaligned access   [ d2q9-bgk.c(803,85) ]
+      remark #15389: vectorization support: reference cells->s4[cellIndex] has unaligned access   [ d2q9-bgk.c(803,108) ]
+      remark #15389: vectorization support: reference cells->s5[cellIndex] has unaligned access   [ d2q9-bgk.c(803,131) ]
+      remark #15389: vectorization support: reference cells->s6[cellIndex] has unaligned access   [ d2q9-bgk.c(803,154) ]
+      remark #15389: vectorization support: reference cells->s7[cellIndex] has unaligned access   [ d2q9-bgk.c(803,177) ]
+      remark #15389: vectorization support: reference cells->s8[cellIndex] has unaligned access   [ d2q9-bgk.c(803,200) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15305: vectorization support: vector length 8
+      remark #15309: vectorization support: normalized vectorization overhead 2.067
+      remark #15355: vectorization support: total is float type reduction   [ d2q9-bgk.c(798,15) ]
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+      remark #15442: entire loop may be executed in remainder
+      remark #15450: unmasked unaligned unit stride loads: 9 
+      remark #15475: --- begin vector cost summary ---
+      remark #15476: scalar cost: 29 
+      remark #15477: vector cost: 3.620 
+      remark #15478: estimated potential speedup: 5.990 
+      remark #15488: --- end vector cost summary ---
+   LOOP END
+
+   LOOP BEGIN at d2q9-bgk.c(801,5)
+   <Remainder loop for vectorization>
+   LOOP END
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+d2q9-bgk.c(797,72):remark #34051: REGISTER ALLOCATION : [total_density] d2q9-bgk.c:797
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   30[ rax rdx rcx rbx rsi rdi r8-r15 zmm0-zmm15]
+        
+    Routine temporaries
+        Total         :     171
+            Global    :      63
+            Local     :     108
+        Regenerable   :       5
+        Spilled       :      40
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :     312 bytes*
+            Reads     :      65 [8.84e+00 ~ 8.8%]
+            Writes    :      66 [7.85e+00 ~ 7.9%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: die(const char *, const int, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (die(const char *, const int, const char *)) [12/14=85.7%] d2q9-bgk.c(902,65)
+  -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (905,3) fflush(FILE *)
+  -> EXTERN: (906,3) exit(int)
+
+
+    Report from: Code generation optimizations [cg]
+
+d2q9-bgk.c(902,65):remark #34051: REGISTER ALLOCATION : [die] d2q9-bgk.c:902
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    6[ rax rdx rcx rbx rsi rdi]
+        
+    Routine temporaries
+        Total         :      28
+            Global    :       1
+            Local     :      27
+        Regenerable   :       9
+        Spilled       :       0
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: usage(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (usage(const char *)) [13/14=92.9%] d2q9-bgk.c(909,29)
+  -> EXTERN: (910,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (911,3) exit(int)
+
+
+    Report from: Code generation optimizations [cg]
+
+d2q9-bgk.c(909,29):remark #34051: REGISTER ALLOCATION : [usage] d2q9-bgk.c:909
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    4[ rax rdx rsi rdi]
+        
+    Routine temporaries
+        Total         :      15
+            Global    :       0
+            Local     :      15
+        Regenerable   :       4
+        Spilled       :       0
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: initialise(const char *, const char *, t_param *, t_speed_arr *__restrict__, t_speed_arr *__restrict__, int **__restrict__, float **__restrict__)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (initialise(const char *, const char *, t_param *, t_speed_arr *__restrict__, t_speed_arr *__restrict__, int **__restrict__, float **__restrict__)) [14/14=100.0%] d2q9-bgk.c(533,76)
+  -> EXTERN: (541,8) fopen(const char *__restrict__, const char *__restrict__)
+  -> EXTERN: (544,5) sprintf(char *__restrict__, const char *__restrict__, ...)
+  -> INLINE: (545,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> EXTERN: (549,12) fscanf(FILE *__restrict__, const char *__restrict__, ...)
+  -> INLINE: (551,20) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> EXTERN: (553,12) fscanf(FILE *__restrict__, const char *__restrict__, ...)
+  -> INLINE: (555,20) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> EXTERN: (557,12) fscanf(FILE *__restrict__, const char *__restrict__, ...)
+  -> INLINE: (560,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> EXTERN: (562,12) fscanf(FILE *__restrict__, const char *__restrict__, ...)
+  -> INLINE: (565,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> EXTERN: (567,12) fscanf(FILE *__restrict__, const char *__restrict__, ...)
+  -> INLINE: (570,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> EXTERN: (572,12) fscanf(FILE *__restrict__, const char *__restrict__, ...)
+  -> INLINE: (574,20) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> EXTERN: (576,12) fscanf(FILE *__restrict__, const char *__restrict__, ...)
+  -> INLINE: (578,20) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> EXTERN: (581,3) fclose(FILE *)
+  -> INLINE (MANUAL): (602,27) _mm_malloc(size_t, size_t) (isz = 22) (sz = 33)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(42,12) malloc(size_t)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(45,7) posix_memalign(void **, size_t, size_t)
+  -> INLINE (MANUAL): (603,27) _mm_malloc(size_t, size_t) (isz = 22) (sz = 33)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(42,12) malloc(size_t)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(45,7) posix_memalign(void **, size_t, size_t)
+  -> INLINE (MANUAL): (604,27) _mm_malloc(size_t, size_t) (isz = 22) (sz = 33)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(42,12) malloc(size_t)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(45,7) posix_memalign(void **, size_t, size_t)
+  -> INLINE (MANUAL): (605,27) _mm_malloc(size_t, size_t) (isz = 22) (sz = 33)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(42,12) malloc(size_t)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(45,7) posix_memalign(void **, size_t, size_t)
+  -> INLINE (MANUAL): (606,27) _mm_malloc(size_t, size_t) (isz = 22) (sz = 33)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(42,12) malloc(size_t)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(45,7) posix_memalign(void **, size_t, size_t)
+  -> INLINE (MANUAL): (607,27) _mm_malloc(size_t, size_t) (isz = 22) (sz = 33)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(42,12) malloc(size_t)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(45,7) posix_memalign(void **, size_t, size_t)
+  -> INLINE (MANUAL): (608,27) _mm_malloc(size_t, size_t) (isz = 22) (sz = 33)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(42,12) malloc(size_t)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(45,7) posix_memalign(void **, size_t, size_t)
+  -> INLINE (MANUAL): (609,27) _mm_malloc(size_t, size_t) (isz = 22) (sz = 33)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(42,12) malloc(size_t)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(45,7) posix_memalign(void **, size_t, size_t)
+  -> INLINE (MANUAL): (610,27) _mm_malloc(size_t, size_t) (isz = 22) (sz = 33)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(42,12) malloc(size_t)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(45,7) posix_memalign(void **, size_t, size_t)
+  -> INLINE: (613,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> INLINE: (615,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> INLINE: (617,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> INLINE: (619,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> INLINE: (621,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> INLINE: (623,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> INLINE: (625,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> INLINE: (627,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> INLINE: (629,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> INLINE (MANUAL): (631,31) _mm_malloc(size_t, size_t) (isz = 22) (sz = 33)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(42,12) malloc(size_t)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(45,7) posix_memalign(void **, size_t, size_t)
+  -> INLINE (MANUAL): (632,31) _mm_malloc(size_t, size_t) (isz = 22) (sz = 33)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(42,12) malloc(size_t)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(45,7) posix_memalign(void **, size_t, size_t)
+  -> INLINE (MANUAL): (633,31) _mm_malloc(size_t, size_t) (isz = 22) (sz = 33)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(42,12) malloc(size_t)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(45,7) posix_memalign(void **, size_t, size_t)
+  -> INLINE (MANUAL): (634,31) _mm_malloc(size_t, size_t) (isz = 22) (sz = 33)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(42,12) malloc(size_t)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(45,7) posix_memalign(void **, size_t, size_t)
+  -> INLINE (MANUAL): (635,31) _mm_malloc(size_t, size_t) (isz = 22) (sz = 33)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(42,12) malloc(size_t)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(45,7) posix_memalign(void **, size_t, size_t)
+  -> INLINE (MANUAL): (636,31) _mm_malloc(size_t, size_t) (isz = 22) (sz = 33)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(42,12) malloc(size_t)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(45,7) posix_memalign(void **, size_t, size_t)
+  -> INLINE (MANUAL): (637,31) _mm_malloc(size_t, size_t) (isz = 22) (sz = 33)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(42,12) malloc(size_t)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(45,7) posix_memalign(void **, size_t, size_t)
+  -> INLINE (MANUAL): (638,31) _mm_malloc(size_t, size_t) (isz = 22) (sz = 33)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(42,12) malloc(size_t)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(45,7) posix_memalign(void **, size_t, size_t)
+  -> INLINE (MANUAL): (639,31) _mm_malloc(size_t, size_t) (isz = 22) (sz = 33)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(42,12) malloc(size_t)
+    -> EXTERN: /mnt/storage/software/languages/gcc-7.2.0/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/mm_malloc.h:(45,7) posix_memalign(void **, size_t, size_t)
+  -> INLINE: (642,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> INLINE: (644,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> INLINE: (646,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> INLINE: (648,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> INLINE: (650,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> INLINE: (652,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> INLINE: (654,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> INLINE: (656,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> INLINE: (658,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> EXTERN: (677,20) malloc(size_t)
+  -> INLINE: (680,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> EXTERN: (713,8) fopen(const char *__restrict__, const char *__restrict__)
+  -> EXTERN: (716,5) sprintf(char *__restrict__, const char *__restrict__, ...)
+  -> INLINE: (717,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> EXTERN: (721,20) fscanf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (721,20) fscanf(FILE *__restrict__, const char *__restrict__, ...)
+  -> INLINE: (724,7) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> INLINE: (727,7) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> INLINE: (730,7) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> INLINE: (733,7) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (903,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (904,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (905,3) fflush(FILE *)
+    -> EXTERN: (906,3) exit(int)
+  -> EXTERN: (740,3) fclose(FILE *)
+  -> EXTERN: (746,26) malloc(size_t)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at d2q9-bgk.c(687,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at d2q9-bgk.c(688,5)
+   <Peeled loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=7
+   LOOP END
+
+   LOOP BEGIN at d2q9-bgk.c(688,5)
+      remark #15389: vectorization support: reference cells_ptr->s0[cellIndex] has unaligned access   [ d2q9-bgk.c(691,7) ]
+      remark #15389: vectorization support: reference cells_ptr->s1[cellIndex] has unaligned access   [ d2q9-bgk.c(693,7) ]
+      remark #15389: vectorization support: reference cells_ptr->s2[cellIndex] has unaligned access   [ d2q9-bgk.c(694,7) ]
+      remark #15389: vectorization support: reference cells_ptr->s3[cellIndex] has unaligned access   [ d2q9-bgk.c(695,7) ]
+      remark #15389: vectorization support: reference cells_ptr->s4[cellIndex] has unaligned access   [ d2q9-bgk.c(696,7) ]
+      remark #15389: vectorization support: reference cells_ptr->s5[cellIndex] has unaligned access   [ d2q9-bgk.c(698,7) ]
+      remark #15389: vectorization support: reference cells_ptr->s6[cellIndex] has unaligned access   [ d2q9-bgk.c(699,7) ]
+      remark #15389: vectorization support: reference cells_ptr->s7[cellIndex] has unaligned access   [ d2q9-bgk.c(700,7) ]
+      remark #15389: vectorization support: reference cells_ptr->s8[cellIndex] has unaligned access   [ d2q9-bgk.c(701,7) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15305: vectorization support: vector length 8
+      remark #15309: vectorization support: normalized vectorization overhead 1.000
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15442: entire loop may be executed in remainder
+      remark #15451: unmasked unaligned unit stride stores: 9 
+      remark #15475: --- begin vector cost summary ---
+      remark #15476: scalar cost: 32 
+      remark #15477: vector cost: 5.370 
+      remark #15478: estimated potential speedup: 4.860 
+      remark #15488: --- end vector cost summary ---
+   LOOP END
+
+   LOOP BEGIN at d2q9-bgk.c(688,5)
+   <Remainder loop for vectorization>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at d2q9-bgk.c(706,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at d2q9-bgk.c(707,5)
+      remark #25408: memset generated
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at d2q9-bgk.c(707,5)
+         remark #15389: vectorization support: reference obstacles_ptr has unaligned access   [ d2q9-bgk.c(708,9) ]
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15305: vectorization support: vector length 8
+         remark #15309: vectorization support: normalized vectorization overhead 0.600
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15451: unmasked unaligned unit stride stores: 1 
+         remark #15475: --- begin vector cost summary ---
+         remark #15476: scalar cost: 3 
+         remark #15477: vector cost: 0.620 
+         remark #15478: estimated potential speedup: 4.000 
+         remark #15488: --- end vector cost summary ---
+         remark #25015: Estimate of max trip count of loop=3
+      LOOP END
+
+      LOOP BEGIN at d2q9-bgk.c(707,5)
+      <Remainder loop for vectorization>
+         remark #25015: Estimate of max trip count of loop=24
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at d2q9-bgk.c(721,3)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form from OpenMP specification
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+d2q9-bgk.c(707,5):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+d2q9-bgk.c(707,5):remark #34026: call to memset implemented as a call to optimized library version
+d2q9-bgk.c(533,76):remark #34051: REGISTER ALLOCATION : [initialise] d2q9-bgk.c:533
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   20[ rax rdx rcx rbx rsi rdi r8-r15 zmm0-zmm5]
+        
+    Routine temporaries
+        Total         :     974
+            Global    :     138
+            Local     :     836
+        Regenerable   :     484
+        Spilled       :      36
+        
+    Routine stack
+        Variables     :    1180 bytes*
+            Reads     :      21 [1.25e+00 ~ 1.2%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :     248 bytes*
+            Reads     :      63 [7.54e+00 ~ 7.5%]
+            Writes    :      54 [5.90e+00 ~ 5.9%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING FOOTNOTES:
+
+<1> The function is larger than the inliner would normally inline.  Use the
+    option -inline-max-size to increase the size of any function that would
+    normally be inlined, add "inline __attribute__((always_inline))" to the
+    declaration of the called function, or add "#pragma forceinline" before
+    the call site.
+
