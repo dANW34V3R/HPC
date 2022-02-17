@@ -1,51 +1,77 @@
-rm -f d2q9-bgk
-gcc -std=c99 -Wall -O3 d2q9-bgk.c -lm -o d2q9-bgk
 Running on host compute100.bc4.acrc.priv
-Time is Fri Feb 11 13:09:43 GMT 2022
+Time is Wed Feb 16 23:39:07 GMT 2022
 Directory is /user/home/ra18837/HPC/advanced-hpc-lbm
-Slurm job ID is 10037415
+Slurm job ID is 10046041
 This job runs on the following machines:
 compute100
 ==done==
-Reynolds number:		9.757323265076E+00
-Elapsed Init time:			0.003046 (s)
-Elapsed Compute time:			28.817580 (s)
+Reynolds number:		9.756120681763E+00
+Elapsed Init time:			0.003095 (s)
+Elapsed Compute time:			5.779160 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			5.782255 (s)
+==done==
+Reynolds number:		9.756120681763E+00
+Elapsed Init time:			0.000487 (s)
+Elapsed Compute time:			5.843127 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			5.843614 (s)
+==done==
+Reynolds number:		9.756120681763E+00
+Elapsed Init time:			0.001287 (s)
+Elapsed Compute time:			5.759521 (s)
 Elapsed Collate time:			0.000001 (s)
-Elapsed Total time:			28.820627 (s)
+Elapsed Total time:			5.760809 (s)
+==done==
+Reynolds number:		3.716395568848E+01
+Elapsed Init time:			0.002459 (s)
+Elapsed Compute time:			13.557320 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			13.559779 (s)
+==done==
+Reynolds number:		3.716395568848E+01
+Elapsed Init time:			0.000935 (s)
+Elapsed Compute time:			13.365464 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			13.366399 (s)
+==done==
+Reynolds number:		3.716395568848E+01
+Elapsed Init time:			0.000934 (s)
+Elapsed Compute time:			13.355504 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			13.356438 (s)
+==done==
+Reynolds number:		3.376197814941E+00
+Elapsed Init time:			0.039043 (s)
+Elapsed Compute time:			283.941313 (s)
+Elapsed Collate time:			0.000001 (s)
+Elapsed Total time:			283.980357 (s)
+==done==
+Reynolds number:		3.376197814941E+00
+Elapsed Init time:			0.037545 (s)
+Elapsed Compute time:			266.124284 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			266.161829 (s)
+==done==
+Reynolds number:		3.376197814941E+00
+Elapsed Init time:			0.036521 (s)
+Elapsed Compute time:			265.167430 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			265.203951 (s)
+[5.795559333333333, 13.427538666666669, 271.78204566666665]
 ==done==
 Reynolds number:		9.757323265076E+00
-Elapsed Init time:			0.000557 (s)
-Elapsed Compute time:			28.660742 (s)
+Elapsed Init time:			0.000545 (s)
+Elapsed Compute time:			28.845206 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			28.661299 (s)
-==done==
-Reynolds number:		9.757323265076E+00
-Elapsed Init time:			0.000574 (s)
-Elapsed Compute time:			28.612673 (s)
-Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			28.613247 (s)
-==done==
-Reynolds number:		1.006639194489E+01
-Elapsed Init time:			0.020732 (s)
-Elapsed Compute time:			391.525429 (s)
-Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			391.546161 (s)
-==done==
-Reynolds number:		1.006639194489E+01
-Elapsed Init time:			0.004447 (s)
-Elapsed Compute time:			392.557010 (s)
-Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			392.561457 (s)
-==done==
-Reynolds number:		1.006639194489E+01
-Elapsed Init time:			0.002706 (s)
-Elapsed Compute time:			389.695408 (s)
-Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			389.698114 (s)
-==done==
-Reynolds number:		3.377257823944E+00
-Elapsed Init time:			0.040792 (s)
-Elapsed Compute time:			1817.317781 (s)
-Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			1817.358573 (s)
-slurmstepd: error: *** JOB 10037415 ON compute100 CANCELLED AT 2022-02-11T14:19:45 DUE TO TIME LIMIT ***
+Elapsed Total time:			28.845751 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.339938152857E-01
+Biggest difference (at step 39604) : 8.526073940000E-06
+  1.316903252155E-02 vs. 1.317755859549E-02 = 0.065%
+
+Total difference in final_state : 3.562588944182E-01
+Biggest difference (at coord (1,126)) : -2.270662043000E-05
+  3.325501084328E-02 vs. 3.323230422285E-02 = -0.068%
+
+Both tests passed!
