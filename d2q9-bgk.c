@@ -233,7 +233,7 @@ int accelerate_flow(const t_param params, t_speed_arr* restrict cells,
   /* modify the 2nd row of the grid */
   int jj = params.ny - 2;
 
-#pragma omp simd
+#pragma omp parallel for simd
   for (int ii = 0; ii < params.nx; ii++) {
     const int cellIndex = ii + jj * params.nx;
     /* if the cell is not occupied and
@@ -266,6 +266,7 @@ int outEdges(const t_param params, t_speed_arr* restrict cells,
   int tot_cells = 0; /* no. of cells used in calculation */
   float tot_u = 0.f; /* accumulated magnitudes of velocity for each cell */
 
+#pragma omp parallel for reduction(+ : tot_cells) reduction(+ : tot_u)
   /* loop over first and last column cells */
   for (int ii = 0; ii < params.nx; ii += params.nx - 1) {
     //#pragma omp simd reduction(+ : tot_cells) reduction(+ : tot_u)
@@ -432,6 +433,7 @@ int outEdges(const t_param params, t_speed_arr* restrict cells,
     }
   }
 
+#pragma omp parallel for reduction(+ : tot_cells) reduction(+ : tot_u)
   /* loop over first and last row cells */
   for (int jj = 0; jj < params.ny; jj += params.ny - 1) {
     //#pragma omp simd reduction(+ : tot_cells) reduction(+ : tot_u)
@@ -613,9 +615,10 @@ int propagate(const t_param params, t_speed_arr* restrict cells,
   int tot_cells = outEdges(params, cells, tmp_cells, obstacles, av_vels, tt);
   float tot_u = av_vels[tt];
 
+#pragma omp parallel for reduction(+ : tot_cells) reduction(+ : tot_u)
   /* loop over _all_ inner cells */
   for (int jj = 1; jj < params.ny - 1; jj++) {
-#pragma omp simd  //
+#pragma omp simd reduction(+ : tot_cells) reduction(+ : tot_u)  //
     for (int ii = 1; ii < params.nx - 1; ii++) {
       const int cellIndex = ii + jj * params.nx;
 
@@ -642,7 +645,7 @@ int propagate(const t_param params, t_speed_arr* restrict cells,
        * --------------------------------------------------------------------------*/
 
       const int obsBool = (float)obstacles[cellIndex];
-      const int notObsBool = 1.f - obsBool;
+      const int notObsBool = 1 - obsBool;
 
       /* if the cell contains an obstacle */
       /* called after propagate, so taking values from scratch space
@@ -669,7 +672,7 @@ int propagate(const t_param params, t_speed_arr* restrict cells,
       //          tmp_cells->s6[cellIndex] + tmp_cells->s7[cellIndex] +
       //          tmp_cells->s8[cellIndex];
 
-      const float local_densityRecip = 1 / local_density;
+      const float local_densityRecip = 1.f / local_density;
 
       /* compute x velocity component */
       float u_x = (temp1 + temp5 + temp8 - (temp3 + temp6 + temp7)) *
@@ -972,8 +975,108 @@ int initialise(const char* paramfile, const char* obstaclefile, t_param* params,
   float w1 = params->density / 9.f;
   float w2 = params->density / 36.f;
 
-  for (int jj = 0; jj < params->ny; jj++) {
+#pragma omp parallel for
+  /* loop over first and last column cells */
+  for (int ii = 0; ii < params->nx; ii += params->nx - 1) {
+    for (int jj = 1; jj < params->ny - 1; jj++) {
+      const int cellIndex = ii + jj * params->nx;
+      /* centre */
+      tmp_cells_ptr->s0[cellIndex] = w0;
+      /* axis directions */
+      tmp_cells_ptr->s1[cellIndex] = w1;
+      tmp_cells_ptr->s2[cellIndex] = w1;
+      tmp_cells_ptr->s3[cellIndex] = w1;
+      tmp_cells_ptr->s4[cellIndex] = w1;
+      /* diagonals */
+      tmp_cells_ptr->s5[cellIndex] = w2;
+      tmp_cells_ptr->s6[cellIndex] = w2;
+      tmp_cells_ptr->s7[cellIndex] = w2;
+      tmp_cells_ptr->s8[cellIndex] = w2;
+    }
+  }
+
+#pragma omp parallel for
+  /* loop over first and last row cells */
+  for (int jj = 0; jj < params->ny; jj += params->ny - 1) {
     for (int ii = 0; ii < params->nx; ii++) {
+      const int cellIndex = ii + jj * params->nx;
+      /* centre */
+      tmp_cells_ptr->s0[cellIndex] = w0;
+      /* axis directions */
+      tmp_cells_ptr->s1[cellIndex] = w1;
+      tmp_cells_ptr->s2[cellIndex] = w1;
+      tmp_cells_ptr->s3[cellIndex] = w1;
+      tmp_cells_ptr->s4[cellIndex] = w1;
+      /* diagonals */
+      tmp_cells_ptr->s5[cellIndex] = w2;
+      tmp_cells_ptr->s6[cellIndex] = w2;
+      tmp_cells_ptr->s7[cellIndex] = w2;
+      tmp_cells_ptr->s8[cellIndex] = w2;
+    }
+  }
+
+#pragma omp parallel for
+  for (int jj = 1; jj < params->ny - 1; jj++) {
+    for (int ii = 1; ii < params->nx - 1; ii++) {
+      int cellIndex = ii + jj * params->nx;
+      /* centre */
+      tmp_cells_ptr->s0[cellIndex] = w0;
+      /* axis directions */
+      tmp_cells_ptr->s1[cellIndex] = w1;
+      tmp_cells_ptr->s2[cellIndex] = w1;
+      tmp_cells_ptr->s3[cellIndex] = w1;
+      tmp_cells_ptr->s4[cellIndex] = w1;
+      /* diagonals */
+      tmp_cells_ptr->s5[cellIndex] = w2;
+      tmp_cells_ptr->s6[cellIndex] = w2;
+      tmp_cells_ptr->s7[cellIndex] = w2;
+      tmp_cells_ptr->s8[cellIndex] = w2;
+    }
+  }
+
+#pragma omp parallel for
+  /* loop over first and last column cells */
+  for (int ii = 0; ii < params->nx; ii += params->nx - 1) {
+    for (int jj = 1; jj < params->ny - 1; jj++) {
+      const int cellIndex = ii + jj * params->nx;
+      /* centre */
+      cells_ptr->s0[cellIndex] = w0;
+      /* axis directions */
+      cells_ptr->s1[cellIndex] = w1;
+      cells_ptr->s2[cellIndex] = w1;
+      cells_ptr->s3[cellIndex] = w1;
+      cells_ptr->s4[cellIndex] = w1;
+      /* diagonals */
+      cells_ptr->s5[cellIndex] = w2;
+      cells_ptr->s6[cellIndex] = w2;
+      cells_ptr->s7[cellIndex] = w2;
+      cells_ptr->s8[cellIndex] = w2;
+    }
+  }
+
+#pragma omp parallel for
+  /* loop over first and last row cells */
+  for (int jj = 0; jj < params->ny; jj += params->ny - 1) {
+    for (int ii = 0; ii < params->nx; ii++) {
+      const int cellIndex = ii + jj * params->nx;
+      /* centre */
+      cells_ptr->s0[cellIndex] = w0;
+      /* axis directions */
+      cells_ptr->s1[cellIndex] = w1;
+      cells_ptr->s2[cellIndex] = w1;
+      cells_ptr->s3[cellIndex] = w1;
+      cells_ptr->s4[cellIndex] = w1;
+      /* diagonals */
+      cells_ptr->s5[cellIndex] = w2;
+      cells_ptr->s6[cellIndex] = w2;
+      cells_ptr->s7[cellIndex] = w2;
+      cells_ptr->s8[cellIndex] = w2;
+    }
+  }
+
+#pragma omp parallel for
+  for (int jj = 1; jj < params->ny - 1; jj++) {
+    for (int ii = 1; ii < params->nx - 1; ii++) {
       int cellIndex = ii + jj * params->nx;
       /* centre */
       cells_ptr->s0[cellIndex] = w0;
@@ -990,6 +1093,7 @@ int initialise(const char* paramfile, const char* obstaclefile, t_param* params,
     }
   }
 
+#pragma omp parallel for
   /* first set all cells in obstacle array to zero */
   for (int jj = 0; jj < params->ny; jj++) {
     for (int ii = 0; ii < params->nx; ii++) {

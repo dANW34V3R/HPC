@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename="/user/home/ra18837/HPC/advanced-hpc-lbm/d2q9-bgk.c"
+           line_no="622"
+           routine="propagate$omp$parallel@618"
+           is_vectorized="1"
+           self_time="1.098873E+01"
+           total_time="1.098873E+01"
+           trip_counts=""
+           func_instance="268"
+           confidence="0"
+           efficiency="6.325000E+01"
+           referenceEfficiency="1.250000E+01"
+           priority="0"/>
+  <hotspot filename="/user/home/ra18837/HPC/advanced-hpc-lbm/d2q9-bgk.c"
+           line_no="273"
+           routine="propagate$omp$parallel@269"
+           is_vectorized="0"
+           self_time="4.997432E+00"
+           total_time="4.997432E+00"
+           trip_counts=""
+           func_instance="45"
+           priority="0"/>
+  <hotspot filename="/user/home/ra18837/HPC/advanced-hpc-lbm/d2q9-bgk.c"
+           line_no="236"
+           routine="accelerate_flow"
+           is_vectorized="0"
+           self_time="4.448967E+00"
+           total_time="4.448967E+00"
+           trip_counts=""
+           func_instance="267"
+           priority="0"/>
+  <hotspot filename="/user/home/ra18837/HPC/advanced-hpc-lbm/d2q9-bgk.c"
+           line_no="440"
+           routine="propagate$omp$parallel@436"
+           is_vectorized="0"
+           self_time="1.129426E+00"
+           total_time="1.129426E+00"
+           trip_counts=""
+           func_instance="49"
+           priority="0"/>
+  <hotspot filename="/user/home/ra18837/HPC/advanced-hpc-lbm/d2q9-bgk.c"
+           line_no="620"
+           routine="propagate$omp$parallel@618"
+           is_vectorized="0"
+           self_time="3.200024E-01"
+           total_time="1.130873E+01"
+           trip_counts=""
+           func_instance="53"
+           priority="0"/>
+</IntelParallelAdvisorSummary >
