@@ -53,6 +53,7 @@
 */
 
 #include <math.h>
+#include <mm_malloc.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/resource.h>
@@ -271,6 +272,15 @@ int propagate(const t_param params, t_speed_arr* restrict cells,
   for (int jj = 0; jj < params.ny; jj++) {
 #pragma omp simd reduction(+ : tot_u) reduction(+ : tot_cells)
     for (int ii = 0; ii < params.nx; ii++) {
+      __assume_aligned(cells->s0, 64);
+      __assume_aligned(cells->s1, 64);
+      __assume_aligned(cells->s2, 64);
+      __assume_aligned(cells->s3, 64);
+      __assume_aligned(cells->s4, 64);
+      __assume_aligned(cells->s5, 64);
+      __assume_aligned(cells->s6, 64);
+      __assume_aligned(cells->s7, 64);
+
       const int cellIndex = ii + jj * params.nx;
 
       /* determine indices of axis-direction neighbours
@@ -542,15 +552,24 @@ int initialise(const char* paramfile, const char* obstaclefile, t_param* params,
   ** a 1D array of these structs.
   */
 
-  cells_ptr->s0 = (float*)malloc(sizeof(float) * params->nx * params->ny);
-  cells_ptr->s1 = (float*)malloc(sizeof(float) * params->nx * params->ny);
-  cells_ptr->s2 = (float*)malloc(sizeof(float) * params->nx * params->ny);
-  cells_ptr->s3 = (float*)malloc(sizeof(float) * params->nx * params->ny);
-  cells_ptr->s4 = (float*)malloc(sizeof(float) * params->nx * params->ny);
-  cells_ptr->s5 = (float*)malloc(sizeof(float) * params->nx * params->ny);
-  cells_ptr->s6 = (float*)malloc(sizeof(float) * params->nx * params->ny);
-  cells_ptr->s7 = (float*)malloc(sizeof(float) * params->nx * params->ny);
-  cells_ptr->s8 = (float*)malloc(sizeof(float) * params->nx * params->ny);
+  cells_ptr->s0 =
+      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  cells_ptr->s1 =
+      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  cells_ptr->s2 =
+      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  cells_ptr->s3 =
+      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  cells_ptr->s4 =
+      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  cells_ptr->s5 =
+      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  cells_ptr->s6 =
+      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  cells_ptr->s7 =
+      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  cells_ptr->s8 =
+      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
 
   if (cells_ptr->s0 == NULL)
     die("cannot allocate memory for cells", __LINE__, __FILE__);
@@ -571,15 +590,24 @@ int initialise(const char* paramfile, const char* obstaclefile, t_param* params,
   if (cells_ptr->s8 == NULL)
     die("cannot allocate memory for cells", __LINE__, __FILE__);
 
-  tmp_cells_ptr->s0 = (float*)malloc(sizeof(float) * params->nx * params->ny);
-  tmp_cells_ptr->s1 = (float*)malloc(sizeof(float) * params->nx * params->ny);
-  tmp_cells_ptr->s2 = (float*)malloc(sizeof(float) * params->nx * params->ny);
-  tmp_cells_ptr->s3 = (float*)malloc(sizeof(float) * params->nx * params->ny);
-  tmp_cells_ptr->s4 = (float*)malloc(sizeof(float) * params->nx * params->ny);
-  tmp_cells_ptr->s5 = (float*)malloc(sizeof(float) * params->nx * params->ny);
-  tmp_cells_ptr->s6 = (float*)malloc(sizeof(float) * params->nx * params->ny);
-  tmp_cells_ptr->s7 = (float*)malloc(sizeof(float) * params->nx * params->ny);
-  tmp_cells_ptr->s8 = (float*)malloc(sizeof(float) * params->nx * params->ny);
+  tmp_cells_ptr->s0 =
+      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  tmp_cells_ptr->s1 =
+      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  tmp_cells_ptr->s2 =
+      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  tmp_cells_ptr->s3 =
+      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  tmp_cells_ptr->s4 =
+      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  tmp_cells_ptr->s5 =
+      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  tmp_cells_ptr->s6 =
+      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  tmp_cells_ptr->s7 =
+      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  tmp_cells_ptr->s8 =
+      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
 
   if (tmp_cells_ptr->s0 == NULL)
     die("cannot allocate memory for cells", __LINE__, __FILE__);
@@ -718,28 +746,28 @@ int finalise(const t_param* params, t_speed_arr* cells_ptr,
   /*
   ** free up allocated memory
   */
-  free(cells_ptr->s0);
-  free(cells_ptr->s1);
-  free(cells_ptr->s2);
-  free(cells_ptr->s3);
-  free(cells_ptr->s4);
-  free(cells_ptr->s5);
-  free(cells_ptr->s6);
-  free(cells_ptr->s7);
-  free(cells_ptr->s8);
+  _mm_free(cells_ptr->s0);
+  _mm_free(cells_ptr->s1);
+  _mm_free(cells_ptr->s2);
+  _mm_free(cells_ptr->s3);
+  _mm_free(cells_ptr->s4);
+  _mm_free(cells_ptr->s5);
+  _mm_free(cells_ptr->s6);
+  _mm_free(cells_ptr->s7);
+  _mm_free(cells_ptr->s8);
 
   //  free(*cells_ptr);
   //  *cells_ptr = NULL;
 
-  free(tmp_cells_ptr->s0);
-  free(tmp_cells_ptr->s1);
-  free(tmp_cells_ptr->s2);
-  free(tmp_cells_ptr->s3);
-  free(tmp_cells_ptr->s4);
-  free(tmp_cells_ptr->s5);
-  free(tmp_cells_ptr->s6);
-  free(tmp_cells_ptr->s7);
-  free(tmp_cells_ptr->s8);
+  _mm_free(tmp_cells_ptr->s0);
+  _mm_free(tmp_cells_ptr->s1);
+  _mm_free(tmp_cells_ptr->s2);
+  _mm_free(tmp_cells_ptr->s3);
+  _mm_free(tmp_cells_ptr->s4);
+  _mm_free(tmp_cells_ptr->s5);
+  _mm_free(tmp_cells_ptr->s6);
+  _mm_free(tmp_cells_ptr->s7);
+  _mm_free(tmp_cells_ptr->s8);
 
   //  free(*tmp_cells_ptr);
   //  *tmp_cells_ptr = NULL;

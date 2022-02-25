@@ -1,70 +1,70 @@
-Running on host compute107.bc4.acrc.priv
-Time is Fri Feb 25 17:44:17 GMT 2022
+Running on host compute102.bc4.acrc.priv
+Time is Fri Feb 25 17:54:16 GMT 2022
 Directory is /user/home/ra18837/HPC/advanced-hpc-lbm
-Slurm job ID is 10065590
+Slurm job ID is 10065616
 This job runs on the following machines:
-compute107
+compute102
 ==done==
 Reynolds number:		9.756125450134E+00
-Elapsed Init time:			0.026077 (s)
-Elapsed Compute time:			1.172454 (s)
+Elapsed Init time:			0.017700 (s)
+Elapsed Compute time:			1.132242 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			1.198531 (s)
+Elapsed Total time:			1.149942 (s)
 ==done==
 Reynolds number:		9.756125450134E+00
-Elapsed Init time:			0.004760 (s)
-Elapsed Compute time:			1.071381 (s)
+Elapsed Init time:			0.004946 (s)
+Elapsed Compute time:			1.039420 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			1.076141 (s)
+Elapsed Total time:			1.044366 (s)
 ==done==
 Reynolds number:		9.756125450134E+00
-Elapsed Init time:			0.005256 (s)
-Elapsed Compute time:			1.056966 (s)
+Elapsed Init time:			0.004780 (s)
+Elapsed Compute time:			1.000840 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			1.062222 (s)
+Elapsed Total time:			1.005620 (s)
 ==done==
 Reynolds number:		1.006106567383E+01
-Elapsed Init time:			0.027662 (s)
-Elapsed Compute time:			3.130812 (s)
-Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			3.158474 (s)
+Elapsed Init time:			0.028804 (s)
+Elapsed Compute time:			3.163624 (s)
+Elapsed Collate time:			0.000001 (s)
+Elapsed Total time:			3.192429 (s)
 ==done==
 Reynolds number:		1.006106567383E+01
-Elapsed Init time:			0.005150 (s)
-Elapsed Compute time:			3.148014 (s)
+Elapsed Init time:			0.004776 (s)
+Elapsed Compute time:			3.185554 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			3.153164 (s)
+Elapsed Total time:			3.190330 (s)
 ==done==
 Reynolds number:		1.006106567383E+01
-Elapsed Init time:			0.006098 (s)
-Elapsed Compute time:			3.135828 (s)
+Elapsed Init time:			0.006111 (s)
+Elapsed Compute time:			3.181198 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			3.141926 (s)
+Elapsed Total time:			3.187309 (s)
 ==done==
 Reynolds number:		3.376198053360E+00
-Elapsed Init time:			0.049488 (s)
-Elapsed Compute time:			17.287995 (s)
+Elapsed Init time:			0.019822 (s)
+Elapsed Compute time:			14.376870 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			17.337483 (s)
+Elapsed Total time:			14.396692 (s)
 ==done==
 Reynolds number:		3.376198053360E+00
-Elapsed Init time:			0.024728 (s)
-Elapsed Compute time:			15.221590 (s)
+Elapsed Init time:			0.024924 (s)
+Elapsed Compute time:			14.272066 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			15.246318 (s)
+Elapsed Total time:			14.296990 (s)
 ==done==
 Reynolds number:		3.376198053360E+00
-Elapsed Init time:			0.026544 (s)
-Elapsed Compute time:			15.142986 (s)
+Elapsed Init time:			0.025729 (s)
+Elapsed Compute time:			14.871001 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			15.169530 (s)
-[1.112298, 3.151188, 15.917777000000001]
+Elapsed Total time:			14.896730 (s)
+[1.0666426666666666, 3.1900226666666662, 14.530137333333334]
 ==done==
 Reynolds number:		9.756125450134E+00
-Elapsed Init time:			0.009533 (s)
-Elapsed Compute time:			1.120343 (s)
+Elapsed Init time:			0.008336 (s)
+Elapsed Compute time:			1.107496 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			1.129876 (s)
+Elapsed Total time:			1.115832 (s)
 python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
 Total difference in av_vels : 1.860228273229E-01
 Biggest difference (at step 39866) : 1.021271854000E-05
