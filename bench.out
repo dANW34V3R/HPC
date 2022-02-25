@@ -1,70 +1,70 @@
-Running on host compute103.bc4.acrc.priv
-Time is Fri Feb 25 17:26:16 GMT 2022
+Running on host compute107.bc4.acrc.priv
+Time is Fri Feb 25 17:44:17 GMT 2022
 Directory is /user/home/ra18837/HPC/advanced-hpc-lbm
-Slurm job ID is 10065559
+Slurm job ID is 10065590
 This job runs on the following machines:
-compute103
+compute107
 ==done==
-Reynolds number:		9.756126403809E+00
-Elapsed Init time:			0.012010 (s)
-Elapsed Compute time:			0.799270 (s)
+Reynolds number:		9.756125450134E+00
+Elapsed Init time:			0.026077 (s)
+Elapsed Compute time:			1.172454 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			0.811280 (s)
+Elapsed Total time:			1.198531 (s)
 ==done==
-Reynolds number:		9.756126403809E+00
-Elapsed Init time:			0.004699 (s)
-Elapsed Compute time:			0.680637 (s)
+Reynolds number:		9.756125450134E+00
+Elapsed Init time:			0.004760 (s)
+Elapsed Compute time:			1.071381 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			0.685336 (s)
+Elapsed Total time:			1.076141 (s)
 ==done==
-Reynolds number:		9.756126403809E+00
-Elapsed Init time:			0.005130 (s)
-Elapsed Compute time:			0.681367 (s)
+Reynolds number:		9.756125450134E+00
+Elapsed Init time:			0.005256 (s)
+Elapsed Compute time:			1.056966 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			0.686497 (s)
+Elapsed Total time:			1.062222 (s)
 ==done==
-Reynolds number:		1.006107234955E+01
-Elapsed Init time:			0.006562 (s)
-Elapsed Compute time:			2.869876 (s)
+Reynolds number:		1.006106567383E+01
+Elapsed Init time:			0.027662 (s)
+Elapsed Compute time:			3.130812 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			2.876438 (s)
+Elapsed Total time:			3.158474 (s)
 ==done==
-Reynolds number:		1.006107234955E+01
-Elapsed Init time:			0.005521 (s)
-Elapsed Compute time:			3.374072 (s)
+Reynolds number:		1.006106567383E+01
+Elapsed Init time:			0.005150 (s)
+Elapsed Compute time:			3.148014 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			3.379593 (s)
+Elapsed Total time:			3.153164 (s)
 ==done==
-Reynolds number:		1.006107234955E+01
-Elapsed Init time:			0.005670 (s)
-Elapsed Compute time:			2.825625 (s)
+Reynolds number:		1.006106567383E+01
+Elapsed Init time:			0.006098 (s)
+Elapsed Compute time:			3.135828 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			2.831295 (s)
+Elapsed Total time:			3.141926 (s)
 ==done==
-Reynolds number:		3.376200199127E+00
-Elapsed Init time:			0.026150 (s)
-Elapsed Compute time:			16.214236 (s)
-Elapsed Collate time:			0.000001 (s)
-Elapsed Total time:			16.240387 (s)
-==done==
-Reynolds number:		3.376200199127E+00
-Elapsed Init time:			0.024036 (s)
-Elapsed Compute time:			17.573243 (s)
+Reynolds number:		3.376198053360E+00
+Elapsed Init time:			0.049488 (s)
+Elapsed Compute time:			17.287995 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			17.597279 (s)
+Elapsed Total time:			17.337483 (s)
 ==done==
-Reynolds number:		3.376200199127E+00
-Elapsed Init time:			0.026794 (s)
-Elapsed Compute time:			13.668448 (s)
+Reynolds number:		3.376198053360E+00
+Elapsed Init time:			0.024728 (s)
+Elapsed Compute time:			15.221590 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			13.695242 (s)
-[0.7277043333333334, 3.029108666666667, 15.844302666666666]
+Elapsed Total time:			15.246318 (s)
 ==done==
-Reynolds number:		9.756126403809E+00
-Elapsed Init time:			0.009521 (s)
-Elapsed Compute time:			0.783678 (s)
+Reynolds number:		3.376198053360E+00
+Elapsed Init time:			0.026544 (s)
+Elapsed Compute time:			15.142986 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			0.793199 (s)
+Elapsed Total time:			15.169530 (s)
+[1.112298, 3.151188, 15.917777000000001]
+==done==
+Reynolds number:		9.756125450134E+00
+Elapsed Init time:			0.009533 (s)
+Elapsed Compute time:			1.120343 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			1.129876 (s)
 python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
 Total difference in av_vels : 1.860228273229E-01
 Biggest difference (at step 39866) : 1.021271854000E-05
