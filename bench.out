@@ -1,77 +1,77 @@
-Running on host compute100.bc4.acrc.priv
-Time is Wed Feb 16 23:39:07 GMT 2022
+Running on host compute103.bc4.acrc.priv
+Time is Fri Feb 25 17:26:16 GMT 2022
 Directory is /user/home/ra18837/HPC/advanced-hpc-lbm
-Slurm job ID is 10046041
+Slurm job ID is 10065559
 This job runs on the following machines:
-compute100
+compute103
 ==done==
-Reynolds number:		9.756120681763E+00
-Elapsed Init time:			0.003095 (s)
-Elapsed Compute time:			5.779160 (s)
+Reynolds number:		9.756126403809E+00
+Elapsed Init time:			0.012010 (s)
+Elapsed Compute time:			0.799270 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			5.782255 (s)
+Elapsed Total time:			0.811280 (s)
 ==done==
-Reynolds number:		9.756120681763E+00
-Elapsed Init time:			0.000487 (s)
-Elapsed Compute time:			5.843127 (s)
+Reynolds number:		9.756126403809E+00
+Elapsed Init time:			0.004699 (s)
+Elapsed Compute time:			0.680637 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			5.843614 (s)
+Elapsed Total time:			0.685336 (s)
 ==done==
-Reynolds number:		9.756120681763E+00
-Elapsed Init time:			0.001287 (s)
-Elapsed Compute time:			5.759521 (s)
+Reynolds number:		9.756126403809E+00
+Elapsed Init time:			0.005130 (s)
+Elapsed Compute time:			0.681367 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			0.686497 (s)
+==done==
+Reynolds number:		1.006107234955E+01
+Elapsed Init time:			0.006562 (s)
+Elapsed Compute time:			2.869876 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			2.876438 (s)
+==done==
+Reynolds number:		1.006107234955E+01
+Elapsed Init time:			0.005521 (s)
+Elapsed Compute time:			3.374072 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			3.379593 (s)
+==done==
+Reynolds number:		1.006107234955E+01
+Elapsed Init time:			0.005670 (s)
+Elapsed Compute time:			2.825625 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			2.831295 (s)
+==done==
+Reynolds number:		3.376200199127E+00
+Elapsed Init time:			0.026150 (s)
+Elapsed Compute time:			16.214236 (s)
 Elapsed Collate time:			0.000001 (s)
-Elapsed Total time:			5.760809 (s)
+Elapsed Total time:			16.240387 (s)
 ==done==
-Reynolds number:		3.716395568848E+01
-Elapsed Init time:			0.002459 (s)
-Elapsed Compute time:			13.557320 (s)
+Reynolds number:		3.376200199127E+00
+Elapsed Init time:			0.024036 (s)
+Elapsed Compute time:			17.573243 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			13.559779 (s)
+Elapsed Total time:			17.597279 (s)
 ==done==
-Reynolds number:		3.716395568848E+01
-Elapsed Init time:			0.000935 (s)
-Elapsed Compute time:			13.365464 (s)
+Reynolds number:		3.376200199127E+00
+Elapsed Init time:			0.026794 (s)
+Elapsed Compute time:			13.668448 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			13.366399 (s)
+Elapsed Total time:			13.695242 (s)
+[0.7277043333333334, 3.029108666666667, 15.844302666666666]
 ==done==
-Reynolds number:		3.716395568848E+01
-Elapsed Init time:			0.000934 (s)
-Elapsed Compute time:			13.355504 (s)
+Reynolds number:		9.756126403809E+00
+Elapsed Init time:			0.009521 (s)
+Elapsed Compute time:			0.783678 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			13.356438 (s)
-==done==
-Reynolds number:		3.376197814941E+00
-Elapsed Init time:			0.039043 (s)
-Elapsed Compute time:			283.941313 (s)
-Elapsed Collate time:			0.000001 (s)
-Elapsed Total time:			283.980357 (s)
-==done==
-Reynolds number:		3.376197814941E+00
-Elapsed Init time:			0.037545 (s)
-Elapsed Compute time:			266.124284 (s)
-Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			266.161829 (s)
-==done==
-Reynolds number:		3.376197814941E+00
-Elapsed Init time:			0.036521 (s)
-Elapsed Compute time:			265.167430 (s)
-Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			265.203951 (s)
-[5.795559333333333, 13.427538666666669, 271.78204566666665]
-==done==
-Reynolds number:		9.757323265076E+00
-Elapsed Init time:			0.000545 (s)
-Elapsed Compute time:			28.845206 (s)
-Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			28.845751 (s)
+Elapsed Total time:			0.793199 (s)
 python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
-Total difference in av_vels : 1.339938152857E-01
-Biggest difference (at step 39604) : 8.526073940000E-06
-  1.316903252155E-02 vs. 1.317755859549E-02 = 0.065%
+Total difference in av_vels : 1.860228273229E-01
+Biggest difference (at step 39866) : 1.021271854000E-05
+  1.317792106420E-02 vs. 1.318813378274E-02 = 0.077%
 
-Total difference in final_state : 3.562588944182E-01
-Biggest difference (at coord (1,126)) : -2.270662043000E-05
-  3.325501084328E-02 vs. 3.323230422285E-02 = -0.068%
+Total difference in final_state : 3.645364149559E-01
+Biggest difference (at coord (98,79)) : -2.303588262999E-05
+  3.333968296647E-02 vs. 3.331664708384E-02 = -0.069%
 
 Both tests passed!
