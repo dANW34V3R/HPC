@@ -236,6 +236,15 @@ int accelerate_flow(const t_param params, t_speed_arr* restrict cells,
 
 #pragma omp parallel for simd
   for (int ii = 0; ii < params.nx; ii++) {
+    __assume_aligned(cells->s0, 64);
+    __assume_aligned(cells->s1, 64);
+    __assume_aligned(cells->s2, 64);
+    __assume_aligned(cells->s3, 64);
+    __assume_aligned(cells->s4, 64);
+    __assume_aligned(cells->s5, 64);
+    __assume_aligned(cells->s6, 64);
+    __assume_aligned(cells->s7, 64);
+
     const int cellIndex = ii + jj * params.nx;
     /* if the cell is not occupied and
     ** we don't send a negative density */
@@ -440,6 +449,15 @@ float av_velocity(const t_param params, t_speed_arr* cells, int* obstacles) {
   /* loop over all non-blocked cells */
   for (int jj = 0; jj < params.ny; jj++) {
     for (int ii = 0; ii < params.nx; ii++) {
+      __assume_aligned(cells->s0, 64);
+      __assume_aligned(cells->s1, 64);
+      __assume_aligned(cells->s2, 64);
+      __assume_aligned(cells->s3, 64);
+      __assume_aligned(cells->s4, 64);
+      __assume_aligned(cells->s5, 64);
+      __assume_aligned(cells->s6, 64);
+      __assume_aligned(cells->s7, 64);
+
       const int cellIndex = ii + jj * params.nx;
 
       /* ignore occupied cells */
