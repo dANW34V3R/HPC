@@ -234,6 +234,9 @@ int accelerate_flow(const t_param params, t_speed_arr* restrict cells,
   /* modify the 2nd row of the grid */
   int jj = params.ny - 2;
 
+  __assume((params.nx) % 2 == 0);
+  __assume((params.nx) > 127);
+  __assume((params.nx) < 1025);
 #pragma omp parallel for simd
   for (int ii = 0; ii < params.nx; ii++) {
     __assume_aligned(cells->s0, 64);
@@ -276,6 +279,12 @@ int propagate(const t_param params, t_speed_arr* restrict cells,
   int tot_cells = 0;
   float tot_u = 0.f;
 
+  __assume((params.nx) % 2 == 0);
+  __assume((params.ny) % 2 == 0);
+  __assume((params.nx) > 127);
+  __assume((params.ny) > 127);
+  __assume((params.nx) < 1025);
+  __assume((params.ny) < 1025);
 #pragma omp parallel for reduction(+ : tot_u) reduction(+ : tot_cells)
   /* loop over _all_ inner cells */
   for (int jj = 0; jj < params.ny; jj++) {
@@ -445,6 +454,12 @@ float av_velocity(const t_param params, t_speed_arr* cells, int* obstacles) {
   /* initialise */
   tot_u = 0.f;
 
+  __assume((params.nx) % 2 == 0);
+  __assume((params.ny) % 2 == 0);
+  __assume((params.nx) > 127);
+  __assume((params.ny) > 127);
+  __assume((params.nx) < 1025);
+  __assume((params.ny) < 1025);
 #pragma omp parallel for reduction(+ : tot_u) reduction(+ : tot_cells)
   /* loop over all non-blocked cells */
   for (int jj = 0; jj < params.ny; jj++) {
