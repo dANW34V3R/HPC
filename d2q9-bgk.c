@@ -99,8 +99,9 @@ int initialise(const char* paramfile, const char* obstaclefile, t_param* params,
 int timestep(const t_param params, t_speed* cells, t_speed* tmp_cells,
              int* obstacles);
 int accelerate_flow(const t_param params, t_speed* cells, int* obstacles);
-int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells,
-              int* obstacles);
+int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells);
+int rebound(const t_param params, t_speed* cells, t_speed* tmp_cells,
+            int* obstacles);
 int collision(const t_param params, t_speed* cells, t_speed* tmp_cells,
               int* obstacles);
 int write_values(const t_param params, t_speed* cells, int* obstacles,
@@ -201,7 +202,8 @@ int main(int argc, char* argv[]) {
 int timestep(const t_param params, t_speed* cells, t_speed* tmp_cells,
              int* obstacles) {
   accelerate_flow(params, cells, obstacles);
-  propagate(params, cells, tmp_cells, obstacles);
+  propagate(params, cells, tmp_cells);
+  rebound(params, cells, tmp_cells, obstacles);
   collision(params, cells, tmp_cells, obstacles);
   return EXIT_SUCCESS;
 }
@@ -235,8 +237,7 @@ int accelerate_flow(const t_param params, t_speed* cells, int* obstacles) {
   return EXIT_SUCCESS;
 }
 
-int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells,
-              int* obstacles) {
+int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells) {
   /* loop over _all_ cells */
   for (int jj = 0; jj < params.ny; jj++) {
     for (int ii = 0; ii < params.nx; ii++) {
@@ -267,10 +268,17 @@ int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells,
           cells[x_e + y_n * params.nx].speeds[7]; /* south-west */
       tmp_cells[ii + jj * params.nx].speeds[8] =
           cells[x_w + y_n * params.nx].speeds[8]; /* south-east */
+    }
+  }
 
-      /* REBOUND
-       * --------------------------------------------------------------------------*/
+  return EXIT_SUCCESS;
+}
 
+int rebound(const t_param params, t_speed* cells, t_speed* tmp_cells,
+            int* obstacles) {
+  /* loop over the cells in the grid */
+  for (int jj = 0; jj < params.ny; jj++) {
+    for (int ii = 0; ii < params.nx; ii++) {
       /* if the cell contains an obstacle */
       if (obstacles[jj * params.nx + ii]) {
         /* called after propagate, so taking values from scratch space
