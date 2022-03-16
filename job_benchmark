@@ -27,17 +27,24 @@ echo `echo $SLURM_JOB_NODELIST | uniq`
 #./d2q9-bgk input_1024x1024.params obstacles_1024x1024.dat
 
 
-OMP_NUM_THREADS=28 OMP_PROC_BIND=true OMP_PLACES=cores ./openmp input_128x128.params obstacles_128x128.dat
-OMP_NUM_THREADS=28 OMP_PROC_BIND=true OMP_PLACES=cores ./openmp input_128x128.params obstacles_128x128.dat
-OMP_NUM_THREADS=28 OMP_PROC_BIND=true OMP_PLACES=cores ./openmp input_128x128.params obstacles_128x128.dat
+OMP_NUM_THREADS=28 OMP_PROC_BIND=true OMP_PLACES=cores ./d2q9-bgk input_128x128.params obstacles_128x128.dat
+OMP_NUM_THREADS=28 OMP_PROC_BIND=true OMP_PLACES=cores ./d2q9-bgk input_128x128.params obstacles_128x128.dat
+OMP_NUM_THREADS=28 OMP_PROC_BIND=true OMP_PLACES=cores ./d2q9-bgk input_128x128.params obstacles_128x128.dat
 
-OMP_NUM_THREADS=28 OMP_PROC_BIND=true OMP_PLACES=cores ./openmp input_256x256.params obstacles_256x256.dat
-OMP_NUM_THREADS=28 OMP_PROC_BIND=true OMP_PLACES=cores ./openmp input_256x256.params obstacles_256x256.dat
-OMP_NUM_THREADS=28 OMP_PROC_BIND=true OMP_PLACES=cores ./openmp input_256x256.params obstacles_256x256.dat
+OMP_NUM_THREADS=28 OMP_PROC_BIND=true OMP_PLACES=cores ./d2q9-bgk input_256x256.params obstacles_256x256.dat
+OMP_NUM_THREADS=28 OMP_PROC_BIND=true OMP_PLACES=cores ./d2q9-bgk input_256x256.params obstacles_256x256.dat
+OMP_NUM_THREADS=28 OMP_PROC_BIND=true OMP_PLACES=cores ./d2q9-bgk input_256x256.params obstacles_256x256.dat
 
-OMP_NUM_THREADS=28 OMP_PROC_BIND=true OMP_PLACES=cores ./openmp input_1024x1024.params obstacles_1024x1024.dat
-OMP_NUM_THREADS=28 OMP_PROC_BIND=true OMP_PLACES=cores ./openmp input_1024x1024.params obstacles_1024x1024.dat
-OMP_NUM_THREADS=28 OMP_PROC_BIND=true OMP_PLACES=cores ./openmp input_1024x1024.params obstacles_1024x1024.dat
+OMP_NUM_THREADS=28 OMP_PROC_BIND=true OMP_PLACES=cores ./d2q9-bgk input_1024x1024.params obstacles_1024x1024.dat
+OMP_NUM_THREADS=28 OMP_PROC_BIND=true OMP_PLACES=cores ./d2q9-bgk input_1024x1024.params obstacles_1024x1024.dat
+OMP_NUM_THREADS=28 OMP_PROC_BIND=true OMP_PLACES=cores ./d2q9-bgk input_1024x1024.params obstacles_1024x1024.dat
+
+#export OMP_NUM_THREADS=28
+#export OMP_PROC_BIND=true
+#export OMP_PLACES=cores
+
+#for i in {1..30}; do ./d2q9-bgk /user/home/ra18837/HPC/advanced-hpc-lbm/input_1024x1024.params /user/home/ra18837/HPC/advanced-hpc-lbm/obstacles_1024x1024.dat; done
+
 
 python3 collate.py
 
