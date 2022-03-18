@@ -1,17 +1,22 @@
-Running on host compute105.bc4.acrc.priv
-Time is Fri Feb 25 17:41:16 GMT 2022
+Running on host compute216.bc4.acrc.priv
+Time is Wed Mar 16 11:40:32 GMT 2022
 Directory is /user/home/ra18837/HPC/advanced-hpc-lbm
-Slurm job ID is 10065588
+Slurm job ID is 10155885
 This job runs on the following machines:
-compute105
+compute216
 ==done==
-Reynolds number:		2.658910453320E-01
-Elapsed Init time:			0.043935 (s)
-Elapsed Compute time:			11.705122 (s)
+Reynolds number:		9.756125450134E+00
+Elapsed Init time:			0.028481 (s)
+Elapsed Compute time:			0.784983 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			11.749057 (s)
+Elapsed Total time:			0.813464 (s)
 python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
-check/check.py:75: DeprecationWarning: elementwise comparison failed; this will raise an error in the future.
-  if np.any(final_state_ref[:,0:2] != final_state_sim[:,0:2]):
-Final state files coordinates were not the same
-make: *** [check] Error 1
+Total difference in av_vels : 1.860228273229E-01
+Biggest difference (at step 39866) : 1.021271854000E-05
+  1.317792106420E-02 vs. 1.318813378274E-02 = 0.077%
+
+Total difference in final_state : 3.645364149559E-01
+Biggest difference (at coord (98,79)) : -2.303588262999E-05
+  3.333968296647E-02 vs. 3.331664708384E-02 = -0.069%
+
+Both tests passed!

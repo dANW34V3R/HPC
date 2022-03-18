@@ -1,71 +1,70 @@
-Running on host compute300.bc4.acrc.priv
-Time is Wed Mar 16 00:11:53 GMT 2022
+Running on host compute216.bc4.acrc.priv
+Time is Wed Mar 16 11:52:34 GMT 2022
 Directory is /user/home/ra18837/HPC/advanced-hpc-lbm
-Slurm job ID is 10155581
+Slurm job ID is 10155905
 This job runs on the following machines:
-compute300
+compute216
 ==done==
 Reynolds number:		9.756125450134E+00
-Elapsed Init time:			0.011244 (s)
-Elapsed Compute time:			0.801162 (s)
-Elapsed Collate time:			0.000001 (s)
-Elapsed Total time:			0.812407 (s)
-==done==
-Reynolds number:		9.756125450134E+00
-Elapsed Init time:			0.004838 (s)
-Elapsed Compute time:			0.658108 (s)
+Elapsed Init time:			0.010972 (s)
+Elapsed Compute time:			0.774010 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			0.662946 (s)
+Elapsed Total time:			0.784982 (s)
 ==done==
 Reynolds number:		9.756125450134E+00
-Elapsed Init time:			0.005984 (s)
-Elapsed Compute time:			0.666990 (s)
+Elapsed Init time:			0.005041 (s)
+Elapsed Compute time:			0.658157 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			0.672974 (s)
+Elapsed Total time:			0.663198 (s)
+==done==
+Reynolds number:		9.756125450134E+00
+Elapsed Init time:			0.005007 (s)
+Elapsed Compute time:			0.679706 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			0.684713 (s)
 ==done==
 Reynolds number:		1.006106567383E+01
-Elapsed Init time:			0.006360 (s)
-Elapsed Compute time:			3.348906 (s)
+Elapsed Init time:			0.005638 (s)
+Elapsed Compute time:			3.360720 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			3.355266 (s)
+Elapsed Total time:			3.366358 (s)
 ==done==
 Reynolds number:		1.006106567383E+01
-Elapsed Init time:			0.004951 (s)
-Elapsed Compute time:			3.368795 (s)
+Elapsed Init time:			0.006006 (s)
+Elapsed Compute time:			3.396726 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			3.373746 (s)
+Elapsed Total time:			3.402732 (s)
 ==done==
 Reynolds number:		1.006106567383E+01
-Elapsed Init time:			0.005169 (s)
-Elapsed Compute time:			3.326124 (s)
-Elapsed Collate time:			0.000001 (s)
-Elapsed Total time:			3.331294 (s)
-==done==
-Reynolds number:		3.376198053360E+00
-Elapsed Init time:			0.018520 (s)
-Elapsed Compute time:			11.164975 (s)
-Elapsed Collate time:			0.000001 (s)
-Elapsed Total time:			11.183496 (s)
-==done==
-Reynolds number:		3.376198053360E+00
-Elapsed Init time:			0.024958 (s)
-Elapsed Compute time:			14.876342 (s)
+Elapsed Init time:			0.005451 (s)
+Elapsed Compute time:			3.383329 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			14.901300 (s)
+Elapsed Total time:			3.388780 (s)
 ==done==
 Reynolds number:		3.376198053360E+00
-Elapsed Init time:			0.025948 (s)
-Elapsed Compute time:			12.647314 (s)
+Elapsed Init time:			0.020010 (s)
+Elapsed Compute time:			15.107735 (s)
 Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			12.673262 (s)
-[0.716109, 3.3534353333333335, 12.919352666666667]
-5.3166213286572646
+Elapsed Total time:			15.127745 (s)
+==done==
+Reynolds number:		3.376198053360E+00
+Elapsed Init time:			0.025837 (s)
+Elapsed Compute time:			15.167065 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			15.192902 (s)
+==done==
+Reynolds number:		3.376198053360E+00
+Elapsed Init time:			0.025891 (s)
+Elapsed Compute time:			16.011628 (s)
+Elapsed Collate time:			0.000001 (s)
+Elapsed Total time:			16.037520 (s)
+[0.7109643333333332, 3.385956666666667, 15.452722333333334]
 ==done==
 Reynolds number:		9.756125450134E+00
-Elapsed Init time:			0.009249 (s)
-Elapsed Compute time:			1.106814 (s)
-Elapsed Collate time:			0.000000 (s)
-Elapsed Total time:			1.116063 (s)
+Elapsed Init time:			0.007933 (s)
+Elapsed Compute time:			1.112862 (s)
+Elapsed Collate time:			0.000001 (s)
+Elapsed Total time:			1.120796 (s)
 python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
 Total difference in av_vels : 1.860228273229E-01
 Biggest difference (at step 39866) : 1.021271854000E-05
