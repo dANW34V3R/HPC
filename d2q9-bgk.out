@@ -1,23 +1,63 @@
 Running on host compute101.bc4.acrc.priv
-Time is Tue Mar 29 23:03:01 BST 2022
+Time is Wed Mar 30 13:15:41 BST 2022
 Directory is /user/home/ra18837/HPC/advanced-hpc-lbm
-Slurm job ID is 10178377
+Slurm job ID is 10180179
 This job runs on the following machines:
 compute[101-103,106]
 rm -f d2q9-bgk
 mpiicc -std=c99 -Wall -Ofast -fopenmp  d2q9-bgk.c -lm -o d2q9-bgk
+OMP_NUM_THREADS: 1, RANK: 2 of 3, node compute103.bc4.acrc.priv, start:682 end:1023
+OMP_NUM_THREADS: 1, RANK: 1 of 3, node compute102.bc4.acrc.priv, start:341 end:681
+OMP_NUM_THREADS: 1, RANK: 0 of 3, node compute101.bc4.acrc.priv, start:0 end:340
 ==done==
-Reynolds number:		3.376517295837E+00
-Elapsed Init time:			0.033166 (s)
-Elapsed Compute time:			9.413352 (s)
-Elapsed Collate time:			0.003243 (s)
-Elapsed Total time:			9.449761 (s)
-Total difference in av_vels : 1.117204549737E-02
-Biggest difference (at step 19367) : 2.050699669000E-06
-  4.392316099256E-03 vs. 4.394366798925E-03 = 0.047%
+Reynolds number:		3.376530885696E+00
+Elapsed Init time:			0.037673 (s)
+Elapsed Compute time:			7.074172 (s)
+Elapsed Collate time:			0.002796 (s)
+Elapsed Total time:			7.114641 (s)
+Total difference in av_vels : 1.117246511804E-02
+Biggest difference (at step 19367) : 2.049768346000E-06
+  4.392317030579E-03 vs. 4.394366798925E-03 = 0.047%
 
 Total difference in final_state : 1.111649332514E+01
 Biggest difference (at coord (340,7)) : -1.226429251000E-05
   3.337002918124E-02 vs. 3.335776488873E-02 = -0.037%
 
 Both tests passed!
+OMP_NUM_THREADS: 1, RANK: 1 of 3, node compute102.bc4.acrc.priv, start:341 end:681
+OMP_NUM_THREADS: 1, RANK: 0 of 3, node compute101.bc4.acrc.priv, start:0 end:340
+OMP_NUM_THREADS: 1, RANK: 2 of 3, node compute103.bc4.acrc.priv, start:682 end:1023
+==done==
+Reynolds number:		3.376530885696E+00
+Elapsed Init time:			0.035090 (s)
+Elapsed Compute time:			7.204674 (s)
+Elapsed Collate time:			0.002790 (s)
+Elapsed Total time:			7.242554 (s)
+Total difference in av_vels : 1.117246511804E-02
+Biggest difference (at step 19367) : 2.049768346000E-06
+  4.392317030579E-03 vs. 4.394366798925E-03 = 0.047%
+
+Total difference in final_state : 1.111649332514E+01
+Biggest difference (at coord (340,7)) : -1.226429251000E-05
+  3.337002918124E-02 vs. 3.335776488873E-02 = -0.037%
+
+Both tests passed!
+OMP_NUM_THREADS: 1, RANK: 1 of 3, node compute102.bc4.acrc.priv, start:341 end:681
+OMP_NUM_THREADS: 1, RANK: 0 of 3, node compute101.bc4.acrc.priv, start:0 end:340
+OMP_NUM_THREADS: 1, RANK: 2 of 3, node compute103.bc4.acrc.priv, start:682 end:1023
+==done==
+Reynolds number:		3.376530885696E+00
+Elapsed Init time:			0.038452 (s)
+Elapsed Compute time:			7.226405 (s)
+Elapsed Collate time:			0.002666 (s)
+Elapsed Total time:			7.267523 (s)
+Total difference in av_vels : 1.117246511804E-02
+Biggest difference (at step 19367) : 2.049768346000E-06
+  4.392317030579E-03 vs. 4.394366798925E-03 = 0.047%
+
+Total difference in final_state : 1.111649332514E+01
+Biggest difference (at coord (340,7)) : -1.226429251000E-05
+  3.337002918124E-02 vs. 3.335776488873E-02 = -0.037%
+
+Both tests passed!
+[7.208239333333334]

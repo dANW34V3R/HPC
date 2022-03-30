@@ -1,6 +1,6 @@
 import re
 
-with open('bench.out') as f:
+with open('d2q9-bgk.out') as f:
     lines = f.readlines()
     times = []
     for line in lines:
