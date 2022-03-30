@@ -217,66 +217,66 @@ int main(int argc, char* argv[]) {
   rankAfter = (rank + 1) % nprocs;
 
   //  printf("OMP_NUM_THREADS: %d, RANK: %d of %d, node %s, start:%d end:%d\n", omp_get_num_threads(), rank, nprocs, &name[0],
-         startRow, endRow);
+  //         startRow, endRow);
 
-         // MPI init end -----------------------------------------------------------
+  // MPI init end -----------------------------------------------------------
 
-         t_speed_arr* cells_ptr = &cells;
-         t_speed_arr* tmp_cells_ptr = &tmp_cells;
+  t_speed_arr* cells_ptr = &cells;
+  t_speed_arr* tmp_cells_ptr = &tmp_cells;
 
-         /* Init time stops here, compute time starts*/
-         gettimeofday(&timstr, NULL);
-         init_toc = timstr.tv_sec + (timstr.tv_usec / 1000000.0);
-         comp_tic = init_toc;
+  /* Init time stops here, compute time starts*/
+  gettimeofday(&timstr, NULL);
+  init_toc = timstr.tv_sec + (timstr.tv_usec / 1000000.0);
+  comp_tic = init_toc;
 
-         //  params.maxIters = 1;
+  //  params.maxIters = 1;
 
-         int tt;
+  int tt;
 
-         for (tt = 0; tt < params.maxIters; tt++) {
-           timestep(params, cells_ptr, tmp_cells_ptr, obstacles, av_vels, tt);
+  for (tt = 0; tt < params.maxIters; tt++) {
+    timestep(params, cells_ptr, tmp_cells_ptr, obstacles, av_vels, tt);
 
-           t_speed_arr* temp = cells_ptr;
-           cells_ptr = tmp_cells_ptr;
-           tmp_cells_ptr = temp;
+    t_speed_arr* temp = cells_ptr;
+    cells_ptr = tmp_cells_ptr;
+    tmp_cells_ptr = temp;
 
 #ifdef DEBUG
-           printf("==timestep: %d==\n", tt);
-           printf("av velocity: %.12E\n", av_vels[tt]);
-           printf("tot density: %.12E\n", total_density(params, cells));
+    printf("==timestep: %d==\n", tt);
+    printf("av velocity: %.12E\n", av_vels[tt]);
+    printf("tot density: %.12E\n", total_density(params, cells));
 #endif
-         }
+  }
 
-         /* Compute time stops here, collate time starts*/
-         gettimeofday(&timstr, NULL);
-         comp_toc = timstr.tv_sec + (timstr.tv_usec / 1000000.0);
-         col_tic = comp_toc;
+  /* Compute time stops here, collate time starts*/
+  gettimeofday(&timstr, NULL);
+  comp_toc = timstr.tv_sec + (timstr.tv_usec / 1000000.0);
+  col_tic = comp_toc;
 
-         // Collate data from ranks here
+  // Collate data from ranks here
 
-         collateData(params, cells_ptr, av_vels, tt);
+  collateData(params, cells_ptr, av_vels, tt);
 
-         /* Total/collate time stops here.*/
-         gettimeofday(&timstr, NULL);
-         col_toc = timstr.tv_sec + (timstr.tv_usec / 1000000.0);
-         tot_toc = col_toc;
+  /* Total/collate time stops here.*/
+  gettimeofday(&timstr, NULL);
+  col_toc = timstr.tv_sec + (timstr.tv_usec / 1000000.0);
+  tot_toc = col_toc;
 
-         if (rank == 0) {
-           /* write final values and free memory */
-           printf("==done==\n");
-           printf("Reynolds number:\t\t%.12E\n",
-                  calc_reynolds(params, &cells, obstacles));
-           printf("Elapsed Init time:\t\t\t%.6lf (s)\n", init_toc - init_tic);
-           printf("Elapsed Compute time:\t\t\t%.6lf (s)\n", comp_toc - comp_tic);
-           printf("Elapsed Collate time:\t\t\t%.6lf (s)\n", col_toc - col_tic);
-           printf("Elapsed Total time:\t\t\t%.6lf (s)\n", tot_toc - tot_tic);
-           write_values(params, &cells, obstacles, av_vels);
-         }
-         finalise(&params, &cells, &tmp_cells, &obstacles, &av_vels);
+  if (rank == 0) {
+    /* write final values and free memory */
+    printf("==done==\n");
+    printf("Reynolds number:\t\t%.12E\n",
+           calc_reynolds(params, &cells, obstacles));
+    printf("Elapsed Init time:\t\t\t%.6lf (s)\n", init_toc - init_tic);
+    printf("Elapsed Compute time:\t\t\t%.6lf (s)\n", comp_toc - comp_tic);
+    printf("Elapsed Collate time:\t\t\t%.6lf (s)\n", col_toc - col_tic);
+    printf("Elapsed Total time:\t\t\t%.6lf (s)\n", tot_toc - tot_tic);
+    write_values(params, &cells, obstacles, av_vels);
+  }
+  finalise(&params, &cells, &tmp_cells, &obstacles, &av_vels);
 
-         MPI_Finalize();
+  MPI_Finalize();
 
-         return EXIT_SUCCESS;
+  return EXIT_SUCCESS;
 }
 
 int timestep(const t_param params, t_speed_arr* cells, t_speed_arr* tmp_cells,
