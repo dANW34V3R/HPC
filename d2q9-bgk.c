@@ -54,20 +54,25 @@
 
 #include <math.h>
 #include <mm_malloc.h>
+#include <mpi.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/resource.h>
 #include <sys/time.h>
 #include <time.h>
+//
+//#ifndef MPI_INCLUDED
+//#include <mpi/mpi.h>
+//#endif
 
 #define NSPEEDS 9
 #define FINALSTATEFILE "final_state.dat"
 #define AVVELSFILE "av_vels.dat"
 
 const float c_sq = 1.f / 3.f; /* square of speed of sound */
-const float c_sqRecip = 1.f / c_sq;
-const float twoc_sq_sqRecip = 1.f / (2 * c_sq * c_sq);
-const float twoc_sqRecip = 1.f / (2 * c_sq);
+const float c_sqRecip = 1.f / (1.f / 3.f);
+const float twoc_sq_sqRecip = 1.f / (2 * (1.f / 3.f) * (1.f / 3.f));
+const float twoc_sqRecip = 1.f / (2 * (1.f / 3.f));
 
 /* struct to hold the parameter values */
 typedef struct {
@@ -132,9 +137,24 @@ float av_velocity(const t_param params, t_speed_arr* cells, int* obstacles);
 /* calculate Reynolds number */
 float calc_reynolds(const t_param params, t_speed_arr* cells, int* obstacles);
 
+void collateData(const t_param params, t_speed_arr* cells, float* restrict av_vels, int tt);
+
 /* utility functions */
 void die(const char* message, const int line, const char* file);
 void usage(const char* exe);
+
+int startRow;
+int endRow;
+int nprocs, rank;
+
+int startRowIndex;
+int startRowHaloIndex;
+int endRowIndex;
+int endRowHaloIndex;
+
+int rankBefore;
+int rankAfter;
+float tot_cells_glob;
 
 /*
 ** main program:
@@ -148,7 +168,7 @@ int main(int argc, char* argv[]) {
   t_speed_arr tmp_cells;     /* scratch space */
   int* obstacles = NULL;     /* grid indicating which cells are blocked */
   float* av_vels =
-      NULL; /* a record of the av. velocity computed for each timestep */
+      NULL;              /* a record of the av. velocity computed for each timestep */
   struct timeval timstr; /* structure to hold elapsed time */
   double tot_tic, tot_toc, init_tic, init_toc, comp_tic, comp_toc, col_tic,
       col_toc; /* floating point numbers to calculate elapsed wallclock time */
@@ -161,6 +181,18 @@ int main(int argc, char* argv[]) {
     obstaclefile = argv[2];
   }
 
+  // MPI init -----------------------------------------------------------
+
+  MPI_Init(&argc, &argv);
+
+  MPI_Comm_size(MPI_COMM_WORLD, &nprocs);
+  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
+  char name[100];
+  int resultlen;
+
+  MPI_Get_processor_name(&name[0], &resultlen);
+
   /* Total/init time starts here: initialise our data structures and load values
    * from file */
   gettimeofday(&timstr, NULL);
@@ -168,6 +200,22 @@ int main(int argc, char* argv[]) {
   init_tic = tot_tic;
   initialise(paramfile, obstaclefile, &params, &cells, &tmp_cells, &obstacles,
              &av_vels);
+
+  startRow = rank * (params.ny / nprocs);
+  endRow = startRow + (params.ny / nprocs) - 1;
+
+  startRowIndex = startRow * params.nx;
+  startRowHaloIndex = ((startRowIndex + params.nx * params.ny) - params.nx) % (params.nx * params.ny);
+  endRowIndex = endRow * params.nx;
+  endRowHaloIndex = (endRowIndex + params.ny) % (params.nx * params.ny);
+
+  rankBefore = (nprocs + rank - 1) % nprocs;
+  rankAfter = (rank + 1) % nprocs;
+
+  //  printf("RANK: %d of %d, node %s, start:%d end:%d\n", rank, nprocs, &name[0],
+  //         startRow, endRow);
+
+  // MPI init end -----------------------------------------------------------
 
   t_speed_arr* cells_ptr = &cells;
   t_speed_arr* tmp_cells_ptr = &tmp_cells;
@@ -177,7 +225,11 @@ int main(int argc, char* argv[]) {
   init_toc = timstr.tv_sec + (timstr.tv_usec / 1000000.0);
   comp_tic = init_toc;
 
-  for (int tt = 0; tt < params.maxIters; tt++) {
+  //  params.maxIters = 1;
+
+  int tt;
+
+  for (tt = 0; tt < params.maxIters; tt++) {
     timestep(params, cells_ptr, tmp_cells_ptr, obstacles, av_vels, tt);
 
     t_speed_arr* temp = cells_ptr;
@@ -198,21 +250,27 @@ int main(int argc, char* argv[]) {
 
   // Collate data from ranks here
 
+  collateData(params, cells_ptr, av_vels, tt);
+
   /* Total/collate time stops here.*/
   gettimeofday(&timstr, NULL);
   col_toc = timstr.tv_sec + (timstr.tv_usec / 1000000.0);
   tot_toc = col_toc;
 
-  /* write final values and free memory */
-  printf("==done==\n");
-  printf("Reynolds number:\t\t%.12E\n",
-         calc_reynolds(params, &cells, obstacles));
-  printf("Elapsed Init time:\t\t\t%.6lf (s)\n", init_toc - init_tic);
-  printf("Elapsed Compute time:\t\t\t%.6lf (s)\n", comp_toc - comp_tic);
-  printf("Elapsed Collate time:\t\t\t%.6lf (s)\n", col_toc - col_tic);
-  printf("Elapsed Total time:\t\t\t%.6lf (s)\n", tot_toc - tot_tic);
-  write_values(params, &cells, obstacles, av_vels);
+  if (rank == 0) {
+    /* write final values and free memory */
+    printf("==done==\n");
+    printf("Reynolds number:\t\t%.12E\n",
+           calc_reynolds(params, &cells, obstacles));
+    printf("Elapsed Init time:\t\t\t%.6lf (s)\n", init_toc - init_tic);
+    printf("Elapsed Compute time:\t\t\t%.6lf (s)\n", comp_toc - comp_tic);
+    printf("Elapsed Collate time:\t\t\t%.6lf (s)\n", col_toc - col_tic);
+    printf("Elapsed Total time:\t\t\t%.6lf (s)\n", tot_toc - tot_tic);
+    write_values(params, &cells, obstacles, av_vels);
+  }
   finalise(&params, &cells, &tmp_cells, &obstacles, &av_vels);
+
+  MPI_Finalize();
 
   return EXIT_SUCCESS;
 }
@@ -225,6 +283,64 @@ int timestep(const t_param params, t_speed_arr* cells, t_speed_arr* tmp_cells,
   return EXIT_SUCCESS;
 }
 
+void collateData(const t_param params, t_speed_arr* cells, float* restrict av_vels, int tt) {
+  if (rank == 0) {
+    float* tmp_av_vels_ptr = (float*)malloc(sizeof(float) * tt + 1);
+
+    // Master rank, collect all data
+    for (int r = 1; r < nprocs; r++) {
+      int startR = r * (params.ny / nprocs);
+      int startRI = startR * params.nx;
+      int endR = startR + (params.ny / nprocs) - 1;
+      MPI_Status statusMPI;
+
+      MPI_Recv(&cells->s0[startRI], (endR - startR + 1) * params.nx, MPI_FLOAT, r, r, MPI_COMM_WORLD, &statusMPI);
+      MPI_Recv(&cells->s1[startRI], (endR - startR + 1) * params.nx, MPI_FLOAT, r, r, MPI_COMM_WORLD, &statusMPI);
+      MPI_Recv(&cells->s2[startRI], (endR - startR + 1) * params.nx, MPI_FLOAT, r, r, MPI_COMM_WORLD, &statusMPI);
+      MPI_Recv(&cells->s3[startRI], (endR - startR + 1) * params.nx, MPI_FLOAT, r, r, MPI_COMM_WORLD, &statusMPI);
+      MPI_Recv(&cells->s4[startRI], (endR - startR + 1) * params.nx, MPI_FLOAT, r, r, MPI_COMM_WORLD, &statusMPI);
+      MPI_Recv(&cells->s5[startRI], (endR - startR + 1) * params.nx, MPI_FLOAT, r, r, MPI_COMM_WORLD, &statusMPI);
+      MPI_Recv(&cells->s6[startRI], (endR - startR + 1) * params.nx, MPI_FLOAT, r, r, MPI_COMM_WORLD, &statusMPI);
+      MPI_Recv(&cells->s7[startRI], (endR - startR + 1) * params.nx, MPI_FLOAT, r, r, MPI_COMM_WORLD, &statusMPI);
+      MPI_Recv(&cells->s8[startRI], (endR - startR + 1) * params.nx, MPI_FLOAT, r, r, MPI_COMM_WORLD, &statusMPI);
+
+      // av_vels
+
+      MPI_Recv(tmp_av_vels_ptr, tt + 1, MPI_FLOAT, r, r, MPI_COMM_WORLD, &statusMPI);
+      //      printf("receive totCells %f, rank %d", tmp_av_vels_ptr[tt], r);
+
+      // sum av_vels
+      tot_cells_glob += (int)tmp_av_vels_ptr[tt];
+      for (int k = 0; k < tt; k++) {
+        av_vels[k] += tmp_av_vels_ptr[k];
+      }
+    }
+
+    // average av_vels
+    for (int k = 0; k < tt; k++) {
+      av_vels[k] = av_vels[k] / tot_cells_glob;
+    }
+
+  } else {
+    // Worker rank, send data
+    //    &cells->s0[startRowIndex], params.nx, MPI_FLOAT, rankBefor
+    MPI_Send(&cells->s0[startRowIndex], (endRow - startRow + 1) * params.nx, MPI_FLOAT, 0, rank, MPI_COMM_WORLD);
+    MPI_Send(&cells->s1[startRowIndex], (endRow - startRow + 1) * params.nx, MPI_FLOAT, 0, rank, MPI_COMM_WORLD);
+    MPI_Send(&cells->s2[startRowIndex], (endRow - startRow + 1) * params.nx, MPI_FLOAT, 0, rank, MPI_COMM_WORLD);
+    MPI_Send(&cells->s3[startRowIndex], (endRow - startRow + 1) * params.nx, MPI_FLOAT, 0, rank, MPI_COMM_WORLD);
+    MPI_Send(&cells->s4[startRowIndex], (endRow - startRow + 1) * params.nx, MPI_FLOAT, 0, rank, MPI_COMM_WORLD);
+    MPI_Send(&cells->s5[startRowIndex], (endRow - startRow + 1) * params.nx, MPI_FLOAT, 0, rank, MPI_COMM_WORLD);
+    MPI_Send(&cells->s6[startRowIndex], (endRow - startRow + 1) * params.nx, MPI_FLOAT, 0, rank, MPI_COMM_WORLD);
+    MPI_Send(&cells->s7[startRowIndex], (endRow - startRow + 1) * params.nx, MPI_FLOAT, 0, rank, MPI_COMM_WORLD);
+    MPI_Send(&cells->s8[startRowIndex], (endRow - startRow + 1) * params.nx, MPI_FLOAT, 0, rank, MPI_COMM_WORLD);
+
+    // av_vels
+    av_vels[tt] = tot_cells_glob;
+    //    printf("send totCells %f, rank %d", av_vels[tt], rank);
+    MPI_Send(&av_vels[0], tt + 1, MPI_FLOAT, 0, rank, MPI_COMM_WORLD);
+  }
+}
+
 int accelerate_flow(const t_param params, t_speed_arr* restrict cells,
                     int* restrict obstacles) {
   /* compute weighting factors */
@@ -234,10 +350,12 @@ int accelerate_flow(const t_param params, t_speed_arr* restrict cells,
   /* modify the 2nd row of the grid */
   int jj = params.ny - 2;
 
-  __assume((params.nx) % 2 == 0);
-  __assume((params.nx) > 127);
-  __assume((params.nx) < 1025);
-#pragma omp parallel for simd if(parallel:params.ny > 128)
+  //__assume((params.nx) % 2 == 0);
+  //__assume((params.nx) > 127);
+  //__assume((params.nx) < 1025);
+#pragma omp parallel for simd if (parallel \
+                                  : params.ny > 128)
+  //#pragma omp simd
   for (int ii = 0; ii < params.nx; ii++) {
     __assume_aligned(cells->s0, 64);
     __assume_aligned(cells->s1, 64);
@@ -279,16 +397,50 @@ int propagate(const t_param params, t_speed_arr* restrict cells,
   int tot_cells = 0;
   float tot_u = 0.f;
 
-  __assume((params.nx) % 2 == 0);
-  __assume((params.ny) % 2 == 0);
-  __assume((params.nx) > 127);
-  __assume((params.ny) > 127);
-  __assume((params.nx) < 1025);
-  __assume((params.ny) < 1025);
-#pragma omp parallel for reduction(+ : tot_u) reduction(+ : tot_cells)
+  MPI_Status statusMPI;
+
+  // Send up, receive below
+  //  send rqnk before SRI and receive halo from rank before, place in SRHI
+  MPI_Sendrecv(&cells->s0[startRowIndex], params.nx, MPI_FLOAT, rankBefore, 0, &cells->s0[endRowHaloIndex], params.nx, MPI_FLOAT, rankAfter, 0, MPI_COMM_WORLD, &statusMPI);
+  MPI_Sendrecv(&cells->s1[startRowIndex], params.nx, MPI_FLOAT, rankBefore, 1, &cells->s1[endRowHaloIndex], params.nx, MPI_FLOAT, rankAfter, 1, MPI_COMM_WORLD, &statusMPI);
+  MPI_Sendrecv(&cells->s2[startRowIndex], params.nx, MPI_FLOAT, rankBefore, 2, &cells->s2[endRowHaloIndex], params.nx, MPI_FLOAT, rankAfter, 2, MPI_COMM_WORLD, &statusMPI);
+  MPI_Sendrecv(&cells->s3[startRowIndex], params.nx, MPI_FLOAT, rankBefore, 3, &cells->s3[endRowHaloIndex], params.nx, MPI_FLOAT, rankAfter, 3, MPI_COMM_WORLD, &statusMPI);
+  MPI_Sendrecv(&cells->s4[startRowIndex], params.nx, MPI_FLOAT, rankBefore, 4, &cells->s4[endRowHaloIndex], params.nx, MPI_FLOAT, rankAfter, 4, MPI_COMM_WORLD, &statusMPI);
+  MPI_Sendrecv(&cells->s5[startRowIndex], params.nx, MPI_FLOAT, rankBefore, 5, &cells->s5[endRowHaloIndex], params.nx, MPI_FLOAT, rankAfter, 5, MPI_COMM_WORLD, &statusMPI);
+  MPI_Sendrecv(&cells->s6[startRowIndex], params.nx, MPI_FLOAT, rankBefore, 6, &cells->s6[endRowHaloIndex], params.nx, MPI_FLOAT, rankAfter, 6, MPI_COMM_WORLD, &statusMPI);
+  MPI_Sendrecv(&cells->s7[startRowIndex], params.nx, MPI_FLOAT, rankBefore, 7, &cells->s7[endRowHaloIndex], params.nx, MPI_FLOAT, rankAfter, 7, MPI_COMM_WORLD, &statusMPI);
+  MPI_Sendrecv(&cells->s8[startRowIndex], params.nx, MPI_FLOAT, rankBefore, 8, &cells->s8[endRowHaloIndex], params.nx, MPI_FLOAT, rankAfter, 8, MPI_COMM_WORLD, &statusMPI);
+  //  printf("Send UP\n");
+
+  // Send down
+  //  send rqnk after ERI and receive halo from rank after, place in ERHI
+  MPI_Sendrecv(&cells->s0[endRowIndex], params.nx, MPI_FLOAT, rankAfter, 0, &cells->s0[startRowHaloIndex], params.nx, MPI_FLOAT, rankBefore, 0, MPI_COMM_WORLD, &statusMPI);
+  MPI_Sendrecv(&cells->s1[endRowIndex], params.nx, MPI_FLOAT, rankAfter, 1, &cells->s1[startRowHaloIndex], params.nx, MPI_FLOAT, rankBefore, 1, MPI_COMM_WORLD, &statusMPI);
+  MPI_Sendrecv(&cells->s2[endRowIndex], params.nx, MPI_FLOAT, rankAfter, 2, &cells->s2[startRowHaloIndex], params.nx, MPI_FLOAT, rankBefore, 2, MPI_COMM_WORLD, &statusMPI);
+  MPI_Sendrecv(&cells->s3[endRowIndex], params.nx, MPI_FLOAT, rankAfter, 3, &cells->s3[startRowHaloIndex], params.nx, MPI_FLOAT, rankBefore, 3, MPI_COMM_WORLD, &statusMPI);
+  MPI_Sendrecv(&cells->s4[endRowIndex], params.nx, MPI_FLOAT, rankAfter, 4, &cells->s4[startRowHaloIndex], params.nx, MPI_FLOAT, rankBefore, 4, MPI_COMM_WORLD, &statusMPI);
+  MPI_Sendrecv(&cells->s5[endRowIndex], params.nx, MPI_FLOAT, rankAfter, 5, &cells->s5[startRowHaloIndex], params.nx, MPI_FLOAT, rankBefore, 5, MPI_COMM_WORLD, &statusMPI);
+  MPI_Sendrecv(&cells->s6[endRowIndex], params.nx, MPI_FLOAT, rankAfter, 6, &cells->s6[startRowHaloIndex], params.nx, MPI_FLOAT, rankBefore, 6, MPI_COMM_WORLD, &statusMPI);
+  MPI_Sendrecv(&cells->s7[endRowIndex], params.nx, MPI_FLOAT, rankAfter, 7, &cells->s7[startRowHaloIndex], params.nx, MPI_FLOAT, rankBefore, 7, MPI_COMM_WORLD, &statusMPI);
+  MPI_Sendrecv(&cells->s8[endRowIndex], params.nx, MPI_FLOAT, rankAfter, 8, &cells->s8[startRowHaloIndex], params.nx, MPI_FLOAT, rankBefore, 8, MPI_COMM_WORLD, &statusMPI);
+//  printf("Send DOWN\n");
+
+//  printf("MPISTAT: count %ld, cancelled %d, source %d, tag %d, error %d\n", statusMPI._ucount, statusMPI._cancelled, statusMPI.MPI_SOURCE, statusMPI.MPI_TAG, statusMPI.MPI_ERROR);
+
+//__assume((params.nx) % 2 == 0);
+//__assume((params.ny) % 2 == 0);
+//__assume((params.nx) > 127);
+//__assume((params.ny) > 127);
+//__assume((params.nx) < 1025);
+//__assume((params.ny) < 1025);
+#pragma omp parallel for reduction(+                    \
+                                   : tot_u) reduction(+ \
+                                                      : tot_cells)
   /* loop over _all_ inner cells */
-  for (int jj = 0; jj < params.ny; jj++) {
-#pragma omp simd reduction(+ : tot_u) reduction(+ : tot_cells)
+  for (int jj = startRow; jj < endRow + 1; jj++) {
+#pragma omp simd reduction(+                    \
+                           : tot_u) reduction(+ \
+                                              : tot_cells)
     for (int ii = 0; ii < params.nx; ii++) {
       __assume_aligned(cells->s0, 64);
       __assume_aligned(cells->s1, 64);
@@ -329,7 +481,7 @@ int propagate(const t_param params, t_speed_arr* restrict cells,
       /* if the cell contains an obstacle */
       /* called after propagate, so taking values from scratch space
       ** mirroring, and writing into main grid */
-      const float temp0 = cells->s0[cellIndex]; /* central cell, no movement */
+      const float temp0 = cells->s0[cellIndex];             /* central cell, no movement */
       const float temp1 = cells->s1[x_w + jj * params.nx];  /* east */
       const float temp2 = cells->s2[ii + y_s * params.nx];  /* north */
       const float temp3 = cells->s3[x_e + jj * params.nx];  /* west */
@@ -442,7 +594,8 @@ int propagate(const t_param params, t_speed_arr* restrict cells,
     }
   }
 
-  av_vels[tt] = tot_u / (float)tot_cells;
+  av_vels[tt] = tot_u;  // / (float)tot_cells;
+  tot_cells_glob = (float)tot_cells;
 
   return EXIT_SUCCESS;
 }
@@ -454,13 +607,15 @@ float av_velocity(const t_param params, t_speed_arr* cells, int* obstacles) {
   /* initialise */
   tot_u = 0.f;
 
-  __assume((params.nx) % 2 == 0);
-  __assume((params.ny) % 2 == 0);
-  __assume((params.nx) > 127);
-  __assume((params.ny) > 127);
-  __assume((params.nx) < 1025);
-  __assume((params.ny) < 1025);
-#pragma omp parallel for reduction(+ : tot_u) reduction(+ : tot_cells)
+//__assume((params.nx) % 2 == 0);
+//__assume((params.ny) % 2 == 0);
+//__assume((params.nx) > 127);
+//__assume((params.ny) > 127);
+//__assume((params.nx) < 1025);
+//__assume((params.ny) < 1025);
+#pragma omp parallel for reduction(+                    \
+                                   : tot_u) reduction(+ \
+                                                      : tot_cells)
   /* loop over all non-blocked cells */
   for (int jj = 0; jj < params.ny; jj++) {
     for (int ii = 0; ii < params.nx; ii++) {
@@ -585,24 +740,15 @@ int initialise(const char* paramfile, const char* obstaclefile, t_param* params,
   ** a 1D array of these structs.
   */
 
-  cells_ptr->s0 =
-      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
-  cells_ptr->s1 =
-      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
-  cells_ptr->s2 =
-      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
-  cells_ptr->s3 =
-      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
-  cells_ptr->s4 =
-      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
-  cells_ptr->s5 =
-      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
-  cells_ptr->s6 =
-      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
-  cells_ptr->s7 =
-      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
-  cells_ptr->s8 =
-      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  cells_ptr->s0 = (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  cells_ptr->s1 = (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  cells_ptr->s2 = (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  cells_ptr->s3 = (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  cells_ptr->s4 = (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  cells_ptr->s5 = (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  cells_ptr->s6 = (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  cells_ptr->s7 = (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  cells_ptr->s8 = (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
 
   if (cells_ptr->s0 == NULL)
     die("cannot allocate memory for cells", __LINE__, __FILE__);
@@ -623,24 +769,15 @@ int initialise(const char* paramfile, const char* obstaclefile, t_param* params,
   if (cells_ptr->s8 == NULL)
     die("cannot allocate memory for cells", __LINE__, __FILE__);
 
-  tmp_cells_ptr->s0 =
-      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
-  tmp_cells_ptr->s1 =
-      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
-  tmp_cells_ptr->s2 =
-      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
-  tmp_cells_ptr->s3 =
-      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
-  tmp_cells_ptr->s4 =
-      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
-  tmp_cells_ptr->s5 =
-      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
-  tmp_cells_ptr->s6 =
-      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
-  tmp_cells_ptr->s7 =
-      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
-  tmp_cells_ptr->s8 =
-      (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  tmp_cells_ptr->s0 = (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  tmp_cells_ptr->s1 = (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  tmp_cells_ptr->s2 = (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  tmp_cells_ptr->s3 = (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  tmp_cells_ptr->s4 = (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  tmp_cells_ptr->s5 = (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  tmp_cells_ptr->s6 = (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  tmp_cells_ptr->s7 = (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
+  tmp_cells_ptr->s8 = (float*)_mm_malloc(sizeof(float) * params->nx * params->ny, 64);
 
   if (tmp_cells_ptr->s0 == NULL)
     die("cannot allocate memory for cells", __LINE__, __FILE__);
@@ -678,7 +815,7 @@ int initialise(const char* paramfile, const char* obstaclefile, t_param* params,
   //  params->nx));
 
   /* the map of obstacles */
-  *obstacles_ptr = malloc(sizeof(int) * (params->ny * params->nx));
+  *obstacles_ptr = _mm_malloc(sizeof(int) * (params->ny * params->nx), 64);
 
   if (*obstacles_ptr == NULL)
     die("cannot allocate column memory for obstacles", __LINE__, __FILE__);
@@ -768,7 +905,7 @@ int initialise(const char* paramfile, const char* obstaclefile, t_param* params,
   ** allocate space to hold a record of the avarage velocities computed
   ** at each timestep
   */
-  *av_vels_ptr = (float*)malloc(sizeof(float) * params->maxIters);
+  *av_vels_ptr = (float*)_mm_malloc(sizeof(float) * params->maxIters + 1, 64);
 
   return EXIT_SUCCESS;
 }
@@ -805,10 +942,10 @@ int finalise(const t_param* params, t_speed_arr* cells_ptr,
   //  free(*tmp_cells_ptr);
   //  *tmp_cells_ptr = NULL;
 
-  free(*obstacles_ptr);
+  _mm_free(*obstacles_ptr);
   *obstacles_ptr = NULL;
 
-  free(*av_vels_ptr);
+  _mm_free(*av_vels_ptr);
   *av_vels_ptr = NULL;
 
   return EXIT_SUCCESS;
@@ -839,8 +976,8 @@ float total_density(const t_param params, t_speed_arr* cells) {
 
 int write_values(const t_param params, t_speed_arr* cells, int* obstacles,
                  float* av_vels) {
-  FILE* fp; /* file pointer */
-            //  const float c_sq = 1.f / 3.f; /* sq. of speed of sound */
+  FILE* fp;            /* file pointer */
+                       //  const float c_sq = 1.f / 3.f; /* sq. of speed of sound */
   float local_density; /* per grid cell sum of densities */
   float pressure;      /* fluid pressure in grid cell */
   float u_x;           /* x-component of velocity in grid cell */
@@ -907,7 +1044,7 @@ int write_values(const t_param params, t_speed_arr* cells, int* obstacles,
 
       /* write to file */
       fprintf(fp, "%d %d %.12E %.12E %.12E %.12E %d\n", ii, jj, u_x, u_y, u,
-              pressure, obstacles[ii * params.nx + jj]);
+              pressure, obstacles[ii + params.nx * jj]);
     }
   }
 

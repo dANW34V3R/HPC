@@ -3,4 +3,4 @@ BasedOnStyle: Google
 DerivePointerAlignment: false
 PointerAlignment: true
 Standard: C++11
-#ColumnLimit: 0
+ColumnLimit: 0

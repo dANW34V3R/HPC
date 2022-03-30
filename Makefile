@@ -2,8 +2,8 @@
 
 EXE=d2q9-bgk
 
-CC=icc
-CFLAGS= -std=c99 -Wall -Ofast -qopenmp -xCORE-AVX2 
+CC=mpicc
+CFLAGS= -std=c99 -Wall -Ofast -fopenmp #-xCORE-AVX2
 LIBS = -lm
 
 FINAL_STATE_FILE=./final_state.dat
