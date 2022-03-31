@@ -211,7 +211,7 @@ int main(int argc, char* argv[]) {
   startRowIndex = startRow * params.nx;
   startRowHaloIndex = ((startRowIndex + params.nx * params.ny) - params.nx) % (params.nx * params.ny);
   endRowIndex = endRow * params.nx;
-  endRowHaloIndex = (endRowIndex + params.ny) % (params.nx * params.ny);
+  endRowHaloIndex = (endRowIndex + params.nx) % (params.nx * params.ny);
 
   rankBefore = (nprocs + rank - 1) % nprocs;
   rankAfter = (rank + 1) % nprocs;
@@ -289,7 +289,7 @@ int timestep(const t_param params, t_speed_arr* cells, t_speed_arr* tmp_cells,
 
 void collateData(const t_param params, t_speed_arr* cells, float* restrict av_vels, int tt) {
   if (rank == 0) {
-    //    printf("COLLATE 0");
+    //    printf("COLLATE 0\n");
     float* tmp_av_vels_ptr = (float*)malloc(sizeof(float) * tt + 1);
 
     // Master rank, collect all data
@@ -1053,7 +1053,7 @@ int write_values(const t_param params, t_speed_arr* cells, int* obstacles,
 
       /* write to file */
       fprintf(fp, "%d %d %.12E %.12E %.12E %.12E %d\n", ii, jj, u_x, u_y, u,
-              pressure, obstacles[ii + params.nx * jj]);
+              pressure, obstacles[ii + jj * params.nx]);
     }
   }
 
