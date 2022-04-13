@@ -1,0 +1,36 @@
+#!/bin/bash
+
+#SBATCH --job-name d2q9-bgk
+#SBATCH --nodes 8
+#SBATCH --ntasks-per-node 28
+#SBATCH --time 00:90:00
+#SBATCH --partition veryshort
+#SBATCH --reservation=COSC026662
+#SBATCH --account=COSC026662
+#SBATCH --output rank-thread128-8x(2-28)(2).out
+#SBATCH --exclude=compute104,compute105
+
+echo Running on host `hostname`
+echo Time is `date`
+echo Directory is `pwd`
+echo Slurm job ID is $SLURM_JOB_ID
+echo This job runs on the following machines:
+echo `echo $SLURM_JOB_NODELIST | uniq`
+
+make clean
+make CC=mpiicc
+
+export I_MPI_PIN_DOMAIN=omp
+
+for j in {1..8}; do
+  for i in {2..28..2}; do
+    for k in {1..10}:
+      do echo $j rank, $i threads; mpirun -np $j --ppn 1  -genv OMP_NUM_THREADS=$i ./d2q9-bgk input_128x128.params obstacles_128x128.dat; make check
+    done;
+  done;
+  echo fin rank: $j
+done
+
+python collate.py 'rank-thread128-8x(2-28)(2).out' 10
+
+

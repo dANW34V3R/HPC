@@ -1,0 +1,406 @@
+Running on host compute101.bc4.acrc.priv
+Time is Thu Mar 31 15:42:40 BST 2022
+Directory is /user/home/ra18837/HPC/advanced-hpc-lbm
+Slurm job ID is 10182270
+This job runs on the following machines:
+compute[101-103,106]
+rm -f d2q9-bgk
+mpiicc -std=c99 -Wall -Ofast -fopenmp  d2q9-bgk.c -lm -o d2q9-bgk
+1 rank, 2 threads
+==done==
+Reynolds number:		1.006097316742E+01
+Elapsed Init time:			0.009249 (s)
+Elapsed Compute time:			41.320695 (s)
+Elapsed Collate time:			0.000082 (s)
+Elapsed Total time:			41.330026 (s)
+1 rank, 4 threads
+==done==
+Reynolds number:		1.006095314026E+01
+Elapsed Init time:			0.006064 (s)
+Elapsed Compute time:			23.008797 (s)
+Elapsed Collate time:			0.000105 (s)
+Elapsed Total time:			23.014966 (s)
+1 rank, 6 threads
+==done==
+Reynolds number:		1.006095695496E+01
+Elapsed Init time:			0.006067 (s)
+Elapsed Compute time:			16.717724 (s)
+Elapsed Collate time:			0.000098 (s)
+Elapsed Total time:			16.723889 (s)
+1 rank, 8 threads
+==done==
+Reynolds number:		1.006096744537E+01
+Elapsed Init time:			0.007342 (s)
+Elapsed Compute time:			12.817716 (s)
+Elapsed Collate time:			0.000081 (s)
+Elapsed Total time:			12.825139 (s)
+1 rank, 10 threads
+==done==
+Reynolds number:		1.006095695496E+01
+Elapsed Init time:			0.007537 (s)
+Elapsed Compute time:			10.676121 (s)
+Elapsed Collate time:			0.000095 (s)
+Elapsed Total time:			10.683753 (s)
+1 rank, 12 threads
+==done==
+Reynolds number:		1.006096267700E+01
+Elapsed Init time:			0.006791 (s)
+Elapsed Compute time:			9.263003 (s)
+Elapsed Collate time:			0.000098 (s)
+Elapsed Total time:			9.269892 (s)
+1 rank, 14 threads
+==done==
+Reynolds number:		1.006095790863E+01
+Elapsed Init time:			0.008069 (s)
+Elapsed Compute time:			8.192158 (s)
+Elapsed Collate time:			0.000107 (s)
+Elapsed Total time:			8.200334 (s)
+1 rank, 16 threads
+==done==
+Reynolds number:		1.006096172333E+01
+Elapsed Init time:			0.008205 (s)
+Elapsed Compute time:			7.444862 (s)
+Elapsed Collate time:			0.000169 (s)
+Elapsed Total time:			7.453236 (s)
+1 rank, 18 threads
+==done==
+Reynolds number:		1.006096172333E+01
+Elapsed Init time:			0.009089 (s)
+Elapsed Compute time:			7.230321 (s)
+Elapsed Collate time:			0.000111 (s)
+Elapsed Total time:			7.239521 (s)
+1 rank, 20 threads
+==done==
+Reynolds number:		1.006096076965E+01
+Elapsed Init time:			0.009973 (s)
+Elapsed Compute time:			6.721133 (s)
+Elapsed Collate time:			0.000111 (s)
+Elapsed Total time:			6.731217 (s)
+1 rank, 22 threads
+==done==
+Reynolds number:		1.006096076965E+01
+Elapsed Init time:			0.009975 (s)
+Elapsed Compute time:			6.184187 (s)
+Elapsed Collate time:			0.000178 (s)
+Elapsed Total time:			6.194340 (s)
+1 rank, 24 threads
+==done==
+Reynolds number:		1.006096172333E+01
+Elapsed Init time:			0.011197 (s)
+Elapsed Compute time:			5.996513 (s)
+Elapsed Collate time:			0.000185 (s)
+Elapsed Total time:			6.007895 (s)
+1 rank, 26 threads
+==done==
+Reynolds number:		1.006096172333E+01
+Elapsed Init time:			0.010719 (s)
+Elapsed Compute time:			5.637678 (s)
+Elapsed Collate time:			0.000111 (s)
+Elapsed Total time:			5.648508 (s)
+1 rank, 28 threads
+==done==
+Reynolds number:		1.006096076965E+01
+Elapsed Init time:			0.012308 (s)
+Elapsed Compute time:			5.516963 (s)
+Elapsed Collate time:			0.000187 (s)
+Elapsed Total time:			5.529458 (s)
+fin rank: 1
+2 rank, 2 threads
+==done==
+Reynolds number:		1.006097316742E+01
+Elapsed Init time:			0.007921 (s)
+Elapsed Compute time:			23.256965 (s)
+Elapsed Collate time:			0.000837 (s)
+Elapsed Total time:			23.265723 (s)
+2 rank, 4 threads
+==done==
+Reynolds number:		1.006095314026E+01
+Elapsed Init time:			0.006379 (s)
+Elapsed Compute time:			14.051933 (s)
+Elapsed Collate time:			0.000858 (s)
+Elapsed Total time:			14.059170 (s)
+2 rank, 6 threads
+==done==
+Reynolds number:		1.006095695496E+01
+Elapsed Init time:			0.007308 (s)
+Elapsed Compute time:			10.870332 (s)
+Elapsed Collate time:			0.000889 (s)
+Elapsed Total time:			10.878529 (s)
+2 rank, 8 threads
+==done==
+Reynolds number:		1.006096744537E+01
+Elapsed Init time:			0.006581 (s)
+Elapsed Compute time:			8.806701 (s)
+Elapsed Collate time:			0.000898 (s)
+Elapsed Total time:			8.814180 (s)
+2 rank, 10 threads
+==done==
+Reynolds number:		1.006095695496E+01
+Elapsed Init time:			0.007426 (s)
+Elapsed Compute time:			7.716980 (s)
+Elapsed Collate time:			0.000882 (s)
+Elapsed Total time:			7.725288 (s)
+2 rank, 12 threads
+==done==
+Reynolds number:		1.006096267700E+01
+Elapsed Init time:			0.006982 (s)
+Elapsed Compute time:			7.021249 (s)
+Elapsed Collate time:			0.000897 (s)
+Elapsed Total time:			7.029128 (s)
+2 rank, 14 threads
+==done==
+Reynolds number:		1.006095790863E+01
+Elapsed Init time:			0.007944 (s)
+Elapsed Compute time:			6.617299 (s)
+Elapsed Collate time:			0.000861 (s)
+Elapsed Total time:			6.626104 (s)
+2 rank, 16 threads
+==done==
+Reynolds number:		1.006096172333E+01
+Elapsed Init time:			0.008181 (s)
+Elapsed Compute time:			6.412053 (s)
+Elapsed Collate time:			0.001418 (s)
+Elapsed Total time:			6.421652 (s)
+2 rank, 18 threads
+==done==
+Reynolds number:		1.006096172333E+01
+Elapsed Init time:			0.009366 (s)
+Elapsed Compute time:			6.446711 (s)
+Elapsed Collate time:			0.000933 (s)
+Elapsed Total time:			6.457010 (s)
+2 rank, 20 threads
+==done==
+Reynolds number:		1.006096076965E+01
+Elapsed Init time:			0.009815 (s)
+Elapsed Compute time:			6.074817 (s)
+Elapsed Collate time:			0.000857 (s)
+Elapsed Total time:			6.085489 (s)
+2 rank, 22 threads
+==done==
+Reynolds number:		1.006096076965E+01
+Elapsed Init time:			0.010225 (s)
+Elapsed Compute time:			5.783044 (s)
+Elapsed Collate time:			0.000906 (s)
+Elapsed Total time:			5.794175 (s)
+2 rank, 24 threads
+==done==
+Reynolds number:		1.006096172333E+01
+Elapsed Init time:			0.011022 (s)
+Elapsed Compute time:			5.738522 (s)
+Elapsed Collate time:			0.000919 (s)
+Elapsed Total time:			5.750463 (s)
+2 rank, 26 threads
+==done==
+Reynolds number:		1.006096172333E+01
+Elapsed Init time:			0.012020 (s)
+Elapsed Compute time:			5.438377 (s)
+Elapsed Collate time:			0.000883 (s)
+Elapsed Total time:			5.451280 (s)
+2 rank, 28 threads
+==done==
+Reynolds number:		1.006096076965E+01
+Elapsed Init time:			0.011724 (s)
+Elapsed Compute time:			5.488200 (s)
+Elapsed Collate time:			0.000893 (s)
+Elapsed Total time:			5.500817 (s)
+fin rank: 2
+3 rank, 2 threads
+==done==
+Reynolds number:		1.006097316742E+01
+Elapsed Init time:			0.007688 (s)
+Elapsed Compute time:			16.419145 (s)
+Elapsed Collate time:			0.001260 (s)
+Elapsed Total time:			16.428093 (s)
+3 rank, 4 threads
+==done==
+Reynolds number:		1.006095314026E+01
+Elapsed Init time:			0.006433 (s)
+Elapsed Compute time:			10.615864 (s)
+Elapsed Collate time:			0.001314 (s)
+Elapsed Total time:			10.623611 (s)
+3 rank, 6 threads
+==done==
+Reynolds number:		1.006095695496E+01
+Elapsed Init time:			0.007393 (s)
+Elapsed Compute time:			8.382980 (s)
+Elapsed Collate time:			0.001343 (s)
+Elapsed Total time:			8.391716 (s)
+3 rank, 8 threads
+==done==
+Reynolds number:		1.006096744537E+01
+Elapsed Init time:			0.007623 (s)
+Elapsed Compute time:			6.942428 (s)
+Elapsed Collate time:			0.001320 (s)
+Elapsed Total time:			6.951371 (s)
+3 rank, 10 threads
+==done==
+Reynolds number:		1.006095695496E+01
+Elapsed Init time:			0.006403 (s)
+Elapsed Compute time:			6.306638 (s)
+Elapsed Collate time:			0.001339 (s)
+Elapsed Total time:			6.314380 (s)
+3 rank, 12 threads
+==done==
+Reynolds number:		1.006096267700E+01
+Elapsed Init time:			0.007035 (s)
+Elapsed Compute time:			5.929971 (s)
+Elapsed Collate time:			0.001336 (s)
+Elapsed Total time:			5.938342 (s)
+3 rank, 14 threads
+==done==
+Reynolds number:		1.006095790863E+01
+Elapsed Init time:			0.008126 (s)
+Elapsed Compute time:			5.583652 (s)
+Elapsed Collate time:			0.001234 (s)
+Elapsed Total time:			5.593012 (s)
+3 rank, 16 threads
+==done==
+Reynolds number:		1.006096172333E+01
+Elapsed Init time:			0.007773 (s)
+Elapsed Compute time:			5.580668 (s)
+Elapsed Collate time:			0.001841 (s)
+Elapsed Total time:			5.590282 (s)
+3 rank, 18 threads
+==done==
+Reynolds number:		1.006096172333E+01
+Elapsed Init time:			0.009842 (s)
+Elapsed Compute time:			5.401516 (s)
+Elapsed Collate time:			0.001297 (s)
+Elapsed Total time:			5.412655 (s)
+3 rank, 20 threads
+==done==
+Reynolds number:		1.006096076965E+01
+Elapsed Init time:			0.010109 (s)
+Elapsed Compute time:			5.392002 (s)
+Elapsed Collate time:			0.001286 (s)
+Elapsed Total time:			5.403397 (s)
+3 rank, 22 threads
+==done==
+Reynolds number:		1.006096076965E+01
+Elapsed Init time:			0.010335 (s)
+Elapsed Compute time:			5.071784 (s)
+Elapsed Collate time:			0.001290 (s)
+Elapsed Total time:			5.083409 (s)
+3 rank, 24 threads
+==done==
+Reynolds number:		1.006096172333E+01
+Elapsed Init time:			0.011173 (s)
+Elapsed Compute time:			5.072483 (s)
+Elapsed Collate time:			0.001341 (s)
+Elapsed Total time:			5.084997 (s)
+3 rank, 26 threads
+==done==
+Reynolds number:		1.006096172333E+01
+Elapsed Init time:			0.012584 (s)
+Elapsed Compute time:			4.944321 (s)
+Elapsed Collate time:			0.001251 (s)
+Elapsed Total time:			4.958156 (s)
+3 rank, 28 threads
+==done==
+Reynolds number:		1.006096076965E+01
+Elapsed Init time:			0.012447 (s)
+Elapsed Compute time:			4.962982 (s)
+Elapsed Collate time:			0.004462 (s)
+Elapsed Total time:			4.979891 (s)
+fin rank: 3
+4 rank, 2 threads
+==done==
+Reynolds number:		1.006097316742E+01
+Elapsed Init time:			0.008183 (s)
+Elapsed Compute time:			13.135369 (s)
+Elapsed Collate time:			0.001583 (s)
+Elapsed Total time:			13.145135 (s)
+4 rank, 4 threads
+==done==
+Reynolds number:		1.006095314026E+01
+Elapsed Init time:			0.006748 (s)
+Elapsed Compute time:			8.520450 (s)
+Elapsed Collate time:			0.001667 (s)
+Elapsed Total time:			8.528865 (s)
+4 rank, 6 threads
+==done==
+Reynolds number:		1.006095695496E+01
+Elapsed Init time:			0.007113 (s)
+Elapsed Compute time:			6.942033 (s)
+Elapsed Collate time:			0.001669 (s)
+Elapsed Total time:			6.950815 (s)
+4 rank, 8 threads
+==done==
+Reynolds number:		1.006096744537E+01
+Elapsed Init time:			0.006571 (s)
+Elapsed Compute time:			5.879882 (s)
+Elapsed Collate time:			0.001664 (s)
+Elapsed Total time:			5.888117 (s)
+4 rank, 10 threads
+==done==
+Reynolds number:		1.006095695496E+01
+Elapsed Init time:			0.007614 (s)
+Elapsed Compute time:			5.533164 (s)
+Elapsed Collate time:			0.001678 (s)
+Elapsed Total time:			5.542456 (s)
+4 rank, 12 threads
+==done==
+Reynolds number:		1.006096267700E+01
+Elapsed Init time:			0.007845 (s)
+Elapsed Compute time:			5.177353 (s)
+Elapsed Collate time:			0.001647 (s)
+Elapsed Total time:			5.186845 (s)
+4 rank, 14 threads
+==done==
+Reynolds number:		1.006095790863E+01
+Elapsed Init time:			0.007371 (s)
+Elapsed Compute time:			4.811634 (s)
+Elapsed Collate time:			0.001498 (s)
+Elapsed Total time:			4.820503 (s)
+4 rank, 16 threads
+==done==
+Reynolds number:		1.006096172333E+01
+Elapsed Init time:			0.009225 (s)
+Elapsed Compute time:			4.863693 (s)
+Elapsed Collate time:			0.002125 (s)
+Elapsed Total time:			4.875043 (s)
+4 rank, 18 threads
+==done==
+Reynolds number:		1.006096172333E+01
+Elapsed Init time:			0.009350 (s)
+Elapsed Compute time:			4.845081 (s)
+Elapsed Collate time:			0.001572 (s)
+Elapsed Total time:			4.856003 (s)
+4 rank, 20 threads
+==done==
+Reynolds number:		1.006096076965E+01
+Elapsed Init time:			0.010240 (s)
+Elapsed Compute time:			4.883602 (s)
+Elapsed Collate time:			0.001578 (s)
+Elapsed Total time:			4.895420 (s)
+4 rank, 22 threads
+==done==
+Reynolds number:		1.006096076965E+01
+Elapsed Init time:			0.010459 (s)
+Elapsed Compute time:			4.706959 (s)
+Elapsed Collate time:			0.001586 (s)
+Elapsed Total time:			4.719004 (s)
+4 rank, 24 threads
+srun: Job 10182270 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 10182270
+==done==
+Reynolds number:		1.006096172333E+01
+Elapsed Init time:			0.011598 (s)
+Elapsed Compute time:			4.679120 (s)
+Elapsed Collate time:			0.001602 (s)
+Elapsed Total time:			4.692320 (s)
+4 rank, 26 threads
+==done==
+Reynolds number:		1.006096172333E+01
+Elapsed Init time:			0.011516 (s)
+Elapsed Compute time:			4.534059 (s)
+Elapsed Collate time:			0.001636 (s)
+Elapsed Total time:			4.547211 (s)
+4 rank, 28 threads
+==done==
+Reynolds number:		1.006096076965E+01
+Elapsed Init time:			0.012802 (s)
+Elapsed Compute time:			4.620321 (s)
+Elapsed Collate time:			0.004476 (s)
+Elapsed Total time:			4.637599 (s)
+fin rank: 4

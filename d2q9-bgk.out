@@ -1,23 +1,77 @@
 Running on host compute101.bc4.acrc.priv
-Time is Wed Mar 30 13:22:02 BST 2022
+Time is Fri Apr 1 17:33:24 BST 2022
 Directory is /user/home/ra18837/HPC/advanced-hpc-lbm
-Slurm job ID is 10180186
+Slurm job ID is 10184905
 This job runs on the following machines:
-compute[101-103,106]
+compute[101-103,106-110]
 rm -f d2q9-bgk
 mpiicc -std=c99 -Wall -Ofast -fopenmp  d2q9-bgk.c -lm -o d2q9-bgk
 ==done==
-Reynolds number:		1.006096076965E+01
-Elapsed Init time:			0.020295 (s)
-Elapsed Compute time:			5.766942 (s)
-Elapsed Collate time:			0.001871 (s)
-Elapsed Total time:			5.789108 (s)
-Total difference in av_vels : 7.541041941133E-01
-Biggest difference (at step 79522) : 2.349663859000E-05
-  1.357364468277E-02 vs. 1.359714132136E-02 = 0.17%
+Reynolds number:		3.716292572021E+01
+Elapsed Init time:			0.012795 (s)
+Elapsed Compute time:			2.310954 (s)
+Elapsed Collate time:			0.001844 (s)
+Elapsed Total time:			2.325593 (s)
+==done==
+Reynolds number:		3.716292572021E+01
+Elapsed Init time:			0.011340 (s)
+Elapsed Compute time:			2.295718 (s)
+Elapsed Collate time:			0.001925 (s)
+Elapsed Total time:			2.308983 (s)
+==done==
+Reynolds number:		3.716292572021E+01
+Elapsed Init time:			0.013086 (s)
+Elapsed Compute time:			2.232364 (s)
+Elapsed Collate time:			0.001954 (s)
+Elapsed Total time:			2.247404 (s)
+==done==
+Reynolds number:		3.716292572021E+01
+Elapsed Init time:			0.011732 (s)
+Elapsed Compute time:			2.253422 (s)
+Elapsed Collate time:			0.001941 (s)
+Elapsed Total time:			2.267095 (s)
+==done==
+Reynolds number:		3.716292572021E+01
+Elapsed Init time:			0.012272 (s)
+Elapsed Compute time:			2.292978 (s)
+Elapsed Collate time:			0.001935 (s)
+Elapsed Total time:			2.307185 (s)
+==done==
+Reynolds number:		3.716292572021E+01
+Elapsed Init time:			0.011310 (s)
+Elapsed Compute time:			2.306541 (s)
+Elapsed Collate time:			0.001884 (s)
+Elapsed Total time:			2.319735 (s)
+==done==
+Reynolds number:		3.716292572021E+01
+Elapsed Init time:			0.011118 (s)
+Elapsed Compute time:			2.268608 (s)
+Elapsed Collate time:			0.001948 (s)
+Elapsed Total time:			2.281674 (s)
+==done==
+Reynolds number:		3.716292572021E+01
+Elapsed Init time:			0.011011 (s)
+Elapsed Compute time:			2.281062 (s)
+Elapsed Collate time:			0.001905 (s)
+Elapsed Total time:			2.293978 (s)
+==done==
+Reynolds number:		3.716292572021E+01
+Elapsed Init time:			0.011131 (s)
+Elapsed Compute time:			2.286063 (s)
+Elapsed Collate time:			0.001916 (s)
+Elapsed Total time:			2.299110 (s)
+==done==
+Reynolds number:		3.716292572021E+01
+Elapsed Init time:			0.011470 (s)
+Elapsed Compute time:			2.281477 (s)
+Elapsed Collate time:			0.001907 (s)
+Elapsed Total time:			2.294854 (s)
+Total difference in av_vels : 5.882514334433E-01
+Biggest difference (at step 39999) : 2.964584257000E-05
+  5.022013559937E-02 vs. 5.024978144194E-02 = 0.059%
 
-Total difference in final_state : 2.897586395503E+00
-Biggest difference (at coord (1,254)) : -4.520542676999E-05
-  3.327687084675E-02 vs. 3.323166541998E-02 = -0.14%
+Total difference in final_state : 7.289793192982E-01
+Biggest difference (at coord (60,187)) : -2.288648531000E-05
+  3.307743743062E-02 vs. 3.305455094531E-02 = -0.069%
 
 Both tests passed!

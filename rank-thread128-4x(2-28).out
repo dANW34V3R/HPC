@@ -1,0 +1,964 @@
+Running on host compute101.bc4.acrc.priv
+Time is Thu Mar 31 17:31:12 BST 2022
+Directory is /user/home/ra18837/HPC/advanced-hpc-lbm
+Slurm job ID is 10182997
+This job runs on the following machines:
+compute[101-103,106]
+rm -f d2q9-bgk
+mpiicc -std=c99 -Wall -Ofast -fopenmp  d2q9-bgk.c -lm -o d2q9-bgk
+1 rank, 2 threads
+==done==
+Reynolds number:		9.755396842957E+00
+Elapsed Init time:			0.005599 (s)
+Elapsed Compute time:			5.714128 (s)
+Elapsed Collate time:			0.000057 (s)
+Elapsed Total time:			5.719784 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905262798003E-01
+Biggest difference (at step 39604) : 1.109186764000E-05
+  1.316646672785E-02 vs. 1.317755859549E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+1 rank, 4 threads
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.003969 (s)
+Elapsed Compute time:			3.351944 (s)
+Elapsed Collate time:			0.000033 (s)
+Elapsed Total time:			3.355946 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905253746042E-01
+Biggest difference (at step 39606) : 1.109149695000E-05
+  1.316651608795E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+1 rank, 6 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.004255 (s)
+Elapsed Compute time:			2.614651 (s)
+Elapsed Collate time:			0.000038 (s)
+Elapsed Total time:			2.618944 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905293497549E-01
+Biggest difference (at step 39608) : 1.109086200000E-05
+  1.316656544805E-02 vs. 1.317765631005E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+1 rank, 8 threads
+==done==
+Reynolds number:		9.755396842957E+00
+Elapsed Init time:			0.004863 (s)
+Elapsed Compute time:			2.076082 (s)
+Elapsed Collate time:			0.000044 (s)
+Elapsed Total time:			2.080989 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905304996817E-01
+Biggest difference (at step 39606) : 1.108870298000E-05
+  1.316651888192E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+1 rank, 10 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.005229 (s)
+Elapsed Compute time:			1.800141 (s)
+Elapsed Collate time:			0.000044 (s)
+Elapsed Total time:			1.805414 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905309744794E-01
+Biggest difference (at step 39608) : 1.108806804000E-05
+  1.316656824201E-02 vs. 1.317765631005E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+1 rank, 12 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.005687 (s)
+Elapsed Compute time:			1.618253 (s)
+Elapsed Collate time:			0.000047 (s)
+Elapsed Total time:			1.623987 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905316069453E-01
+Biggest difference (at step 39606) : 1.108777166000E-05
+  1.316651981324E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+1 rank, 14 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.006944 (s)
+Elapsed Compute time:			1.498574 (s)
+Elapsed Collate time:			0.000049 (s)
+Elapsed Total time:			1.505567 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312037813E-01
+Biggest difference (at step 39605) : 1.108845739000E-05
+  1.316649466753E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+1 rank, 16 threads
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.007357 (s)
+Elapsed Compute time:			1.483196 (s)
+Elapsed Collate time:			0.000113 (s)
+Elapsed Total time:			1.490666 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312814394E-01
+Biggest difference (at step 39605) : 1.108938871000E-05
+  1.316649373621E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+1 rank, 18 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.007992 (s)
+Elapsed Compute time:			1.443744 (s)
+Elapsed Collate time:			0.000111 (s)
+Elapsed Total time:			1.451847 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312967640E-01
+Biggest difference (at step 39604) : 1.108721102000E-05
+  1.316647138447E-02 vs. 1.317755859549E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+1 rank, 20 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.008631 (s)
+Elapsed Compute time:			1.370650 (s)
+Elapsed Collate time:			0.000121 (s)
+Elapsed Total time:			1.379402 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905310551329E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+1 rank, 22 threads
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.009015 (s)
+Elapsed Compute time:			1.328347 (s)
+Elapsed Collate time:			0.000052 (s)
+Elapsed Total time:			1.337414 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312773167E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+1 rank, 24 threads
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.009456 (s)
+Elapsed Compute time:			1.294388 (s)
+Elapsed Collate time:			0.000120 (s)
+Elapsed Total time:			1.303964 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313394988E-01
+Biggest difference (at step 39604) : 1.108721102000E-05
+  1.316647138447E-02 vs. 1.317755859549E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+1 rank, 26 threads
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.009878 (s)
+Elapsed Compute time:			1.252675 (s)
+Elapsed Collate time:			0.000134 (s)
+Elapsed Total time:			1.262687 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905310442564E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+1 rank, 28 threads
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.011534 (s)
+Elapsed Compute time:			1.249320 (s)
+Elapsed Collate time:			0.000133 (s)
+Elapsed Total time:			1.260987 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905311142221E-01
+Biggest difference (at step 39609) : 1.108626292000E-05
+  1.316659431905E-02 vs. 1.317768058197E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+fin rank: 1
+2 rank, 2 threads
+==done==
+Reynolds number:		9.755396842957E+00
+Elapsed Init time:			0.004338 (s)
+Elapsed Compute time:			3.898459 (s)
+Elapsed Collate time:			0.000346 (s)
+Elapsed Total time:			3.903143 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905255241686E-01
+Biggest difference (at step 39606) : 1.109056563000E-05
+  1.316651701927E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+2 rank, 4 threads
+==done==
+Reynolds number:		9.755392074585E+00
+Elapsed Init time:			0.004319 (s)
+Elapsed Compute time:			2.773283 (s)
+Elapsed Collate time:			0.000345 (s)
+Elapsed Total time:			2.777947 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905304355078E-01
+Biggest difference (at step 39606) : 1.108870298000E-05
+  1.316651888192E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+2 rank, 6 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.004699 (s)
+Elapsed Compute time:			2.354000 (s)
+Elapsed Collate time:			0.000316 (s)
+Elapsed Total time:			2.359015 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905311083354E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+2 rank, 8 threads
+==done==
+Reynolds number:		9.755396842957E+00
+Elapsed Init time:			0.004986 (s)
+Elapsed Compute time:			2.102832 (s)
+Elapsed Collate time:			0.000320 (s)
+Elapsed Total time:			2.108138 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312814394E-01
+Biggest difference (at step 39605) : 1.108938871000E-05
+  1.316649373621E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+2 rank, 10 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.005369 (s)
+Elapsed Compute time:			2.009044 (s)
+Elapsed Collate time:			0.000323 (s)
+Elapsed Total time:			2.014736 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312036041E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+2 rank, 12 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.005695 (s)
+Elapsed Compute time:			1.859468 (s)
+Elapsed Collate time:			0.000324 (s)
+Elapsed Total time:			1.865487 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313054473E-01
+Biggest difference (at step 39604) : 1.108721102000E-05
+  1.316647138447E-02 vs. 1.317755859549E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+2 rank, 14 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.008289 (s)
+Elapsed Compute time:			1.848986 (s)
+Elapsed Collate time:			0.000361 (s)
+Elapsed Total time:			1.857636 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905311411284E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+2 rank, 16 threads
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.006849 (s)
+Elapsed Compute time:			1.941023 (s)
+Elapsed Collate time:			0.000505 (s)
+Elapsed Total time:			1.948377 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312004128E-01
+Biggest difference (at step 39609) : 1.108626292000E-05
+  1.316659431905E-02 vs. 1.317768058197E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+2 rank, 18 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.008081 (s)
+Elapsed Compute time:			1.903942 (s)
+Elapsed Collate time:			0.000674 (s)
+Elapsed Total time:			1.912697 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313222594E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+2 rank, 20 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.008857 (s)
+Elapsed Compute time:			1.891365 (s)
+Elapsed Collate time:			0.000766 (s)
+Elapsed Total time:			1.900988 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313070898E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+2 rank, 22 threads
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.009197 (s)
+Elapsed Compute time:			1.908169 (s)
+Elapsed Collate time:			0.000826 (s)
+Elapsed Total time:			1.918192 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905311409686E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+2 rank, 24 threads
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.009543 (s)
+Elapsed Compute time:			1.904201 (s)
+Elapsed Collate time:			0.000893 (s)
+Elapsed Total time:			1.914637 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312552597E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+2 rank, 26 threads
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.012266 (s)
+Elapsed Compute time:			1.838430 (s)
+Elapsed Collate time:			0.000951 (s)
+Elapsed Total time:			1.851647 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905314431918E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+2 rank, 28 threads
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.011611 (s)
+Elapsed Compute time:			1.855245 (s)
+Elapsed Collate time:			0.000979 (s)
+Elapsed Total time:			1.867835 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313584001E-01
+Biggest difference (at step 39609) : 1.108626292000E-05
+  1.316659431905E-02 vs. 1.317768058197E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+fin rank: 2
+3 rank, 2 threads
+==done==
+Reynolds number:		9.755396842957E+00
+Elapsed Init time:			0.004451 (s)
+Elapsed Compute time:			3.121482 (s)
+Elapsed Collate time:			0.000520 (s)
+Elapsed Total time:			3.126453 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905296945196E-01
+Biggest difference (at step 39607) : 1.109167649000E-05
+  1.316654030234E-02 vs. 1.317763197883E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+3 rank, 4 threads
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.004352 (s)
+Elapsed Compute time:			2.322962 (s)
+Elapsed Collate time:			0.000574 (s)
+Elapsed Total time:			2.327888 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905309735097E-01
+Biggest difference (at step 39605) : 1.108845739000E-05
+  1.316649466753E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+3 rank, 6 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.004741 (s)
+Elapsed Compute time:			2.036785 (s)
+Elapsed Collate time:			0.000583 (s)
+Elapsed Total time:			2.042109 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905311513306E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+3 rank, 8 threads
+==done==
+Reynolds number:		9.755396842957E+00
+Elapsed Init time:			0.005115 (s)
+Elapsed Compute time:			1.922164 (s)
+Elapsed Collate time:			0.000593 (s)
+Elapsed Total time:			1.927872 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905315083885E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+3 rank, 10 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.005411 (s)
+Elapsed Compute time:			1.819207 (s)
+Elapsed Collate time:			0.000597 (s)
+Elapsed Total time:			1.825215 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313161732E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+3 rank, 12 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.006493 (s)
+Elapsed Compute time:			1.750304 (s)
+Elapsed Collate time:			0.000577 (s)
+Elapsed Total time:			1.757374 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313077444E-01
+Biggest difference (at step 39607) : 1.108795120000E-05
+  1.316654402763E-02 vs. 1.317763197883E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+3 rank, 14 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.006894 (s)
+Elapsed Compute time:			1.713754 (s)
+Elapsed Collate time:			0.000593 (s)
+Elapsed Total time:			1.721241 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905311802040E-01
+Biggest difference (at step 39607) : 1.108795120000E-05
+  1.316654402763E-02 vs. 1.317763197883E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+3 rank, 16 threads
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.007921 (s)
+Elapsed Compute time:			1.762305 (s)
+Elapsed Collate time:			0.000784 (s)
+Elapsed Total time:			1.771010 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905314068756E-01
+Biggest difference (at step 39606) : 1.108777166000E-05
+  1.316651981324E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+3 rank, 18 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.007390 (s)
+Elapsed Compute time:			1.842966 (s)
+Elapsed Collate time:			0.000904 (s)
+Elapsed Total time:			1.851260 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313498249E-01
+Biggest difference (at step 39602) : 1.108635929000E-05
+  1.316642295569E-02 vs. 1.317750931498E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+3 rank, 20 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.008629 (s)
+Elapsed Compute time:			1.830438 (s)
+Elapsed Collate time:			0.001065 (s)
+Elapsed Total time:			1.840132 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313841743E-01
+Biggest difference (at step 39603) : 1.108682322000E-05
+  1.316644717008E-02 vs. 1.317753399330E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+3 rank, 22 threads
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.010715 (s)
+Elapsed Compute time:			1.863888 (s)
+Elapsed Collate time:			0.001082 (s)
+Elapsed Total time:			1.875685 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905315386439E-01
+Biggest difference (at step 39607) : 1.108701988000E-05
+  1.316654495895E-02 vs. 1.317763197883E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+3 rank, 24 threads
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.010035 (s)
+Elapsed Compute time:			1.873098 (s)
+Elapsed Collate time:			0.001171 (s)
+Elapsed Total time:			1.884304 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905314505422E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+3 rank, 26 threads
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.011457 (s)
+Elapsed Compute time:			1.869489 (s)
+Elapsed Collate time:			0.001270 (s)
+Elapsed Total time:			1.882216 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313978898E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+3 rank, 28 threads
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.010940 (s)
+Elapsed Compute time:			1.873748 (s)
+Elapsed Collate time:			0.001291 (s)
+Elapsed Total time:			1.885979 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905314776019E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+fin rank: 3
+4 rank, 2 threads
+==done==
+Reynolds number:		9.755396842957E+00
+Elapsed Init time:			0.004439 (s)
+Elapsed Compute time:			2.699398 (s)
+Elapsed Collate time:			0.000713 (s)
+Elapsed Total time:			2.704550 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905304645531E-01
+Biggest difference (at step 39606) : 1.108870298000E-05
+  1.316651888192E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+4 rank, 4 threads
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.004512 (s)
+Elapsed Compute time:			2.080474 (s)
+Elapsed Collate time:			0.000721 (s)
+Elapsed Total time:			2.085707 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905314476510E-01
+Biggest difference (at step 39606) : 1.108777166000E-05
+  1.316651981324E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+4 rank, 6 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.004765 (s)
+Elapsed Compute time:			1.891901 (s)
+Elapsed Collate time:			0.000730 (s)
+Elapsed Total time:			1.897396 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312852932E-01
+Biggest difference (at step 39604) : 1.108721102000E-05
+  1.316647138447E-02 vs. 1.317755859549E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+4 rank, 8 threads
+==done==
+Reynolds number:		9.755396842957E+00
+Elapsed Init time:			0.011061 (s)
+Elapsed Compute time:			1.745888 (s)
+Elapsed Collate time:			0.000755 (s)
+Elapsed Total time:			1.757704 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312060907E-01
+Biggest difference (at step 39609) : 1.108626292000E-05
+  1.316659431905E-02 vs. 1.317768058197E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+4 rank, 10 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.005208 (s)
+Elapsed Compute time:			1.721700 (s)
+Elapsed Collate time:			0.000743 (s)
+Elapsed Total time:			1.727651 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313978990E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+4 rank, 12 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.006123 (s)
+Elapsed Compute time:			1.656372 (s)
+Elapsed Collate time:			0.000731 (s)
+Elapsed Total time:			1.663226 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312433507E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+4 rank, 14 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.007294 (s)
+Elapsed Compute time:			1.654233 (s)
+Elapsed Collate time:			0.000761 (s)
+Elapsed Total time:			1.662288 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313004234E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+4 rank, 16 threads
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.008721 (s)
+Elapsed Compute time:			1.793514 (s)
+Elapsed Collate time:			0.000947 (s)
+Elapsed Total time:			1.803182 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313499171E-01
+Biggest difference (at step 39607) : 1.108608856000E-05
+  1.316654589027E-02 vs. 1.317763197883E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+4 rank, 18 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.008355 (s)
+Elapsed Compute time:			1.756937 (s)
+Elapsed Collate time:			0.001063 (s)
+Elapsed Total time:			1.766355 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905314030073E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+4 rank, 20 threads
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.008557 (s)
+Elapsed Compute time:			1.745675 (s)
+Elapsed Collate time:			0.001170 (s)
+Elapsed Total time:			1.755402 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905314742574E-01
+Biggest difference (at step 39609) : 1.108626292000E-05
+  1.316659431905E-02 vs. 1.317768058197E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+4 rank, 22 threads
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.009457 (s)
+Elapsed Compute time:			1.732705 (s)
+Elapsed Collate time:			0.001132 (s)
+Elapsed Total time:			1.743294 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313701856E-01
+Biggest difference (at step 39608) : 1.108620539000E-05
+  1.316657010466E-02 vs. 1.317765631005E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+4 rank, 24 threads
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.009880 (s)
+Elapsed Compute time:			1.708510 (s)
+Elapsed Collate time:			0.001323 (s)
+Elapsed Total time:			1.719713 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313546549E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+4 rank, 26 threads
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.012834 (s)
+Elapsed Compute time:			1.714844 (s)
+Elapsed Collate time:			0.001288 (s)
+Elapsed Total time:			1.728966 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313205341E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+4 rank, 28 threads
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.012447 (s)
+Elapsed Compute time:			1.718034 (s)
+Elapsed Collate time:			0.001514 (s)
+Elapsed Total time:			1.731995 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313624691E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+fin rank: 4

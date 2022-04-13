@@ -1,0 +1,1328 @@
+Running on host compute101.bc4.acrc.priv
+Time is Thu Mar 31 19:47:22 BST 2022
+Directory is /user/home/ra18837/HPC/advanced-hpc-lbm
+Slurm job ID is 10183586
+This job runs on the following machines:
+compute[101-103,106-110]
+rm -f d2q9-bgk
+mpiicc -std=c99 -Wall -Ofast -fopenmp  d2q9-bgk.c -lm -o d2q9-bgk
+5 rank, 2 threads
+OMP_NUM_THREADS: 1, RANK: 2 of 5, node compute103.bc4.acrc.priv, start:51 end:75
+OMP_NUM_THREADS: 1, RANK: 1 of 5, node compute102.bc4.acrc.priv, start:25 end:50
+OMP_NUM_THREADS: 1, RANK: 0 of 5, node compute101.bc4.acrc.priv, start:0 end:24
+OMP_NUM_THREADS: 1, RANK: 4 of 5, node compute107.bc4.acrc.priv, start:102 end:127
+OMP_NUM_THREADS: 1, RANK: 3 of 5, node compute106.bc4.acrc.priv, start:76 end:101
+==done==
+Reynolds number:		9.755396842957E+00
+Elapsed Init time:			0.006028 (s)
+Elapsed Compute time:			2.448162 (s)
+Elapsed Collate time:			0.000818 (s)
+Elapsed Total time:			2.455008 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313963715E-01
+Biggest difference (at step 39602) : 1.108822193000E-05
+  1.316642109305E-02 vs. 1.317750931498E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+5 rank, 4 threads
+OMP_NUM_THREADS: 1, RANK: 2 of 5, node compute103.bc4.acrc.priv, start:51 end:75
+OMP_NUM_THREADS: 1, RANK: 1 of 5, node compute102.bc4.acrc.priv, start:25 end:50
+OMP_NUM_THREADS: 1, RANK: 0 of 5, node compute101.bc4.acrc.priv, start:0 end:24
+OMP_NUM_THREADS: 1, RANK: 4 of 5, node compute107.bc4.acrc.priv, start:102 end:127
+OMP_NUM_THREADS: 1, RANK: 3 of 5, node compute106.bc4.acrc.priv, start:76 end:101
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.004630 (s)
+Elapsed Compute time:			1.979215 (s)
+Elapsed Collate time:			0.000866 (s)
+Elapsed Total time:			1.984711 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905308713681E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+5 rank, 6 threads
+OMP_NUM_THREADS: 1, RANK: 4 of 5, node compute107.bc4.acrc.priv, start:102 end:127
+OMP_NUM_THREADS: 1, RANK: 0 of 5, node compute101.bc4.acrc.priv, start:0 end:24
+OMP_NUM_THREADS: 1, RANK: 3 of 5, node compute106.bc4.acrc.priv, start:76 end:101
+OMP_NUM_THREADS: 1, RANK: 1 of 5, node compute102.bc4.acrc.priv, start:25 end:50
+OMP_NUM_THREADS: 1, RANK: 2 of 5, node compute103.bc4.acrc.priv, start:51 end:75
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.004921 (s)
+Elapsed Compute time:			1.798689 (s)
+Elapsed Collate time:			0.000886 (s)
+Elapsed Total time:			1.804496 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905310119800E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+5 rank, 8 threads
+OMP_NUM_THREADS: 1, RANK: 3 of 5, node compute106.bc4.acrc.priv, start:76 end:101
+OMP_NUM_THREADS: 1, RANK: 2 of 5, node compute103.bc4.acrc.priv, start:51 end:75
+OMP_NUM_THREADS: 1, RANK: 0 of 5, node compute101.bc4.acrc.priv, start:0 end:24
+OMP_NUM_THREADS: 1, RANK: 4 of 5, node compute107.bc4.acrc.priv, start:102 end:127
+OMP_NUM_THREADS: 1, RANK: 1 of 5, node compute102.bc4.acrc.priv, start:25 end:50
+==done==
+Reynolds number:		9.755396842957E+00
+Elapsed Init time:			0.005586 (s)
+Elapsed Compute time:			1.717288 (s)
+Elapsed Collate time:			0.000846 (s)
+Elapsed Total time:			1.723720 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905311951267E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+5 rank, 10 threads
+OMP_NUM_THREADS: 1, RANK: 2 of 5, node compute103.bc4.acrc.priv, start:51 end:75
+OMP_NUM_THREADS: 1, RANK: 1 of 5, node compute102.bc4.acrc.priv, start:25 end:50
+OMP_NUM_THREADS: 1, RANK: 0 of 5, node compute101.bc4.acrc.priv, start:0 end:24
+OMP_NUM_THREADS: 1, RANK: 3 of 5, node compute106.bc4.acrc.priv, start:76 end:101
+OMP_NUM_THREADS: 1, RANK: 4 of 5, node compute107.bc4.acrc.priv, start:102 end:127
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.005686 (s)
+Elapsed Compute time:			1.658765 (s)
+Elapsed Collate time:			0.000886 (s)
+Elapsed Total time:			1.665337 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905311382653E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+5 rank, 12 threads
+OMP_NUM_THREADS: 1, RANK: 2 of 5, node compute103.bc4.acrc.priv, start:51 end:75
+OMP_NUM_THREADS: 1, RANK: 4 of 5, node compute107.bc4.acrc.priv, start:102 end:127
+OMP_NUM_THREADS: 1, RANK: 3 of 5, node compute106.bc4.acrc.priv, start:76 end:101
+OMP_NUM_THREADS: 1, RANK: 0 of 5, node compute101.bc4.acrc.priv, start:0 end:24
+OMP_NUM_THREADS: 1, RANK: 1 of 5, node compute102.bc4.acrc.priv, start:25 end:50
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.007078 (s)
+Elapsed Compute time:			1.629987 (s)
+Elapsed Collate time:			0.000893 (s)
+Elapsed Total time:			1.637958 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312347064E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+5 rank, 14 threads
+OMP_NUM_THREADS: 1, RANK: 1 of 5, node compute102.bc4.acrc.priv, start:25 end:50
+OMP_NUM_THREADS: 1, RANK: 0 of 5, node compute101.bc4.acrc.priv, start:0 end:24
+OMP_NUM_THREADS: 1, RANK: 3 of 5, node compute106.bc4.acrc.priv, start:76 end:101
+OMP_NUM_THREADS: 1, RANK: 2 of 5, node compute103.bc4.acrc.priv, start:51 end:75
+OMP_NUM_THREADS: 1, RANK: 4 of 5, node compute107.bc4.acrc.priv, start:102 end:127
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.006703 (s)
+Elapsed Compute time:			1.583860 (s)
+Elapsed Collate time:			0.000900 (s)
+Elapsed Total time:			1.591463 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905311706924E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+5 rank, 16 threads
+OMP_NUM_THREADS: 1, RANK: 3 of 5, node compute106.bc4.acrc.priv, start:76 end:101
+OMP_NUM_THREADS: 1, RANK: 4 of 5, node compute107.bc4.acrc.priv, start:102 end:127
+OMP_NUM_THREADS: 1, RANK: 2 of 5, node compute103.bc4.acrc.priv, start:51 end:75
+OMP_NUM_THREADS: 1, RANK: 0 of 5, node compute101.bc4.acrc.priv, start:0 end:24
+OMP_NUM_THREADS: 1, RANK: 1 of 5, node compute102.bc4.acrc.priv, start:25 end:50
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.008410 (s)
+Elapsed Compute time:			1.712105 (s)
+Elapsed Collate time:			0.001055 (s)
+Elapsed Total time:			1.721570 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312285016E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+5 rank, 18 threads
+OMP_NUM_THREADS: 1, RANK: 1 of 5, node compute102.bc4.acrc.priv, start:25 end:50
+OMP_NUM_THREADS: 1, RANK: 0 of 5, node compute101.bc4.acrc.priv, start:0 end:24
+OMP_NUM_THREADS: 1, RANK: 2 of 5, node compute103.bc4.acrc.priv, start:51 end:75
+OMP_NUM_THREADS: 1, RANK: 4 of 5, node compute107.bc4.acrc.priv, start:102 end:127
+OMP_NUM_THREADS: 1, RANK: 3 of 5, node compute106.bc4.acrc.priv, start:76 end:101
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.008245 (s)
+Elapsed Compute time:			1.733052 (s)
+Elapsed Collate time:			0.001169 (s)
+Elapsed Total time:			1.742466 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312379493E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+5 rank, 20 threads
+OMP_NUM_THREADS: 1, RANK: 3 of 5, node compute106.bc4.acrc.priv, start:76 end:101
+OMP_NUM_THREADS: 1, RANK: 0 of 5, node compute101.bc4.acrc.priv, start:0 end:24
+OMP_NUM_THREADS: 1, RANK: 4 of 5, node compute107.bc4.acrc.priv, start:102 end:127
+OMP_NUM_THREADS: 1, RANK: 1 of 5, node compute102.bc4.acrc.priv, start:25 end:50
+OMP_NUM_THREADS: 1, RANK: 2 of 5, node compute103.bc4.acrc.priv, start:51 end:75
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.008902 (s)
+Elapsed Compute time:			1.726644 (s)
+Elapsed Collate time:			0.001241 (s)
+Elapsed Total time:			1.736787 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312076484E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+5 rank, 22 threads
+OMP_NUM_THREADS: 1, RANK: 1 of 5, node compute102.bc4.acrc.priv, start:25 end:50
+OMP_NUM_THREADS: 1, RANK: 2 of 5, node compute103.bc4.acrc.priv, start:51 end:75
+OMP_NUM_THREADS: 1, RANK: 0 of 5, node compute101.bc4.acrc.priv, start:0 end:24
+OMP_NUM_THREADS: 1, RANK: 3 of 5, node compute106.bc4.acrc.priv, start:76 end:101
+OMP_NUM_THREADS: 1, RANK: 4 of 5, node compute107.bc4.acrc.priv, start:102 end:127
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.010948 (s)
+Elapsed Compute time:			1.725529 (s)
+Elapsed Collate time:			0.001332 (s)
+Elapsed Total time:			1.737809 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905311844861E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+5 rank, 24 threads
+OMP_NUM_THREADS: 1, RANK: 4 of 5, node compute107.bc4.acrc.priv, start:102 end:127
+OMP_NUM_THREADS: 1, RANK: 0 of 5, node compute101.bc4.acrc.priv, start:0 end:24
+OMP_NUM_THREADS: 1, RANK: 3 of 5, node compute106.bc4.acrc.priv, start:76 end:101
+OMP_NUM_THREADS: 1, RANK: 1 of 5, node compute102.bc4.acrc.priv, start:25 end:50
+OMP_NUM_THREADS: 1, RANK: 2 of 5, node compute103.bc4.acrc.priv, start:51 end:75
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.009955 (s)
+Elapsed Compute time:			1.728035 (s)
+Elapsed Collate time:			0.001360 (s)
+Elapsed Total time:			1.739350 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312362575E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+5 rank, 26 threads
+OMP_NUM_THREADS: 1, RANK: 4 of 5, node compute107.bc4.acrc.priv, start:102 end:127
+OMP_NUM_THREADS: 1, RANK: 0 of 5, node compute101.bc4.acrc.priv, start:0 end:24
+OMP_NUM_THREADS: 1, RANK: 3 of 5, node compute106.bc4.acrc.priv, start:76 end:101
+OMP_NUM_THREADS: 1, RANK: 1 of 5, node compute102.bc4.acrc.priv, start:25 end:50
+OMP_NUM_THREADS: 1, RANK: 2 of 5, node compute103.bc4.acrc.priv, start:51 end:75
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.011009 (s)
+Elapsed Compute time:			1.690064 (s)
+Elapsed Collate time:			0.001524 (s)
+Elapsed Total time:			1.702597 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905311544797E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+5 rank, 28 threads
+OMP_NUM_THREADS: 1, RANK: 0 of 5, node compute101.bc4.acrc.priv, start:0 end:24
+OMP_NUM_THREADS: 1, RANK: 4 of 5, node compute107.bc4.acrc.priv, start:102 end:127
+OMP_NUM_THREADS: 1, RANK: 3 of 5, node compute106.bc4.acrc.priv, start:76 end:101
+OMP_NUM_THREADS: 1, RANK: 2 of 5, node compute103.bc4.acrc.priv, start:51 end:75
+OMP_NUM_THREADS: 1, RANK: 1 of 5, node compute102.bc4.acrc.priv, start:25 end:50
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.011438 (s)
+Elapsed Compute time:			1.722350 (s)
+Elapsed Collate time:			0.001404 (s)
+Elapsed Total time:			1.735192 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905311544797E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+fin rank: 5
+6 rank, 2 threads
+OMP_NUM_THREADS: 1, RANK: 3 of 6, node compute106.bc4.acrc.priv, start:64 end:84
+OMP_NUM_THREADS: 1, RANK: 4 of 6, node compute107.bc4.acrc.priv, start:85 end:105
+OMP_NUM_THREADS: 1, RANK: 0 of 6, node compute101.bc4.acrc.priv, start:0 end:20
+OMP_NUM_THREADS: 1, RANK: 2 of 6, node compute103.bc4.acrc.priv, start:42 end:63
+OMP_NUM_THREADS: 1, RANK: 5 of 6, node compute108.bc4.acrc.priv, start:106 end:127
+OMP_NUM_THREADS: 1, RANK: 1 of 6, node compute102.bc4.acrc.priv, start:21 end:41
+==done==
+Reynolds number:		9.755396842957E+00
+Elapsed Init time:			0.004623 (s)
+Elapsed Compute time:			2.264516 (s)
+Elapsed Collate time:			0.000956 (s)
+Elapsed Total time:			2.270095 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905310724873E-01
+Biggest difference (at step 39606) : 1.108870298000E-05
+  1.316651888192E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+6 rank, 4 threads
+OMP_NUM_THREADS: 1, RANK: 5 of 6, node compute108.bc4.acrc.priv, start:106 end:127
+OMP_NUM_THREADS: 1, RANK: 3 of 6, node compute106.bc4.acrc.priv, start:64 end:84
+OMP_NUM_THREADS: 1, RANK: 1 of 6, node compute102.bc4.acrc.priv, start:21 end:41
+OMP_NUM_THREADS: 1, RANK: 4 of 6, node compute107.bc4.acrc.priv, start:85 end:105
+OMP_NUM_THREADS: 1, RANK: 0 of 6, node compute101.bc4.acrc.priv, start:0 end:20
+OMP_NUM_THREADS: 1, RANK: 2 of 6, node compute103.bc4.acrc.priv, start:42 end:63
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.005700 (s)
+Elapsed Compute time:			1.857089 (s)
+Elapsed Collate time:			0.000957 (s)
+Elapsed Total time:			1.863746 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313674537E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+6 rank, 6 threads
+OMP_NUM_THREADS: 1, RANK: 4 of 6, node compute107.bc4.acrc.priv, start:85 end:105
+OMP_NUM_THREADS: 1, RANK: 5 of 6, node compute108.bc4.acrc.priv, start:106 end:127
+OMP_NUM_THREADS: 1, RANK: 3 of 6, node compute106.bc4.acrc.priv, start:64 end:84
+OMP_NUM_THREADS: 1, RANK: 1 of 6, node compute102.bc4.acrc.priv, start:21 end:41
+OMP_NUM_THREADS: 1, RANK: 0 of 6, node compute101.bc4.acrc.priv, start:0 end:20
+OMP_NUM_THREADS: 1, RANK: 2 of 6, node compute103.bc4.acrc.priv, start:42 end:63
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.005968 (s)
+Elapsed Compute time:			1.715475 (s)
+Elapsed Collate time:			0.000983 (s)
+Elapsed Total time:			1.722426 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313093068E-01
+Biggest difference (at step 39606) : 1.108777166000E-05
+  1.316651981324E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+6 rank, 8 threads
+OMP_NUM_THREADS: 1, RANK: 2 of 6, node compute103.bc4.acrc.priv, start:42 end:63
+OMP_NUM_THREADS: 1, RANK: 3 of 6, node compute106.bc4.acrc.priv, start:64 end:84
+OMP_NUM_THREADS: 1, RANK: 4 of 6, node compute107.bc4.acrc.priv, start:85 end:105
+OMP_NUM_THREADS: 1, RANK: 0 of 6, node compute101.bc4.acrc.priv, start:0 end:20
+OMP_NUM_THREADS: 1, RANK: 5 of 6, node compute108.bc4.acrc.priv, start:106 end:127
+OMP_NUM_THREADS: 1, RANK: 1 of 6, node compute102.bc4.acrc.priv, start:21 end:41
+==done==
+Reynolds number:		9.755396842957E+00
+Elapsed Init time:			0.006547 (s)
+Elapsed Compute time:			1.640210 (s)
+Elapsed Collate time:			0.000969 (s)
+Elapsed Total time:			1.647726 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312144271E-01
+Biggest difference (at step 39603) : 1.108682322000E-05
+  1.316644717008E-02 vs. 1.317753399330E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+6 rank, 10 threads
+OMP_NUM_THREADS: 1, RANK: 2 of 6, node compute103.bc4.acrc.priv, start:42 end:63
+OMP_NUM_THREADS: 1, RANK: 3 of 6, node compute106.bc4.acrc.priv, start:64 end:84
+OMP_NUM_THREADS: 1, RANK: 5 of 6, node compute108.bc4.acrc.priv, start:106 end:127
+OMP_NUM_THREADS: 1, RANK: 4 of 6, node compute107.bc4.acrc.priv, start:85 end:105
+OMP_NUM_THREADS: 1, RANK: 0 of 6, node compute101.bc4.acrc.priv, start:0 end:20
+OMP_NUM_THREADS: 1, RANK: 1 of 6, node compute102.bc4.acrc.priv, start:21 end:41
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.006729 (s)
+Elapsed Compute time:			1.618255 (s)
+Elapsed Collate time:			0.000977 (s)
+Elapsed Total time:			1.625961 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313005902E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+6 rank, 12 threads
+OMP_NUM_THREADS: 1, RANK: 4 of 6, node compute107.bc4.acrc.priv, start:85 end:105
+OMP_NUM_THREADS: 1, RANK: 3 of 6, node compute106.bc4.acrc.priv, start:64 end:84
+OMP_NUM_THREADS: 1, RANK: 5 of 6, node compute108.bc4.acrc.priv, start:106 end:127
+OMP_NUM_THREADS: 1, RANK: 2 of 6, node compute103.bc4.acrc.priv, start:42 end:63
+OMP_NUM_THREADS: 1, RANK: 0 of 6, node compute101.bc4.acrc.priv, start:0 end:20
+OMP_NUM_THREADS: 1, RANK: 1 of 6, node compute102.bc4.acrc.priv, start:21 end:41
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.007246 (s)
+Elapsed Compute time:			1.570617 (s)
+Elapsed Collate time:			0.001003 (s)
+Elapsed Total time:			1.578866 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905314939544E-01
+Biggest difference (at step 39604) : 1.108721102000E-05
+  1.316647138447E-02 vs. 1.317755859549E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+6 rank, 14 threads
+OMP_NUM_THREADS: 1, RANK: 0 of 6, node compute101.bc4.acrc.priv, start:0 end:20
+OMP_NUM_THREADS: 1, RANK: 5 of 6, node compute108.bc4.acrc.priv, start:106 end:127
+OMP_NUM_THREADS: 1, RANK: 3 of 6, node compute106.bc4.acrc.priv, start:64 end:84
+OMP_NUM_THREADS: 1, RANK: 2 of 6, node compute103.bc4.acrc.priv, start:42 end:63
+OMP_NUM_THREADS: 1, RANK: 1 of 6, node compute102.bc4.acrc.priv, start:21 end:41
+OMP_NUM_THREADS: 1, RANK: 4 of 6, node compute107.bc4.acrc.priv, start:85 end:105
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.007633 (s)
+Elapsed Compute time:			1.587781 (s)
+Elapsed Collate time:			0.001007 (s)
+Elapsed Total time:			1.596421 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313349096E-01
+Biggest difference (at step 39604) : 1.108721102000E-05
+  1.316647138447E-02 vs. 1.317755859549E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+6 rank, 16 threads
+OMP_NUM_THREADS: 1, RANK: 0 of 6, node compute101.bc4.acrc.priv, start:0 end:20
+OMP_NUM_THREADS: 1, RANK: 5 of 6, node compute108.bc4.acrc.priv, start:106 end:127
+OMP_NUM_THREADS: 1, RANK: 1 of 6, node compute102.bc4.acrc.priv, start:21 end:41
+OMP_NUM_THREADS: 1, RANK: 2 of 6, node compute103.bc4.acrc.priv, start:42 end:63
+OMP_NUM_THREADS: 1, RANK: 4 of 6, node compute107.bc4.acrc.priv, start:85 end:105
+OMP_NUM_THREADS: 1, RANK: 3 of 6, node compute106.bc4.acrc.priv, start:64 end:84
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.008380 (s)
+Elapsed Compute time:			1.735562 (s)
+Elapsed Collate time:			0.001168 (s)
+Elapsed Total time:			1.745110 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312887784E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+6 rank, 18 threads
+OMP_NUM_THREADS: 1, RANK: 3 of 6, node compute106.bc4.acrc.priv, start:64 end:84
+OMP_NUM_THREADS: 1, RANK: 0 of 6, node compute101.bc4.acrc.priv, start:0 end:20
+OMP_NUM_THREADS: 1, RANK: 2 of 6, node compute103.bc4.acrc.priv, start:42 end:63
+OMP_NUM_THREADS: 1, RANK: 4 of 6, node compute107.bc4.acrc.priv, start:85 end:105
+OMP_NUM_THREADS: 1, RANK: 5 of 6, node compute108.bc4.acrc.priv, start:106 end:127
+OMP_NUM_THREADS: 1, RANK: 1 of 6, node compute102.bc4.acrc.priv, start:21 end:41
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.008831 (s)
+Elapsed Compute time:			1.736486 (s)
+Elapsed Collate time:			0.001258 (s)
+Elapsed Total time:			1.746575 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905311303822E-01
+Biggest difference (at step 39607) : 1.108701988000E-05
+  1.316654495895E-02 vs. 1.317763197883E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+6 rank, 20 threads
+OMP_NUM_THREADS: 1, RANK: 5 of 6, node compute108.bc4.acrc.priv, start:106 end:127
+OMP_NUM_THREADS: 1, RANK: 1 of 6, node compute102.bc4.acrc.priv, start:21 end:41
+OMP_NUM_THREADS: 1, RANK: 4 of 6, node compute107.bc4.acrc.priv, start:85 end:105
+OMP_NUM_THREADS: 1, RANK: 0 of 6, node compute101.bc4.acrc.priv, start:0 end:20
+OMP_NUM_THREADS: 1, RANK: 3 of 6, node compute106.bc4.acrc.priv, start:64 end:84
+OMP_NUM_THREADS: 1, RANK: 2 of 6, node compute103.bc4.acrc.priv, start:42 end:63
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.009472 (s)
+Elapsed Compute time:			1.715113 (s)
+Elapsed Collate time:			0.001354 (s)
+Elapsed Total time:			1.725939 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312865350E-01
+Biggest difference (at step 39606) : 1.108777166000E-05
+  1.316651981324E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+6 rank, 22 threads
+OMP_NUM_THREADS: 1, RANK: 4 of 6, node compute107.bc4.acrc.priv, start:85 end:105
+OMP_NUM_THREADS: 1, RANK: 0 of 6, node compute101.bc4.acrc.priv, start:0 end:20
+OMP_NUM_THREADS: 1, RANK: 3 of 6, node compute106.bc4.acrc.priv, start:64 end:84
+OMP_NUM_THREADS: 1, RANK: 1 of 6, node compute102.bc4.acrc.priv, start:21 end:41
+OMP_NUM_THREADS: 1, RANK: 2 of 6, node compute103.bc4.acrc.priv, start:42 end:63
+OMP_NUM_THREADS: 1, RANK: 5 of 6, node compute108.bc4.acrc.priv, start:106 end:127
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.009805 (s)
+Elapsed Compute time:			1.750403 (s)
+Elapsed Collate time:			0.001405 (s)
+Elapsed Total time:			1.761613 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905314855352E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+6 rank, 24 threads
+OMP_NUM_THREADS: 1, RANK: 5 of 6, node compute108.bc4.acrc.priv, start:106 end:127
+OMP_NUM_THREADS: 1, RANK: 4 of 6, node compute107.bc4.acrc.priv, start:85 end:105
+OMP_NUM_THREADS: 1, RANK: 0 of 6, node compute101.bc4.acrc.priv, start:0 end:20
+OMP_NUM_THREADS: 1, RANK: 2 of 6, node compute103.bc4.acrc.priv, start:42 end:63
+OMP_NUM_THREADS: 1, RANK: 1 of 6, node compute102.bc4.acrc.priv, start:21 end:41
+OMP_NUM_THREADS: 1, RANK: 3 of 6, node compute106.bc4.acrc.priv, start:64 end:84
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.011110 (s)
+Elapsed Compute time:			1.717535 (s)
+Elapsed Collate time:			0.001394 (s)
+Elapsed Total time:			1.730039 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905314855352E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+6 rank, 26 threads
+OMP_NUM_THREADS: 1, RANK: 1 of 6, node compute102.bc4.acrc.priv, start:21 end:41
+OMP_NUM_THREADS: 1, RANK: 3 of 6, node compute106.bc4.acrc.priv, start:64 end:84
+OMP_NUM_THREADS: 1, RANK: 4 of 6, node compute107.bc4.acrc.priv, start:85 end:105
+OMP_NUM_THREADS: 1, RANK: 5 of 6, node compute108.bc4.acrc.priv, start:106 end:127
+OMP_NUM_THREADS: 1, RANK: 0 of 6, node compute101.bc4.acrc.priv, start:0 end:20
+OMP_NUM_THREADS: 1, RANK: 2 of 6, node compute103.bc4.acrc.priv, start:42 end:63
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.012445 (s)
+Elapsed Compute time:			1.729663 (s)
+Elapsed Collate time:			0.001606 (s)
+Elapsed Total time:			1.743714 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905314855352E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+6 rank, 28 threads
+OMP_NUM_THREADS: 1, RANK: 3 of 6, node compute106.bc4.acrc.priv, start:64 end:84
+OMP_NUM_THREADS: 1, RANK: 1 of 6, node compute102.bc4.acrc.priv, start:21 end:41
+OMP_NUM_THREADS: 1, RANK: 2 of 6, node compute103.bc4.acrc.priv, start:42 end:63
+OMP_NUM_THREADS: 1, RANK: 0 of 6, node compute101.bc4.acrc.priv, start:0 end:20
+OMP_NUM_THREADS: 1, RANK: 4 of 6, node compute107.bc4.acrc.priv, start:85 end:105
+OMP_NUM_THREADS: 1, RANK: 5 of 6, node compute108.bc4.acrc.priv, start:106 end:127
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.012341 (s)
+Elapsed Compute time:			1.743442 (s)
+Elapsed Collate time:			0.001582 (s)
+Elapsed Total time:			1.757365 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905314855352E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+fin rank: 6
+7 rank, 2 threads
+OMP_NUM_THREADS: 1, RANK: 2 of 7, node compute103.bc4.acrc.priv, start:36 end:53
+OMP_NUM_THREADS: 1, RANK: 0 of 7, node compute101.bc4.acrc.priv, start:0 end:17
+OMP_NUM_THREADS: 1, RANK: 1 of 7, node compute102.bc4.acrc.priv, start:18 end:35
+OMP_NUM_THREADS: 1, RANK: 5 of 7, node compute108.bc4.acrc.priv, start:91 end:108
+OMP_NUM_THREADS: 1, RANK: 3 of 7, node compute106.bc4.acrc.priv, start:54 end:72
+OMP_NUM_THREADS: 1, RANK: 6 of 7, node compute109.bc4.acrc.priv, start:109 end:127
+OMP_NUM_THREADS: 1, RANK: 4 of 7, node compute107.bc4.acrc.priv, start:73 end:90
+==done==
+Reynolds number:		9.755396842957E+00
+Elapsed Init time:			0.004926 (s)
+Elapsed Compute time:			2.110435 (s)
+Elapsed Collate time:			0.001024 (s)
+Elapsed Total time:			2.116385 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905310206704E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+7 rank, 4 threads
+OMP_NUM_THREADS: 1, RANK: 6 of 7, node compute109.bc4.acrc.priv, start:109 end:127
+OMP_NUM_THREADS: 1, RANK: 0 of 7, node compute101.bc4.acrc.priv, start:0 end:17
+OMP_NUM_THREADS: 1, RANK: 4 of 7, node compute107.bc4.acrc.priv, start:73 end:90
+OMP_NUM_THREADS: 1, RANK: 5 of 7, node compute108.bc4.acrc.priv, start:91 end:108
+OMP_NUM_THREADS: 1, RANK: 1 of 7, node compute102.bc4.acrc.priv, start:18 end:35
+OMP_NUM_THREADS: 1, RANK: 3 of 7, node compute106.bc4.acrc.priv, start:54 end:72
+OMP_NUM_THREADS: 1, RANK: 2 of 7, node compute103.bc4.acrc.priv, start:36 end:53
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.004908 (s)
+Elapsed Compute time:			1.797306 (s)
+Elapsed Collate time:			0.001057 (s)
+Elapsed Total time:			1.803271 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312739752E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+7 rank, 6 threads
+OMP_NUM_THREADS: 1, RANK: 3 of 7, node compute106.bc4.acrc.priv, start:54 end:72
+OMP_NUM_THREADS: 1, RANK: 1 of 7, node compute102.bc4.acrc.priv, start:18 end:35
+OMP_NUM_THREADS: 1, RANK: 6 of 7, node compute109.bc4.acrc.priv, start:109 end:127
+OMP_NUM_THREADS: 1, RANK: 5 of 7, node compute108.bc4.acrc.priv, start:91 end:108
+OMP_NUM_THREADS: 1, RANK: 2 of 7, node compute103.bc4.acrc.priv, start:36 end:53
+OMP_NUM_THREADS: 1, RANK: 0 of 7, node compute101.bc4.acrc.priv, start:0 end:17
+OMP_NUM_THREADS: 1, RANK: 4 of 7, node compute107.bc4.acrc.priv, start:73 end:90
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.005449 (s)
+Elapsed Compute time:			1.675672 (s)
+Elapsed Collate time:			0.001076 (s)
+Elapsed Total time:			1.682197 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312822377E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+7 rank, 8 threads
+OMP_NUM_THREADS: 1, RANK: 2 of 7, node compute103.bc4.acrc.priv, start:36 end:53
+OMP_NUM_THREADS: 1, RANK: 1 of 7, node compute102.bc4.acrc.priv, start:18 end:35
+OMP_NUM_THREADS: 1, RANK: 6 of 7, node compute109.bc4.acrc.priv, start:109 end:127
+OMP_NUM_THREADS: 1, RANK: 4 of 7, node compute107.bc4.acrc.priv, start:73 end:90
+OMP_NUM_THREADS: 1, RANK: 0 of 7, node compute101.bc4.acrc.priv, start:0 end:17
+OMP_NUM_THREADS: 1, RANK: 3 of 7, node compute106.bc4.acrc.priv, start:54 end:72
+OMP_NUM_THREADS: 1, RANK: 5 of 7, node compute108.bc4.acrc.priv, start:91 end:108
+==done==
+Reynolds number:		9.755396842957E+00
+Elapsed Init time:			0.005665 (s)
+Elapsed Compute time:			1.640331 (s)
+Elapsed Collate time:			0.001070 (s)
+Elapsed Total time:			1.647066 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313226739E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+7 rank, 10 threads
+OMP_NUM_THREADS: 1, RANK: 4 of 7, node compute107.bc4.acrc.priv, start:73 end:90
+OMP_NUM_THREADS: 1, RANK: 1 of 7, node compute102.bc4.acrc.priv, start:18 end:35
+OMP_NUM_THREADS: 1, RANK: 3 of 7, node compute106.bc4.acrc.priv, start:54 end:72
+OMP_NUM_THREADS: 1, RANK: 6 of 7, node compute109.bc4.acrc.priv, start:109 end:127
+OMP_NUM_THREADS: 1, RANK: 5 of 7, node compute108.bc4.acrc.priv, start:91 end:108
+OMP_NUM_THREADS: 1, RANK: 0 of 7, node compute101.bc4.acrc.priv, start:0 end:17
+OMP_NUM_THREADS: 1, RANK: 2 of 7, node compute103.bc4.acrc.priv, start:36 end:53
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.006148 (s)
+Elapsed Compute time:			1.580260 (s)
+Elapsed Collate time:			0.001075 (s)
+Elapsed Total time:			1.587483 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313479847E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+7 rank, 12 threads
+OMP_NUM_THREADS: 1, RANK: 1 of 7, node compute102.bc4.acrc.priv, start:18 end:35
+OMP_NUM_THREADS: 1, RANK: 2 of 7, node compute103.bc4.acrc.priv, start:36 end:53
+OMP_NUM_THREADS: 1, RANK: 4 of 7, node compute107.bc4.acrc.priv, start:73 end:90
+OMP_NUM_THREADS: 1, RANK: 5 of 7, node compute108.bc4.acrc.priv, start:91 end:108
+OMP_NUM_THREADS: 1, RANK: 0 of 7, node compute101.bc4.acrc.priv, start:0 end:17
+OMP_NUM_THREADS: 1, RANK: 6 of 7, node compute109.bc4.acrc.priv, start:109 end:127
+OMP_NUM_THREADS: 1, RANK: 3 of 7, node compute106.bc4.acrc.priv, start:54 end:72
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.006459 (s)
+Elapsed Compute time:			1.569615 (s)
+Elapsed Collate time:			0.001088 (s)
+Elapsed Total time:			1.577162 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905314533022E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+7 rank, 14 threads
+OMP_NUM_THREADS: 1, RANK: 6 of 7, node compute109.bc4.acrc.priv, start:109 end:127
+OMP_NUM_THREADS: 1, RANK: 1 of 7, node compute102.bc4.acrc.priv, start:18 end:35
+OMP_NUM_THREADS: 1, RANK: 3 of 7, node compute106.bc4.acrc.priv, start:54 end:72
+OMP_NUM_THREADS: 1, RANK: 4 of 7, node compute107.bc4.acrc.priv, start:73 end:90
+OMP_NUM_THREADS: 1, RANK: 0 of 7, node compute101.bc4.acrc.priv, start:0 end:17
+OMP_NUM_THREADS: 1, RANK: 2 of 7, node compute103.bc4.acrc.priv, start:36 end:53
+OMP_NUM_THREADS: 1, RANK: 5 of 7, node compute108.bc4.acrc.priv, start:91 end:108
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.007606 (s)
+Elapsed Compute time:			1.579413 (s)
+Elapsed Collate time:			0.001079 (s)
+Elapsed Total time:			1.588098 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905314978058E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+7 rank, 16 threads
+OMP_NUM_THREADS: 1, RANK: 5 of 7, node compute108.bc4.acrc.priv, start:91 end:108
+OMP_NUM_THREADS: 1, RANK: 3 of 7, node compute106.bc4.acrc.priv, start:54 end:72
+OMP_NUM_THREADS: 1, RANK: 1 of 7, node compute102.bc4.acrc.priv, start:18 end:35
+OMP_NUM_THREADS: 1, RANK: 4 of 7, node compute107.bc4.acrc.priv, start:73 end:90
+OMP_NUM_THREADS: 1, RANK: 0 of 7, node compute101.bc4.acrc.priv, start:0 end:17
+OMP_NUM_THREADS: 1, RANK: 6 of 7, node compute109.bc4.acrc.priv, start:109 end:127
+OMP_NUM_THREADS: 1, RANK: 2 of 7, node compute103.bc4.acrc.priv, start:36 end:53
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.007429 (s)
+Elapsed Compute time:			1.713151 (s)
+Elapsed Collate time:			0.001275 (s)
+Elapsed Total time:			1.721855 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905316295840E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+7 rank, 18 threads
+OMP_NUM_THREADS: 1, RANK: 3 of 7, node compute106.bc4.acrc.priv, start:54 end:72
+OMP_NUM_THREADS: 1, RANK: 4 of 7, node compute107.bc4.acrc.priv, start:73 end:90
+OMP_NUM_THREADS: 1, RANK: 5 of 7, node compute108.bc4.acrc.priv, start:91 end:108
+OMP_NUM_THREADS: 1, RANK: 6 of 7, node compute109.bc4.acrc.priv, start:109 end:127
+OMP_NUM_THREADS: 1, RANK: 0 of 7, node compute101.bc4.acrc.priv, start:0 end:17
+OMP_NUM_THREADS: 1, RANK: 1 of 7, node compute102.bc4.acrc.priv, start:18 end:35
+OMP_NUM_THREADS: 1, RANK: 2 of 7, node compute103.bc4.acrc.priv, start:36 end:53
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.009025 (s)
+Elapsed Compute time:			1.743567 (s)
+Elapsed Collate time:			0.001372 (s)
+Elapsed Total time:			1.753964 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313741558E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+7 rank, 20 threads
+OMP_NUM_THREADS: 1, RANK: 2 of 7, node compute103.bc4.acrc.priv, start:36 end:53
+OMP_NUM_THREADS: 1, RANK: 1 of 7, node compute102.bc4.acrc.priv, start:18 end:35
+OMP_NUM_THREADS: 1, RANK: 5 of 7, node compute108.bc4.acrc.priv, start:91 end:108
+OMP_NUM_THREADS: 1, RANK: 3 of 7, node compute106.bc4.acrc.priv, start:54 end:72
+OMP_NUM_THREADS: 1, RANK: 0 of 7, node compute101.bc4.acrc.priv, start:0 end:17
+OMP_NUM_THREADS: 1, RANK: 4 of 7, node compute107.bc4.acrc.priv, start:73 end:90
+OMP_NUM_THREADS: 1, RANK: 6 of 7, node compute109.bc4.acrc.priv, start:109 end:127
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.009722 (s)
+Elapsed Compute time:			1.706565 (s)
+Elapsed Collate time:			0.001416 (s)
+Elapsed Total time:			1.717703 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313513509E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+7 rank, 22 threads
+OMP_NUM_THREADS: 1, RANK: 2 of 7, node compute103.bc4.acrc.priv, start:36 end:53
+OMP_NUM_THREADS: 1, RANK: 0 of 7, node compute101.bc4.acrc.priv, start:0 end:17
+OMP_NUM_THREADS: 1, RANK: 4 of 7, node compute107.bc4.acrc.priv, start:73 end:90
+OMP_NUM_THREADS: 1, RANK: 3 of 7, node compute106.bc4.acrc.priv, start:54 end:72
+OMP_NUM_THREADS: 1, RANK: 1 of 7, node compute102.bc4.acrc.priv, start:18 end:35
+OMP_NUM_THREADS: 1, RANK: 5 of 7, node compute108.bc4.acrc.priv, start:91 end:108
+OMP_NUM_THREADS: 1, RANK: 6 of 7, node compute109.bc4.acrc.priv, start:109 end:127
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.009994 (s)
+Elapsed Compute time:			1.724794 (s)
+Elapsed Collate time:			0.001447 (s)
+Elapsed Total time:			1.736235 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313513509E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+7 rank, 24 threads
+OMP_NUM_THREADS: 1, RANK: 5 of 7, node compute108.bc4.acrc.priv, start:91 end:108
+OMP_NUM_THREADS: 1, RANK: 3 of 7, node compute106.bc4.acrc.priv, start:54 end:72
+OMP_NUM_THREADS: 1, RANK: 2 of 7, node compute103.bc4.acrc.priv, start:36 end:53
+OMP_NUM_THREADS: 1, RANK: 1 of 7, node compute102.bc4.acrc.priv, start:18 end:35
+OMP_NUM_THREADS: 1, RANK: 0 of 7, node compute101.bc4.acrc.priv, start:0 end:17
+OMP_NUM_THREADS: 1, RANK: 4 of 7, node compute107.bc4.acrc.priv, start:73 end:90
+OMP_NUM_THREADS: 1, RANK: 6 of 7, node compute109.bc4.acrc.priv, start:109 end:127
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.010355 (s)
+Elapsed Compute time:			1.719075 (s)
+Elapsed Collate time:			0.001663 (s)
+Elapsed Total time:			1.731093 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313513509E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+7 rank, 26 threads
+OMP_NUM_THREADS: 1, RANK: 4 of 7, node compute107.bc4.acrc.priv, start:73 end:90
+OMP_NUM_THREADS: 1, RANK: 0 of 7, node compute101.bc4.acrc.priv, start:0 end:17
+OMP_NUM_THREADS: 1, RANK: 6 of 7, node compute109.bc4.acrc.priv, start:109 end:127
+OMP_NUM_THREADS: 1, RANK: 5 of 7, node compute108.bc4.acrc.priv, start:91 end:108
+OMP_NUM_THREADS: 1, RANK: 3 of 7, node compute106.bc4.acrc.priv, start:54 end:72
+OMP_NUM_THREADS: 1, RANK: 1 of 7, node compute102.bc4.acrc.priv, start:18 end:35
+OMP_NUM_THREADS: 1, RANK: 2 of 7, node compute103.bc4.acrc.priv, start:36 end:53
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.011118 (s)
+Elapsed Compute time:			1.732599 (s)
+Elapsed Collate time:			0.001620 (s)
+Elapsed Total time:			1.745337 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313513509E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+7 rank, 28 threads
+OMP_NUM_THREADS: 1, RANK: 4 of 7, node compute107.bc4.acrc.priv, start:73 end:90
+OMP_NUM_THREADS: 1, RANK: 6 of 7, node compute109.bc4.acrc.priv, start:109 end:127
+OMP_NUM_THREADS: 1, RANK: 2 of 7, node compute103.bc4.acrc.priv, start:36 end:53
+OMP_NUM_THREADS: 1, RANK: 1 of 7, node compute102.bc4.acrc.priv, start:18 end:35
+OMP_NUM_THREADS: 1, RANK: 3 of 7, node compute106.bc4.acrc.priv, start:54 end:72
+OMP_NUM_THREADS: 1, RANK: 5 of 7, node compute108.bc4.acrc.priv, start:91 end:108
+OMP_NUM_THREADS: 1, RANK: 0 of 7, node compute101.bc4.acrc.priv, start:0 end:17
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.012569 (s)
+Elapsed Compute time:			1.740035 (s)
+Elapsed Collate time:			0.001698 (s)
+Elapsed Total time:			1.754302 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313513509E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+fin rank: 7
+8 rank, 2 threads
+OMP_NUM_THREADS: 1, RANK: 3 of 8, node compute106.bc4.acrc.priv, start:48 end:63
+OMP_NUM_THREADS: 1, RANK: 4 of 8, node compute107.bc4.acrc.priv, start:64 end:79
+OMP_NUM_THREADS: 1, RANK: 2 of 8, node compute103.bc4.acrc.priv, start:32 end:47
+OMP_NUM_THREADS: 1, RANK: 5 of 8, node compute108.bc4.acrc.priv, start:80 end:95
+OMP_NUM_THREADS: 1, RANK: 0 of 8, node compute101.bc4.acrc.priv, start:0 end:15
+OMP_NUM_THREADS: 1, RANK: 1 of 8, node compute102.bc4.acrc.priv, start:16 end:31
+OMP_NUM_THREADS: 1, RANK: 7 of 8, node compute110.bc4.acrc.priv, start:112 end:127
+OMP_NUM_THREADS: 1, RANK: 6 of 8, node compute109.bc4.acrc.priv, start:96 end:111
+==done==
+Reynolds number:		9.755396842957E+00
+Elapsed Init time:			0.005038 (s)
+Elapsed Compute time:			2.003393 (s)
+Elapsed Collate time:			0.001062 (s)
+Elapsed Total time:			2.009493 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905314090740E-01
+Biggest difference (at step 39605) : 1.108938871000E-05
+  1.316649373621E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+8 rank, 4 threads
+OMP_NUM_THREADS: 1, RANK: 1 of 8, node compute102.bc4.acrc.priv, start:16 end:31
+OMP_NUM_THREADS: 1, RANK: 7 of 8, node compute110.bc4.acrc.priv, start:112 end:127
+OMP_NUM_THREADS: 1, RANK: 4 of 8, node compute107.bc4.acrc.priv, start:64 end:79
+OMP_NUM_THREADS: 1, RANK: 3 of 8, node compute106.bc4.acrc.priv, start:48 end:63
+OMP_NUM_THREADS: 1, RANK: 2 of 8, node compute103.bc4.acrc.priv, start:32 end:47
+OMP_NUM_THREADS: 1, RANK: 5 of 8, node compute108.bc4.acrc.priv, start:80 end:95
+OMP_NUM_THREADS: 1, RANK: 0 of 8, node compute101.bc4.acrc.priv, start:0 end:15
+OMP_NUM_THREADS: 1, RANK: 6 of 8, node compute109.bc4.acrc.priv, start:96 end:111
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.004925 (s)
+Elapsed Compute time:			1.721218 (s)
+Elapsed Collate time:			0.001145 (s)
+Elapsed Total time:			1.727288 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313095673E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+8 rank, 6 threads
+OMP_NUM_THREADS: 1, RANK: 3 of 8, node compute106.bc4.acrc.priv, start:48 end:63
+OMP_NUM_THREADS: 1, RANK: 0 of 8, node compute101.bc4.acrc.priv, start:0 end:15
+OMP_NUM_THREADS: 1, RANK: 1 of 8, node compute102.bc4.acrc.priv, start:16 end:31
+OMP_NUM_THREADS: 1, RANK: 4 of 8, node compute107.bc4.acrc.priv, start:64 end:79
+OMP_NUM_THREADS: 1, RANK: 6 of 8, node compute109.bc4.acrc.priv, start:96 end:111
+OMP_NUM_THREADS: 1, RANK: 5 of 8, node compute108.bc4.acrc.priv, start:80 end:95
+OMP_NUM_THREADS: 1, RANK: 2 of 8, node compute103.bc4.acrc.priv, start:32 end:47
+OMP_NUM_THREADS: 1, RANK: 7 of 8, node compute110.bc4.acrc.priv, start:112 end:127
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.006423 (s)
+Elapsed Compute time:			1.648119 (s)
+Elapsed Collate time:			0.001133 (s)
+Elapsed Total time:			1.655675 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312156933E-01
+Biggest difference (at step 39605) : 1.108752607000E-05
+  1.316649559885E-02 vs. 1.317758312492E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+8 rank, 8 threads
+OMP_NUM_THREADS: 1, RANK: 4 of 8, node compute107.bc4.acrc.priv, start:64 end:79
+OMP_NUM_THREADS: 1, RANK: 6 of 8, node compute109.bc4.acrc.priv, start:96 end:111
+OMP_NUM_THREADS: 1, RANK: 3 of 8, node compute106.bc4.acrc.priv, start:48 end:63
+OMP_NUM_THREADS: 1, RANK: 1 of 8, node compute102.bc4.acrc.priv, start:16 end:31
+OMP_NUM_THREADS: 1, RANK: 2 of 8, node compute103.bc4.acrc.priv, start:32 end:47
+OMP_NUM_THREADS: 1, RANK: 7 of 8, node compute110.bc4.acrc.priv, start:112 end:127
+OMP_NUM_THREADS: 1, RANK: 0 of 8, node compute101.bc4.acrc.priv, start:0 end:15
+OMP_NUM_THREADS: 1, RANK: 5 of 8, node compute108.bc4.acrc.priv, start:80 end:95
+==done==
+Reynolds number:		9.755396842957E+00
+Elapsed Init time:			0.006644 (s)
+Elapsed Compute time:			1.568112 (s)
+Elapsed Collate time:			0.001132 (s)
+Elapsed Total time:			1.575888 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312144080E-01
+Biggest difference (at step 39609) : 1.108626292000E-05
+  1.316659431905E-02 vs. 1.317768058197E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+8 rank, 10 threads
+OMP_NUM_THREADS: 1, RANK: 5 of 8, node compute108.bc4.acrc.priv, start:80 end:95
+OMP_NUM_THREADS: 1, RANK: 3 of 8, node compute106.bc4.acrc.priv, start:48 end:63
+OMP_NUM_THREADS: 1, RANK: 6 of 8, node compute109.bc4.acrc.priv, start:96 end:111
+OMP_NUM_THREADS: 1, RANK: 7 of 8, node compute110.bc4.acrc.priv, start:112 end:127
+OMP_NUM_THREADS: 1, RANK: 2 of 8, node compute103.bc4.acrc.priv, start:32 end:47
+OMP_NUM_THREADS: 1, RANK: 1 of 8, node compute102.bc4.acrc.priv, start:16 end:31
+OMP_NUM_THREADS: 1, RANK: 0 of 8, node compute101.bc4.acrc.priv, start:0 end:15
+OMP_NUM_THREADS: 1, RANK: 4 of 8, node compute107.bc4.acrc.priv, start:64 end:79
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.006150 (s)
+Elapsed Compute time:			1.576933 (s)
+Elapsed Collate time:			0.001136 (s)
+Elapsed Total time:			1.584219 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905313313665E-01
+Biggest difference (at step 39609) : 1.108626292000E-05
+  1.316659431905E-02 vs. 1.317768058197E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+8 rank, 12 threads
+OMP_NUM_THREADS: 1, RANK: 7 of 8, node compute110.bc4.acrc.priv, start:112 end:127
+OMP_NUM_THREADS: 1, RANK: 3 of 8, node compute106.bc4.acrc.priv, start:48 end:63
+OMP_NUM_THREADS: 1, RANK: 2 of 8, node compute103.bc4.acrc.priv, start:32 end:47
+OMP_NUM_THREADS: 1, RANK: 5 of 8, node compute108.bc4.acrc.priv, start:80 end:95
+OMP_NUM_THREADS: 1, RANK: 4 of 8, node compute107.bc4.acrc.priv, start:64 end:79
+OMP_NUM_THREADS: 1, RANK: 1 of 8, node compute102.bc4.acrc.priv, start:16 end:31
+OMP_NUM_THREADS: 1, RANK: 0 of 8, node compute101.bc4.acrc.priv, start:0 end:15
+OMP_NUM_THREADS: 1, RANK: 6 of 8, node compute109.bc4.acrc.priv, start:96 end:111
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.007432 (s)
+Elapsed Compute time:			1.564370 (s)
+Elapsed Collate time:			0.001158 (s)
+Elapsed Total time:			1.572960 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312672712E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+8 rank, 14 threads
+OMP_NUM_THREADS: 1, RANK: 6 of 8, node compute109.bc4.acrc.priv, start:96 end:111
+OMP_NUM_THREADS: 1, RANK: 0 of 8, node compute101.bc4.acrc.priv, start:0 end:15
+OMP_NUM_THREADS: 1, RANK: 3 of 8, node compute106.bc4.acrc.priv, start:48 end:63
+OMP_NUM_THREADS: 1, RANK: 1 of 8, node compute102.bc4.acrc.priv, start:16 end:31
+OMP_NUM_THREADS: 1, RANK: 5 of 8, node compute108.bc4.acrc.priv, start:80 end:95
+OMP_NUM_THREADS: 1, RANK: 7 of 8, node compute110.bc4.acrc.priv, start:112 end:127
+OMP_NUM_THREADS: 1, RANK: 2 of 8, node compute103.bc4.acrc.priv, start:32 end:47
+OMP_NUM_THREADS: 1, RANK: 4 of 8, node compute107.bc4.acrc.priv, start:64 end:79
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.007859 (s)
+Elapsed Compute time:			1.571065 (s)
+Elapsed Collate time:			0.001142 (s)
+Elapsed Total time:			1.580066 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312683518E-01
+Biggest difference (at step 39608) : 1.108620539000E-05
+  1.316657010466E-02 vs. 1.317765631005E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+8 rank, 16 threads
+OMP_NUM_THREADS: 1, RANK: 5 of 8, node compute108.bc4.acrc.priv, start:80 end:95
+OMP_NUM_THREADS: 1, RANK: 2 of 8, node compute103.bc4.acrc.priv, start:32 end:47
+OMP_NUM_THREADS: 1, RANK: 0 of 8, node compute101.bc4.acrc.priv, start:0 end:15
+OMP_NUM_THREADS: 1, RANK: 1 of 8, node compute102.bc4.acrc.priv, start:16 end:31
+OMP_NUM_THREADS: 1, RANK: 4 of 8, node compute107.bc4.acrc.priv, start:64 end:79
+OMP_NUM_THREADS: 1, RANK: 3 of 8, node compute106.bc4.acrc.priv, start:48 end:63
+OMP_NUM_THREADS: 1, RANK: 7 of 8, node compute110.bc4.acrc.priv, start:112 end:127
+OMP_NUM_THREADS: 1, RANK: 6 of 8, node compute109.bc4.acrc.priv, start:96 end:111
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.010430 (s)
+Elapsed Compute time:			1.731029 (s)
+Elapsed Collate time:			0.001317 (s)
+Elapsed Total time:			1.742776 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312991813E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+8 rank, 18 threads
+OMP_NUM_THREADS: 1, RANK: 7 of 8, node compute110.bc4.acrc.priv, start:112 end:127
+OMP_NUM_THREADS: 1, RANK: 3 of 8, node compute106.bc4.acrc.priv, start:48 end:63
+OMP_NUM_THREADS: 1, RANK: 4 of 8, node compute107.bc4.acrc.priv, start:64 end:79
+OMP_NUM_THREADS: 1, RANK: 0 of 8, node compute101.bc4.acrc.priv, start:0 end:15
+OMP_NUM_THREADS: 1, RANK: 6 of 8, node compute109.bc4.acrc.priv, start:96 end:111
+OMP_NUM_THREADS: 1, RANK: 1 of 8, node compute102.bc4.acrc.priv, start:16 end:31
+OMP_NUM_THREADS: 1, RANK: 2 of 8, node compute103.bc4.acrc.priv, start:32 end:47
+OMP_NUM_THREADS: 1, RANK: 5 of 8, node compute108.bc4.acrc.priv, start:80 end:95
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.008899 (s)
+Elapsed Compute time:			1.738607 (s)
+Elapsed Collate time:			0.001415 (s)
+Elapsed Total time:			1.748921 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312991813E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+8 rank, 20 threads
+OMP_NUM_THREADS: 1, RANK: 0 of 8, node compute101.bc4.acrc.priv, start:0 end:15
+OMP_NUM_THREADS: 1, RANK: 5 of 8, node compute108.bc4.acrc.priv, start:80 end:95
+OMP_NUM_THREADS: 1, RANK: 7 of 8, node compute110.bc4.acrc.priv, start:112 end:127
+OMP_NUM_THREADS: 1, RANK: 1 of 8, node compute102.bc4.acrc.priv, start:16 end:31
+OMP_NUM_THREADS: 1, RANK: 2 of 8, node compute103.bc4.acrc.priv, start:32 end:47
+OMP_NUM_THREADS: 1, RANK: 4 of 8, node compute107.bc4.acrc.priv, start:64 end:79
+OMP_NUM_THREADS: 1, RANK: 3 of 8, node compute106.bc4.acrc.priv, start:48 end:63
+OMP_NUM_THREADS: 1, RANK: 6 of 8, node compute109.bc4.acrc.priv, start:96 end:111
+==done==
+Reynolds number:		9.755395889282E+00
+Elapsed Init time:			0.009377 (s)
+Elapsed Compute time:			1.755634 (s)
+Elapsed Collate time:			0.001496 (s)
+Elapsed Total time:			1.766507 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312991813E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+8 rank, 22 threads
+OMP_NUM_THREADS: 1, RANK: 6 of 8, node compute109.bc4.acrc.priv, start:96 end:111
+OMP_NUM_THREADS: 1, RANK: 2 of 8, node compute103.bc4.acrc.priv, start:32 end:47
+OMP_NUM_THREADS: 1, RANK: 7 of 8, node compute110.bc4.acrc.priv, start:112 end:127
+OMP_NUM_THREADS: 1, RANK: 3 of 8, node compute106.bc4.acrc.priv, start:48 end:63
+OMP_NUM_THREADS: 1, RANK: 4 of 8, node compute107.bc4.acrc.priv, start:64 end:79
+OMP_NUM_THREADS: 1, RANK: 0 of 8, node compute101.bc4.acrc.priv, start:0 end:15
+OMP_NUM_THREADS: 1, RANK: 1 of 8, node compute102.bc4.acrc.priv, start:16 end:31
+OMP_NUM_THREADS: 1, RANK: 5 of 8, node compute108.bc4.acrc.priv, start:80 end:95
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.011138 (s)
+Elapsed Compute time:			1.752777 (s)
+Elapsed Collate time:			0.001599 (s)
+Elapsed Total time:			1.765514 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312991813E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+8 rank, 24 threads
+OMP_NUM_THREADS: 1, RANK: 5 of 8, node compute108.bc4.acrc.priv, start:80 end:95
+OMP_NUM_THREADS: 1, RANK: 4 of 8, node compute107.bc4.acrc.priv, start:64 end:79
+OMP_NUM_THREADS: 1, RANK: 2 of 8, node compute103.bc4.acrc.priv, start:32 end:47
+OMP_NUM_THREADS: 1, RANK: 7 of 8, node compute110.bc4.acrc.priv, start:112 end:127
+OMP_NUM_THREADS: 1, RANK: 0 of 8, node compute101.bc4.acrc.priv, start:0 end:15
+OMP_NUM_THREADS: 1, RANK: 1 of 8, node compute102.bc4.acrc.priv, start:16 end:31
+OMP_NUM_THREADS: 1, RANK: 3 of 8, node compute106.bc4.acrc.priv, start:48 end:63
+OMP_NUM_THREADS: 1, RANK: 6 of 8, node compute109.bc4.acrc.priv, start:96 end:111
+==done==
+Reynolds number:		9.755393028259E+00
+Elapsed Init time:			0.010310 (s)
+Elapsed Compute time:			1.746314 (s)
+Elapsed Collate time:			0.001655 (s)
+Elapsed Total time:			1.758279 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312991813E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+8 rank, 26 threads
+OMP_NUM_THREADS: 1, RANK: 7 of 8, node compute110.bc4.acrc.priv, start:112 end:127
+OMP_NUM_THREADS: 1, RANK: 5 of 8, node compute108.bc4.acrc.priv, start:80 end:95
+OMP_NUM_THREADS: 1, RANK: 4 of 8, node compute107.bc4.acrc.priv, start:64 end:79
+OMP_NUM_THREADS: 1, RANK: 2 of 8, node compute103.bc4.acrc.priv, start:32 end:47
+OMP_NUM_THREADS: 1, RANK: 1 of 8, node compute102.bc4.acrc.priv, start:16 end:31
+OMP_NUM_THREADS: 1, RANK: 6 of 8, node compute109.bc4.acrc.priv, start:96 end:111
+OMP_NUM_THREADS: 1, RANK: 0 of 8, node compute101.bc4.acrc.priv, start:0 end:15
+OMP_NUM_THREADS: 1, RANK: 3 of 8, node compute106.bc4.acrc.priv, start:48 end:63
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.013407 (s)
+Elapsed Compute time:			1.744905 (s)
+Elapsed Collate time:			0.001685 (s)
+Elapsed Total time:			1.759997 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312991813E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+8 rank, 28 threads
+OMP_NUM_THREADS: 1, RANK: 4 of 8, node compute107.bc4.acrc.priv, start:64 end:79
+OMP_NUM_THREADS: 1, RANK: 1 of 8, node compute102.bc4.acrc.priv, start:16 end:31
+OMP_NUM_THREADS: 1, RANK: 0 of 8, node compute101.bc4.acrc.priv, start:0 end:15
+OMP_NUM_THREADS: 1, RANK: 5 of 8, node compute108.bc4.acrc.priv, start:80 end:95
+OMP_NUM_THREADS: 1, RANK: 3 of 8, node compute106.bc4.acrc.priv, start:48 end:63
+OMP_NUM_THREADS: 1, RANK: 2 of 8, node compute103.bc4.acrc.priv, start:32 end:47
+OMP_NUM_THREADS: 1, RANK: 6 of 8, node compute109.bc4.acrc.priv, start:96 end:111
+OMP_NUM_THREADS: 1, RANK: 7 of 8, node compute110.bc4.acrc.priv, start:112 end:127
+==done==
+Reynolds number:		9.755393981934E+00
+Elapsed Init time:			0.011666 (s)
+Elapsed Compute time:			1.766313 (s)
+Elapsed Collate time:			0.001738 (s)
+Elapsed Total time:			1.779717 (s)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.905312991813E-01
+Biggest difference (at step 39606) : 1.108684034000E-05
+  1.316652074456E-02 vs. 1.317760758490E-02 = 0.084%
+
+Total difference in final_state : 3.581667869434E-01
+Biggest difference (at coord (1,126)) : -2.278112623000E-05
+  3.325508534908E-02 vs. 3.323230422285E-02 = -0.069%
+
+Both tests passed!
+fin rank: 8

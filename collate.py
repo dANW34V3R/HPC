@@ -1,6 +1,11 @@
 import re
+import sys
 
-with open('d2q9-bgk.out') as f:
+print(sys.argv)
+
+noTests = int(sys.argv[2])
+
+with open(sys.argv[1]) as f:
     lines = f.readlines()
     times = []
     for line in lines:
@@ -14,9 +19,9 @@ with open('d2q9-bgk.out') as f:
     for time in times:
         sum += time
         n += 1
-        if (n == 3):
+        if (n == noTests):
             n = 0
-            avgs.append(sum/3)
+            avgs.append(sum/noTests)
             sum = 0
 
     print(avgs)

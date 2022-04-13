@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --job-name d2q9-bgk
-#SBATCH --nodes 4
+#SBATCH --nodes 8
 #SBATCH --ntasks-per-node 28
 #SBATCH --time 00:10:00
 #SBATCH --partition veryshort
@@ -32,36 +32,38 @@ export I_MPI_PIN_DOMAIN=omp
 #mpirun -np 4 --ppn 1 ./d2q9-bgk input_128x128.params obstacles_128x128.dat
 #python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
 
-mpirun -np 4 --ppn 1 ./d2q9-bgk input_256x256.params obstacles_256x256.dat
-python check/check.py --ref-av-vels-file=check/256x256.av_vels.dat --ref-final-state-file=check/256x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
-mpirun -np 4 --ppn 1 ./d2q9-bgk input_256x256.params obstacles_256x256.dat
-python check/check.py --ref-av-vels-file=check/256x256.av_vels.dat --ref-final-state-file=check/256x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
-mpirun -np 4 --ppn 1 ./d2q9-bgk input_256x256.params obstacles_256x256.dat
-python check/check.py --ref-av-vels-file=check/256x256.av_vels.dat --ref-final-state-file=check/256x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+for i in {1..10}; do
+  mpirun -np 2 --ppn 1 -genv OMP_NUM_THREADS=28 ./d2q9-bgk input_128x256.params obstacles_128x256.dat;
+done
+python check/check.py --ref-av-vels-file=check/128x256.av_vels.dat --ref-final-state-file=check/128x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+#mpirun -np 4 --ppn 1 ./d2q9-bgk input_128x256.params obstacles_128x256.dat
+##python check/check.py --ref-av-vels-file=check/128x256.av_vels.dat --ref-final-state-file=check/128x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+#mpirun -np 4 --ppn 1 ./d2q9-bgk input_128x256.params obstacles_128x256.dat
+##python check/check.py --ref-av-vels-file=check/128x256.av_vels.dat --ref-final-state-file=check/128x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+#
+#mpirun -np 3 --ppn 1 ./d2q9-bgk input_128x256.params obstacles_128x256.dat
+##python check/check.py --ref-av-vels-file=check/128x256.av_vels.dat --ref-final-state-file=check/128x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+#mpirun -np 3 --ppn 1 ./d2q9-bgk input_128x256.params obstacles_128x256.dat
+##python check/check.py --ref-av-vels-file=check/128x256.av_vels.dat --ref-final-state-file=check/128x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+#mpirun -np 3 --ppn 1 ./d2q9-bgk input_128x256.params obstacles_128x256.dat
+##python check/check.py --ref-av-vels-file=check/128x256.av_vels.dat --ref-final-state-file=check/128x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+#
+#mpirun -np 2 --ppn 1 ./d2q9-bgk input_128x256.params obstacles_128x256.dat
+##python check/check.py --ref-av-vels-file=check/128x256.av_vels.dat --ref-final-state-file=check/128x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+#mpirun -np 2 --ppn 1 ./d2q9-bgk input_128x256.params obstacles_128x256.dat
+##python check/check.py --ref-av-vels-file=check/128x256.av_vels.dat --ref-final-state-file=check/128x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+#mpirun -np 2 --ppn 1 ./d2q9-bgk input_128x256.params obstacles_128x256.dat
+##python check/check.py --re#ef-av-vels-file=check/128x256.av_vels.dat --ref-final-state-file=check/128x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+#
+#mpirun -np 1 --ppn 1 ./d2q9-bgk input_128x256.params obstacles_128x256.dat
+##python check/check.py --ref-av-vels-file=check/128x256.av_vels.dat --ref-final-state-file=check/128x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+#mpirun -np 1 --ppn 1 ./d2q9-bgk input_128x256.params obstacles_128x256.dat
+##python check/check.py --ref-av-vels-file=check/128x256.av_vels.dat --ref-final-state-file=check/128x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+#mpirun -np 1 --ppn 1 ./d2q9-bgk input_128x256.params obstacles_128x256.dat
+##python check/check.py --ref-av-vels-file=check/128x256.av_vels.dat --ref-final-state-file=check/128x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
 
-mpirun -np 3 --ppn 1 ./d2q9-bgk input_256x256.params obstacles_256x256.dat
-python check/check.py --ref-av-vels-file=check/256x256.av_vels.dat --ref-final-state-file=check/256x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
-mpirun -np 3 --ppn 1 ./d2q9-bgk input_256x256.params obstacles_256x256.dat
-python check/check.py --ref-av-vels-file=check/256x256.av_vels.dat --ref-final-state-file=check/256x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
-mpirun -np 3 --ppn 1 ./d2q9-bgk input_256x256.params obstacles_256x256.dat
-python check/check.py --ref-av-vels-file=check/256x256.av_vels.dat --ref-final-state-file=check/256x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
 
-mpirun -np 2 --ppn 1 ./d2q9-bgk input_256x256.params obstacles_256x256.dat
-python check/check.py --ref-av-vels-file=check/256x256.av_vels.dat --ref-final-state-file=check/256x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
-mpirun -np 2 --ppn 1 ./d2q9-bgk input_256x256.params obstacles_256x256.dat
-python check/check.py --ref-av-vels-file=check/256x256.av_vels.dat --ref-final-state-file=check/256x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
-mpirun -np 2 --ppn 1 ./d2q9-bgk input_256x256.params obstacles_256x256.dat
-python check/check.py --ref-av-vels-file=check/256x256.av_vels.dat --ref-final-state-file=check/256x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
-
-mpirun -np 1 --ppn 1 ./d2q9-bgk input_256x256.params obstacles_256x256.dat
-python check/check.py --ref-av-vels-file=check/256x256.av_vels.dat --ref-final-state-file=check/256x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
-mpirun -np 1 --ppn 1 ./d2q9-bgk input_256x256.params obstacles_256x256.dat
-python check/check.py --ref-av-vels-file=check/256x256.av_vels.dat --ref-final-state-file=check/256x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
-mpirun -np 1 --ppn 1 ./d2q9-bgk input_256x256.params obstacles_256x256.dat
-python check/check.py --ref-av-vels-file=check/256x256.av_vels.dat --ref-final-state-file=check/256x256.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
-
-
-python collate.py
+#python collate.py
 #make check
 
 
